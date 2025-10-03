@@ -11,7 +11,9 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/spooky-season.github.io/',
+  base: process.env.NODE_ENV === 'production'
+    ? '/' + 'spooky-season.github.io' + '/'
+    : '/',
   plugins: [
     VueRouter({
       dts: 'src/typed-router.d.ts',
