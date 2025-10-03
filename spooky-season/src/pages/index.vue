@@ -5,6 +5,7 @@
         <v-col
           v-for="game in games"
           :key="game.info.id"
+          cols="12"
           :lg="3"
           :md="4"
           :sm="6"
