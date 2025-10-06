@@ -12,7 +12,8 @@
           :xs="12"
         >
           <v-card
-            class="d-flex justify-center align-center text-center"
+            v-if="!tall"
+            class="darken d-flex justify-center align-center text-center"
             height="100"
             :href="steam_url + game.id"
             :image="game.hero?.url || `https://shared.steamstatic.com/store_item_assets/steam/apps/${game.id}/library_hero.jpg`"
@@ -27,9 +28,20 @@
               :src="game.logo?.url"
             />
           </v-card>
+          <v-card
+            v-else
+            class="d-flex justify-center align-center text-center"
+            height="600"
+            :href="steam_url + game.id"
+            :image="`https://steamcdn-a.akamaihd.net/steam/apps/${game.id}/library_600x900_2x.jpg`"
+            target="_blank"
+            :title="game.logo ? undefined : game.info.name"
+          >
+          </v-card>
         </v-col>
       </v-row>
       <v-row v-if="isDevMode" class="justify-center">
+        <v-switch label="tall?" v-model="tall" />
         <v-btn text="Get Data" @click="getData" />
       </v-row>
     </v-container>
@@ -41,6 +53,7 @@
   import { ref } from 'vue'
 
   const isDevMode = process.env.NODE_ENV === 'development'
+  const tall = ref(false)
 
   const steam_url = 'https://store.steampowered.com/app/'
 
@@ -1411,7 +1424,7 @@
 </script>
 
 <style scoped>
-  :deep(.v-img img) {
+  :deep(.darken .v-img img) {
     filter: brightness(50%);
   }
   .filter-class {
