@@ -12,7 +12,7 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: process.env.NODE_ENV === 'production'
-    ? '/spooky-season.github.io'
+    ? '/spooky-season.github.io/spooky-season'
     : '/',
   plugins: [
     VueRouter({
