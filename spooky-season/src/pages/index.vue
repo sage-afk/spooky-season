@@ -12,16 +12,25 @@
           :xs="12"
         >
           <v-card
-            class="align-content-end text-center"
+            class="d-flex justify-center align-center text-center"
             height="100"
             :href="steam_url + game.id"
             :image="game.hero?.url || 'https://i.pinimg.com/1200x/39/88/12/398812c0d73f2e5bebcf2007faad058b.jpg'"
             target="_blank"
-            :title="game.info.name"
-          />
+            :title="game.logo ? undefined : game.info.name"
+          >
+            <v-img
+              v-if="game.logo"
+              class="justify-center"
+              :max-height="75"
+              :max-width="256"
+              :src="game.logo?.url"
+              style="filter:brightness(0) invert(1)"
+            />
+          </v-card>
         </v-col>
       </v-row>
-      <v-row class="justify-center">
+      <v-row v-if="isDevMode" class="justify-center">
         <v-btn text="Get Data" @click="getData" />
       </v-row>
     </v-container>
@@ -32,11 +41,13 @@
   import SGDB, { type SGDBGame, type SGDBImage } from 'steamgriddb'
   import { ref } from 'vue'
 
+  const isDevMode = process.env.NODE_ENV === 'development'
+
   const steam_url = 'https://store.steampowered.com/app/'
 
   const client = new SGDB({
     key: 'a3bcf1c34029d5477bbfafd523131997',
-    // baseURL: '/steamgriddb',
+    baseURL: '/steamgriddb',
   })
 
   const ids: Array<string> = [
@@ -66,799 +77,1329 @@
   ]
   const games = ref([
     {
-        "id": "594650",
-        "info": {
-            "id": 16833,
-            "name": "Hunt: Showdown",
-            "release_date": 1566909000,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '594650',
+      info: {
+        id: 16_833,
+        name: 'Hunt: Showdown',
+        release_date: 1_566_909_000,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 22_238,
+        score: 0,
+        style: 'official',
+        width: 1242,
+        height: 656,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/c63617a9a72525823735487489f14ac5.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/c63617a9a72525823735487489f14ac5.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Skizzeh',
+          steam64: '76561198177570226',
+          avatar: 'https://avatars.steamstatic.com/daee305972779cc6bbd0530eb88993e5b2bccffd_medium.jpg',
         },
-        "hero": {
-            "id": 19653,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/79643b609b5bd4b9bdaa3a527707ec39.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/79643b609b5bd4b9bdaa3a527707ec39.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Skizzeh",
-                "steam64": "76561198177570226",
-                "avatar": "https://avatars.steamstatic.com/daee305972779cc6bbd0530eb88993e5b2bccffd_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 19_653,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/79643b609b5bd4b9bdaa3a527707ec39.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/79643b609b5bd4b9bdaa3a527707ec39.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Skizzeh',
+          steam64: '76561198177570226',
+          avatar: 'https://avatars.steamstatic.com/daee305972779cc6bbd0530eb88993e5b2bccffd_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1929610",
-        "info": {
-            "id": 5363656,
-            "name": "Demonologist",
-            "release_date": 1677628800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1929610',
+      info: {
+        id: 5_363_656,
+        name: 'Demonologist',
+        release_date: 1_677_628_800,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 147_690,
+        score: 0,
+        style: 'official',
+        width: 1295,
+        height: 222,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: '✩ | Addams | ✩',
+          steam64: '76561198369486824',
+          avatar: 'https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg',
         },
-        "hero": {
-            "id": 145175,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "✩ | Addams | ✩",
-                "steam64": "76561198369486824",
-                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 145_175,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: '✩ | Addams | ✩',
+          steam64: '76561198369486824',
+          avatar: 'https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg',
+        },
+      },
     },
     {
-        "id": "2208570",
-        "info": {
-            "id": 5401947,
-            "name": "Dark Hours",
-            "release_date": 1725148800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        }
+      id: '2208570',
+      info: {
+        id: 5_401_947,
+        name: 'Dark Hours',
+        release_date: 1_725_148_800,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 133_687,
+        score: 0,
+        style: 'official',
+        width: 1903,
+        height: 289,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/b7b9afd39320e7e74fd84e389dabbc91.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/b7b9afd39320e7e74fd84e389dabbc91.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1274570",
-        "info": {
-            "id": 5257954,
-            "name": "DEVOUR",
-            "release_date": 1577836800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1274570',
+      info: {
+        id: 5_257_954,
+        name: 'DEVOUR',
+        release_date: 1_577_836_800,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 68_158,
+        score: 0,
+        style: 'official',
+        width: 1260,
+        height: 564,
+        nsfw: false,
+        humor: false,
+        notes: 'Steam _2x logo',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/7687228498aff94678fb35fd9f76573c.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/7687228498aff94678fb35fd9f76573c.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Akela',
+          steam64: '76561197981066031',
+          avatar: 'https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg',
         },
-        "hero": {
-            "id": 61854,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": "art from supporter edition",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/de04b69dc1dd87f188c8f52b7a57a628.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/de04b69dc1dd87f188c8f52b7a57a628.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "jkcrmptn",
-                "steam64": "76561199035417743",
-                "avatar": "https://avatars.steamstatic.com/0e331eaa738fc5422f7429c58beabf17e51817e1_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 61_854,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: 'art from supporter edition',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/de04b69dc1dd87f188c8f52b7a57a628.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/de04b69dc1dd87f188c8f52b7a57a628.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'jkcrmptn',
+          steam64: '76561199035417743',
+          avatar: 'https://avatars.steamstatic.com/0e331eaa738fc5422f7429c58beabf17e51817e1_medium.jpg',
+        },
+      },
     },
     {
-        "id": "2947440",
-        "info": {
-            "id": 5436386,
-            "name": "Silent Hill f",
-            "release_date": 1758672000,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '2947440',
+      info: {
+        id: 5_436_386,
+        name: 'Silent Hill f',
+        release_date: 1_758_672_000,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 141_082,
+        score: 0,
+        style: 'official',
+        width: 2876,
+        height: 583,
+        nsfw: false,
+        humor: false,
+        notes: '**PS [logo](https://image.api.playstation.com/vulcan/ap/rnd/202503/0507/fa34a85c483a940beea531cea410f8ead1dd731d1bec9007.png)**',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/7cca61ebeafd9e323d6295f6e987549a.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/7cca61ebeafd9e323d6295f6e987549a.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'nativecoruscant',
+          steam64: '76561198317914084',
+          avatar: 'https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg',
         },
-        "hero": {
-            "id": 138407,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": "**MS [hero](https://store-images.s-microsoft.com/image/apps.9825.14442789290930947.de2fee27-cdb8-46b7-ab7f-167185f990ef.46018927-542c-4d5d-bb84-ac336e0859c1)**",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/9fa12826259e9181f9e4f023d7c20096.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/9fa12826259e9181f9e4f023d7c20096.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "nativecoruscant",
-                "steam64": "76561198317914084",
-                "avatar": "https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 138_407,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: '**MS [hero](https://store-images.s-microsoft.com/image/apps.9825.14442789290930947.de2fee27-cdb8-46b7-ab7f-167185f990ef.46018927-542c-4d5d-bb84-ac336e0859c1)**',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/9fa12826259e9181f9e4f023d7c20096.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/9fa12826259e9181f9e4f023d7c20096.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'nativecoruscant',
+          steam64: '76561198317914084',
+          avatar: 'https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1304930",
-        "info": {
-            "id": 5262204,
-            "name": "The Outlast Trials",
-            "release_date": 1609459200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1304930',
+      info: {
+        id: 5_262_204,
+        name: 'The Outlast Trials',
+        release_date: 1_609_459_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 86_158,
+        score: 0,
+        style: 'official',
+        width: 1232,
+        height: 503,
+        nsfw: false,
+        humor: false,
+        notes: 'Official Steam 2x logo.',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/5c3ffe926e1bcc81560fd641f705f2c4.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/5c3ffe926e1bcc81560fd641f705f2c4.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Luckspeare',
+          steam64: '76561198094314206',
+          avatar: 'https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg',
         },
-        "hero": {
-            "id": 124233,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": "[Image Source](https://i.imgur.com/uVnrD4z.jpeg)",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/84274981a66afd92acb42e3e578d4030.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/84274981a66afd92acb42e3e578d4030.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Akela",
-                "steam64": "76561197981066031",
-                "avatar": "https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 124_233,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: '[Image Source](https://i.imgur.com/uVnrD4z.jpeg)',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/84274981a66afd92acb42e3e578d4030.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/84274981a66afd92acb42e3e578d4030.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Akela',
+          steam64: '76561197981066031',
+          avatar: 'https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg',
+        },
+      },
     },
     {
-        "id": "3241660",
-        "info": {
-            "id": 5478421,
-            "name": "R.E.P.O.",
-            "release_date": 1740528000,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '3241660',
+      info: {
+        id: 5_478_421,
+        name: 'R.E.P.O.',
+        release_date: 1_740_528_000,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 134_917,
+        score: 0,
+        style: 'custom',
+        width: 2488,
+        height: 597,
+        nsfw: false,
+        humor: false,
+        notes: 'Yet another upscale, but with better detail and redone drop shadows.',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/a3f2ad23852a72af62ecb68eb765b281.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/a3f2ad23852a72af62ecb68eb765b281.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Ozzian',
+          steam64: '76561198037642355',
+          avatar: 'https://avatars.steamstatic.com/7626a9764092134bfdf9da79243fa669630c4470_medium.jpg',
         },
-        "hero": {
-            "id": 131265,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/3941127612b515ae4ce61cab30fc0dff.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/3941127612b515ae4ce61cab30fc0dff.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "FlamingDragon96",
-                "steam64": "76561198038653539",
-                "avatar": "https://avatars.steamstatic.com/63f1401534600d2fb5db94b83d8b128887d23168_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 131_265,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/3941127612b515ae4ce61cab30fc0dff.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/3941127612b515ae4ce61cab30fc0dff.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'FlamingDragon96',
+          steam64: '76561198038653539',
+          avatar: 'https://avatars.steamstatic.com/63f1401534600d2fb5db94b83d8b128887d23168_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1966720",
-        "info": {
-            "id": 5339777,
-            "name": "Lethal Company",
-            "release_date": 1698019200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1966720',
+      info: {
+        id: 5_339_777,
+        name: 'Lethal Company',
+        release_date: 1_698_019_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 97_415,
+        score: 0,
+        style: 'official',
+        width: 530,
+        height: 213,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/cc189ac0d80bf2fd24b182030f707664.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/cc189ac0d80bf2fd24b182030f707664.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Devilman',
+          steam64: '76561199038677115',
+          avatar: 'https://avatars.steamstatic.com/7564dc30970e89066164bb60b7b6330aa438293c_medium.jpg',
         },
-        "hero": {
-            "id": 100391,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": "by Carlos Ruiz \n\nsource: https://twitter.com/Kairuiz_/status/1741917063176761347",
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/82e3a96ae559ff4cfc27aaef54856319.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/82e3a96ae559ff4cfc27aaef54856319.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "The Demon Seated",
-                "steam64": "76561198096385391",
-                "avatar": "https://avatars.steamstatic.com/f23a000a3cfbb207c70c60e16bea1d97239fdb64_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 100_391,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: 'by Carlos Ruiz \n\nsource: https://twitter.com/Kairuiz_/status/1741917063176761347',
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/82e3a96ae559ff4cfc27aaef54856319.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/82e3a96ae559ff4cfc27aaef54856319.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'The Demon Seated',
+          steam64: '76561198096385391',
+          avatar: 'https://avatars.steamstatic.com/f23a000a3cfbb207c70c60e16bea1d97239fdb64_medium.jpg',
+        },
+      },
     },
     {
-        "id": "2016590",
-        "info": {
-            "id": 5335281,
-            "name": "Dark and Darker",
-            "release_date": 1717718400,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '2016590',
+      info: {
+        id: 5_335_281,
+        name: 'Dark and Darker',
+        release_date: 1_717_718_400,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 109_834,
+        score: 0,
+        style: 'official',
+        width: 1280,
+        height: 720,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/9f4daa9161444515136a7907f77a2acd.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/9f4daa9161444515136a7907f77a2acd.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'sandri',
+          steam64: '76561198208108863',
+          avatar: 'https://avatars.steamstatic.com/c26b96b1c833df729a24f7b408e495361f8e24f9_medium.jpg',
         },
-        "hero": {
-            "id": 76965,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a56ee11d03e067e9b5d626098bb82572.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a56ee11d03e067e9b5d626098bb82572.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Neochaotics",
-                "steam64": "76561198359405988",
-                "avatar": "https://avatars.steamstatic.com/213f673473f6be7b8a44363a68afcaaf52748028_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 76_965,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/a56ee11d03e067e9b5d626098bb82572.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/a56ee11d03e067e9b5d626098bb82572.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Neochaotics',
+          steam64: '76561198359405988',
+          avatar: 'https://avatars.steamstatic.com/213f673473f6be7b8a44363a68afcaaf52748028_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1577120",
-        "info": {
-            "id": 5322183,
-            "name": "The Quarry",
-            "release_date": 1654819200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1577120',
+      info: {
+        id: 5_322_183,
+        name: 'The Quarry',
+        release_date: 1_654_819_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 59_573,
+        score: 0,
+        style: 'official',
+        width: 1617,
+        height: 592,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/c07969d7b6bf5fa22409039424748c99.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/c07969d7b6bf5fa22409039424748c99.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'BlooHook',
+          steam64: '76561197981303481',
+          avatar: 'https://avatars.steamstatic.com/d404a79a772c0921351cca1584573c246354ab19_medium.jpg',
         },
-        "hero": {
-            "id": 65042,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/4c3bbeac327140f9de54e86ad98e1af6.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4c3bbeac327140f9de54e86ad98e1af6.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ABH20",
-                "steam64": "76561198058544946",
-                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 65_042,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/4c3bbeac327140f9de54e86ad98e1af6.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4c3bbeac327140f9de54e86ad98e1af6.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
+        },
+      },
     },
     {
-        "id": "108600",
-        "info": {
-            "id": 1255,
-            "name": "Project Zomboid",
-            "release_date": 1383897600,
-            "types": [
-                "steam",
-                "gog"
-            ],
-            "verified": true
+      id: '108600',
+      info: {
+        id: 1255,
+        name: 'Project Zomboid',
+        release_date: 1_383_897_600,
+        types: [
+          'steam',
+          'gog',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 49_410,
+        score: 0,
+        style: 'official',
+        width: 1090,
+        height: 716,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/074ab924540667aad42a8ea3beccd19b.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'VerK',
+          steam64: '76561198134313615',
+          avatar: 'https://avatars.steamstatic.com/24f9cc271a6cf57f650f631fd4405ad8ad213a76_medium.jpg',
         },
-        "hero": {
-            "id": 118976,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/c9afbbba3267b6ac7218283ecdda546c.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/c9afbbba3267b6ac7218283ecdda546c.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ABH20",
-                "steam64": "76561198058544946",
-                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 118_976,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/c9afbbba3267b6ac7218283ecdda546c.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/c9afbbba3267b6ac7218283ecdda546c.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
+        },
+      },
     },
     {
-        "id": "214490",
-        "info": {
-            "id": 2108,
-            "name": "Alien: Isolation",
-            "release_date": 1412607600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '214490',
+      info: {
+        id: 2108,
+        name: 'Alien: Isolation',
+        release_date: 1_412_607_600,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 121_169,
+        score: 0,
+        style: 'official',
+        width: 4512,
+        height: 713,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/c12eadd7fc1fb5af7f1d3209e0bddda0.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/c12eadd7fc1fb5af7f1d3209e0bddda0.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'tyler2448',
+          steam64: '76561198111739422',
+          avatar: 'https://avatars.steamstatic.com/688fbadc410582fd860c2ef0b96538f0c46bdaca_medium.jpg',
         },
-        "hero": {
-            "id": 26412,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/26fdf7a66ca64f8a53765bf80d84a4ed.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/26fdf7a66ca64f8a53765bf80d84a4ed.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "BETAFIX",
-                "steam64": "76561198038132921",
-                "avatar": "https://avatars.steamstatic.com/9e9cede3ca6b787273294b0b469b38f4e5360a80_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 26_412,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/26fdf7a66ca64f8a53765bf80d84a4ed.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/26fdf7a66ca64f8a53765bf80d84a4ed.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'BETAFIX',
+          steam64: '76561198038132921',
+          avatar: 'https://avatars.steamstatic.com/9e9cede3ca6b787273294b0b469b38f4e5360a80_medium.jpg',
+        },
+      },
     },
     {
-        "id": "3008130",
-        "info": {
-            "id": 5462362,
-            "name": "Dying Light: The Beast",
-            "release_date": 1755734400,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '3008130',
+      info: {
+        id: 5_462_362,
+        name: 'Dying Light: The Beast',
+        release_date: 1_755_734_400,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 120_341,
+        score: 0,
+        style: 'official',
+        width: 2663,
+        height: 1000,
+        nsfw: false,
+        humor: false,
+        notes: 'Original pre-release logo.',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/31a810b7f276682519e8ef59dc27cb52.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/31a810b7f276682519e8ef59dc27cb52.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Viator_',
+          steam64: '76561199121916473',
+          avatar: 'https://cdn2.steamgriddb.com/profile/avatar_19789.png?1723566231',
         },
-        "hero": {
-            "id": 116226,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/8d5e076c8efbe9ce4ff98f3090e09035.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/8d5e076c8efbe9ce4ff98f3090e09035.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "13",
-                "steam64": "76561199134735036",
-                "avatar": "https://avatars.steamstatic.com/ffe162f1ac1b1c0c067b2aaf8b8a4da813910f0e_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 116_226,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/8d5e076c8efbe9ce4ff98f3090e09035.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/8d5e076c8efbe9ce4ff98f3090e09035.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: '13',
+          steam64: '76561199134735036',
+          avatar: 'https://avatars.steamstatic.com/ffe162f1ac1b1c0c067b2aaf8b8a4da813910f0e_medium.jpg',
+        },
+      },
     },
     {
-        "id": "493520",
-        "info": {
-            "id": 12552,
-            "name": "GTFO",
-            "release_date": 1575921761,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '493520',
+      info: {
+        id: 12_552,
+        name: 'GTFO',
+        release_date: 1_575_921_761,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 47_669,
+        score: 0,
+        style: 'official',
+        width: 4146,
+        height: 1188,
+        nsfw: false,
+        humor: false,
+        notes: 'Official 1.0 logo from press kit. Light/Tagline version.',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/3292cdae49eccd5e6f96bad182e43112.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/3292cdae49eccd5e6f96bad182e43112.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Akela',
+          steam64: '76561197981066031',
+          avatar: 'https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg',
         },
-        "hero": {
-            "id": 42198,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/7c40611ab3917aa747d7f7fb249b9620.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/7c40611ab3917aa747d7f7fb249b9620.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "VietCommie",
-                "steam64": "76561198117965742",
-                "avatar": "https://avatars.steamstatic.com/3079c4f48f760a797fe42ade099f321ed1233f65_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 42_198,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/7c40611ab3917aa747d7f7fb249b9620.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/7c40611ab3917aa747d7f7fb249b9620.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'VietCommie',
+          steam64: '76561198117965742',
+          avatar: 'https://avatars.steamstatic.com/3079c4f48f760a797fe42ade099f321ed1233f65_medium.jpg',
+        },
+      },
     },
     {
-        "id": "872670",
-        "info": {
-            "id": 5433328,
-            "name": "SCP: 5K",
-            "release_date": 1645488000,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '872670',
+      info: {
+        id: 5_433_328,
+        name: 'SCP: 5K',
+        release_date: 1_645_488_000,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 95_110,
+        score: 0,
+        style: 'official',
+        width: 1000,
+        height: 994,
+        nsfw: false,
+        humor: false,
+        notes: 'Logo from [Official site](https://scp5k.gg/) direct link [here](https://static1.squarespace.com/static/629d59cf833ace13c5fbbdc4/t/64406d1b994a9f314d24f1a3/1681943898295/SCP5KLogo_Rendered_Transparent_1024.png)\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/edbe7b7c335e68cd2a5aff9e36cefc0b.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/edbe7b7c335e68cd2a5aff9e36cefc0b.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'BigHungryChicken',
+          steam64: '76561198110105678',
+          avatar: 'https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg',
         },
-        "hero": {
-            "id": 107841,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/3926135ef2e1e174965034cf6d2ba32c.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/3926135ef2e1e174965034cf6d2ba32c.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "JoJoJoker",
-                "steam64": "76561198072935217",
-                "avatar": "https://avatars.steamstatic.com/f17b253ee3b47cb7f18c8b1ed7276d3c023f215d_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 107_841,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/3926135ef2e1e174965034cf6d2ba32c.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/3926135ef2e1e174965034cf6d2ba32c.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'JoJoJoker',
+          steam64: '76561198072935217',
+          avatar: 'https://avatars.steamstatic.com/f17b253ee3b47cb7f18c8b1ed7276d3c023f215d_medium.jpg',
+        },
+      },
     },
     {
-        "id": "594330",
-        "info": {
-            "id": 16822,
-            "name": "Visage",
-            "release_date": 1538463628,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '594330',
+      info: {
+        id: 16_822,
+        name: 'Visage',
+        release_date: 1_538_463_628,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 67_818,
+        score: 0,
+        style: 'official',
+        width: 1568,
+        height: 472,
+        nsfw: false,
+        humor: false,
+        notes: 'Retailer web asset',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/a3f11bbce242b4a017959c54fe46161b.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/a3f11bbce242b4a017959c54fe46161b.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Khorosiv',
+          steam64: '76561198799894733',
+          avatar: 'https://avatars.steamstatic.com/8e7c2eb3a01c24506e2217715bec831c5392b951_medium.jpg',
         },
-        "hero": {
-            "id": 48781,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/4e7dd9fa7156b49c2db167bdc47f95d2.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4e7dd9fa7156b49c2db167bdc47f95d2.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "RESENTMENT",
-                "steam64": "76561198322976564",
-                "avatar": "https://avatars.steamstatic.com/2cd7396a56c27113c3cda1002b070c0573a6da14_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 48_781,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/4e7dd9fa7156b49c2db167bdc47f95d2.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4e7dd9fa7156b49c2db167bdc47f95d2.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'RESENTMENT',
+          steam64: '76561198322976564',
+          avatar: 'https://avatars.steamstatic.com/2cd7396a56c27113c3cda1002b070c0573a6da14_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1002300",
-        "info": {
-            "id": 195,
-            "name": "Fear & Hunger",
-            "release_date": 1544515200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1002300',
+      info: {
+        id: 195,
+        name: 'Fear & Hunger',
+        release_date: 1_544_515_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 17_208,
+        score: 0,
+        style: 'white',
+        width: 574,
+        height: 272,
+        nsfw: false,
+        humor: false,
+        notes: 'credit to Bon Bon for original image (white version)',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/156b84a86601888c714c58079409a07e.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/156b84a86601888c714c58079409a07e.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Moofy',
+          steam64: '76561198079610188',
+          avatar: 'https://avatars.steamstatic.com/683b08fcdfb60bf2ae0a4184240375f88c71049d_medium.jpg',
         },
-        "hero": {
-            "id": 91468,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/0444f4b8fc9f7ea0af52eafc4b751b01.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/0444f4b8fc9f7ea0af52eafc4b751b01.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "DEFKLUKER",
-                "steam64": "76561198330781856",
-                "avatar": "https://avatars.steamstatic.com/0e185e23712dc5f7b9569dcfc4a22c24a07187ea_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 91_468,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/0444f4b8fc9f7ea0af52eafc4b751b01.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/0444f4b8fc9f7ea0af52eafc4b751b01.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'DEFKLUKER',
+          steam64: '76561198330781856',
+          avatar: 'https://avatars.steamstatic.com/0e185e23712dc5f7b9569dcfc4a22c24a07187ea_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1392860",
-        "info": {
-            "id": 5423718,
-            "name": "Little Nightmares III",
-            "release_date": 1704067200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1392860',
+      info: {
+        id: 5_423_718,
+        name: 'Little Nightmares III',
+        release_date: 1_704_067_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 110_924,
+        score: 0,
+        style: 'white',
+        width: 2199,
+        height: 1206,
+        nsfw: false,
+        humor: false,
+        notes: 'Source: [Press Assets](https://en.bandainamcoent.eu/press/8693)',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/54b10daf199da8dcffe88198c49fad67.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/54b10daf199da8dcffe88198c49fad67.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'TUFKAC',
+          steam64: '76561198374208390',
+          avatar: 'https://avatars.steamstatic.com/a685366e9aa0f46e36022ff86b0a77db06c19671_medium.jpg',
         },
-        "hero": {
-            "id": 123559,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/c535b620d6f5f30eb7feedf70cefa2d9.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/c535b620d6f5f30eb7feedf70cefa2d9.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Snakerov",
-                "steam64": "76561198870831326",
-                "avatar": "https://avatars.steamstatic.com/1ef4ad99cb12a11e31129f3e9e333cb2def2ca6d_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 123_559,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/c535b620d6f5f30eb7feedf70cefa2d9.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/c535b620d6f5f30eb7feedf70cefa2d9.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Snakerov',
+          steam64: '76561198870831326',
+          avatar: 'https://avatars.steamstatic.com/1ef4ad99cb12a11e31129f3e9e333cb2def2ca6d_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1179080",
-        "info": {
-            "id": 5250035,
-            "name": "FAITH: The Unholy Trinity",
-            "release_date": 1666353600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1179080',
+      info: {
+        id: 5_250_035,
+        name: 'FAITH: The Unholy Trinity',
+        release_date: 1_666_353_600,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 67_588,
+        score: 0,
+        style: 'official',
+        width: 1188,
+        height: 439,
+        nsfw: false,
+        humor: false,
+        notes: 'from the game files',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/089f41810321eefc3f4eef5d4a388e42.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/089f41810321eefc3f4eef5d4a388e42.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'kabotsuki',
+          steam64: '76561199367033872',
+          avatar: 'https://avatars.steamstatic.com/155ff76afbcb63c819787214165df86076a37243_medium.jpg',
         },
-        "hero": {
-            "id": 17661,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Cropped wallpaper from deluxe edition",
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/b4bf5de15063cd27595dfd36bc9db335.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/b4bf5de15063cd27595dfd36bc9db335.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "nickgames8",
-                "steam64": "76561198142078770",
-                "avatar": "https://avatars.steamstatic.com/31c5fe40563918d325ef877640ae99f314b473c3_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 17_661,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: 'Cropped wallpaper from deluxe edition',
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/b4bf5de15063cd27595dfd36bc9db335.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/b4bf5de15063cd27595dfd36bc9db335.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'nickgames8',
+          steam64: '76561198142078770',
+          avatar: 'https://avatars.steamstatic.com/31c5fe40563918d325ef877640ae99f314b473c3_medium.jpg',
+        },
+      },
     },
     {
-        "id": "1943950",
-        "info": {
-            "id": 5323165,
-            "name": "Escape the Backrooms",
-            "release_date": 1640995200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '1943950',
+      info: {
+        id: 5_323_165,
+        name: 'Escape the Backrooms',
+        release_date: 1_640_995_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 88_824,
+        score: 0,
+        style: 'official',
+        width: 2142,
+        height: 603,
+        nsfw: false,
+        humor: false,
+        notes: 'I am the graphic designer for this game and this is the official logo.',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Oldmangames',
+          steam64: '76561199010646669',
+          avatar: 'https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg',
         },
-        "hero": {
-            "id": 70673,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ZeeSG",
-                "steam64": "76561199087753210",
-                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 70_673,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ZeeSG',
+          steam64: '76561199087753210',
+          avatar: 'https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg',
+        },
+      },
     },
     {
-        "id": "2475490",
-        "info": {
-            "id": 5426126,
-            "name": "Mouthwashing",
-            "release_date": 1727308800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '2475490',
+      info: {
+        id: 5_426_126,
+        name: 'Mouthwashing',
+        release_date: 1_727_308_800,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 125_173,
+        score: 0,
+        style: 'official',
+        width: 2062,
+        height: 282,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/6b65f8db09fa77983536f8ae424893e8.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/6b65f8db09fa77983536f8ae424893e8.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
         },
-        "hero": {
-            "id": 123185,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a09c01b96ecd8b9f6ea4a4d7fd8cd92c.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a09c01b96ecd8b9f6ea4a4d7fd8cd92c.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ABH20",
-                "steam64": "76561198058544946",
-                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 123_185,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/a09c01b96ecd8b9f6ea4a4d7fd8cd92c.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/a09c01b96ecd8b9f6ea4a4d7fd8cd92c.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
+        },
+      },
     },
     {
-        "id": "381210",
-        "info": {
-            "id": 8168,
-            "name": "Dead by Daylight",
-            "release_date": 1465887600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '381210',
+      info: {
+        id: 8168,
+        name: 'Dead by Daylight',
+        release_date: 1_465_887_600,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 42_022,
+        score: 0,
+        style: 'white',
+        width: 4071,
+        height: 344,
+        nsfw: false,
+        humor: false,
+        notes: 'Resident Evil crossover logo cropped',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/3cb189e9f3764c6b4a0d13c44bd922d8.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/3cb189e9f3764c6b4a0d13c44bd922d8.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'CluckenDip',
+          steam64: '76561198120642113',
+          avatar: 'https://avatars.steamstatic.com/f28d01aa8699660622000414b70dae52f59f037e_medium.jpg',
         },
-        "hero": {
-            "id": 1989,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/4a3e00961a08879c34f91ca0070ea2f5.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4a3e00961a08879c34f91ca0070ea2f5.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Rixer97",
-                "steam64": "76561198113691613",
-                "avatar": "https://avatars.steamstatic.com/8fd8ddfcbeef305cffe974e230bda6126d1da1fc_medium.jpg"
-            }
-        }
+      },
+      hero: {
+        id: 1989,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/4a3e00961a08879c34f91ca0070ea2f5.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4a3e00961a08879c34f91ca0070ea2f5.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Rixer97',
+          steam64: '76561198113691613',
+          avatar: 'https://avatars.steamstatic.com/8fd8ddfcbeef305cffe974e230bda6126d1da1fc_medium.jpg',
+        },
+      },
     },
     {
-        "id": "221100",
-        "info": {
-            "id": 2280,
-            "name": "DayZ",
-            "release_date": 1544724000,
-            "types": [
-                "steam"
-            ],
-            "verified": true
+      id: '221100',
+      info: {
+        id: 2280,
+        name: 'DayZ',
+        release_date: 1_544_724_000,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 75_533,
+        score: 0,
+        style: 'official',
+        width: 1271,
+        height: 632,
+        nsfw: false,
+        humor: false,
+        notes: 'Official Steam 2x logo.',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/686684686c10fb28b76058e75c6978e2.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/686684686c10fb28b76058e75c6978e2.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Luckspeare',
+          steam64: '76561198094314206',
+          avatar: 'https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg',
         },
-        "hero": {
-            "id": 41280,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Source of the original unmodified image:\n\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=2590972443\n\nDisclaimer: If you are the owner of the original screenshot that i modified to make this hero and isn't happy with me using it, feel free to contact me via discord: 'brjoaoed#1662' and i will delete the post immediatly.",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/44b4e6b1011ea123a25d20506c7c0333.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/44b4e6b1011ea123a25d20506c7c0333.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "brjoaoed",
-                "steam64": "76561198083527671",
-                "avatar": "https://avatars.steamstatic.com/5baf5cc231fd470aabee54a034678f8c1867f7dd_medium.jpg"
-            }
-        }
-    }
-])
-
+      },
+      hero: {
+        id: 41_280,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: 'Source of the original unmodified image:\n\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=2590972443\n\nDisclaimer: If you are the owner of the original screenshot that i modified to make this hero and isn\'t happy with me using it, feel free to contact me via discord: \'brjoaoed#1662\' and i will delete the post immediatly.',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/44b4e6b1011ea123a25d20506c7c0333.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/44b4e6b1011ea123a25d20506c7c0333.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'brjoaoed',
+          steam64: '76561198083527671',
+          avatar: 'https://avatars.steamstatic.com/5baf5cc231fd470aabee54a034678f8c1867f7dd_medium.jpg',
+        },
+      },
+    },
+  ])
   async function getData () {
     const items = []
     for (const id of ids) {
       const game = await client.getGameBySteamAppId(Number(id))
       const heros = await client.getHeroesBySteamAppId(Number(id))
+      const logos = await client.getLogosBySteamAppId(Number(id))
 
       items.push ({
         id: id,
         info: game,
+        logo: logos[0]!,
         hero: heros[0]!,
       })
     }
