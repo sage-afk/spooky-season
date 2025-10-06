@@ -36,7 +36,7 @@
 
   const client = new SGDB({
     key: 'a3bcf1c34029d5477bbfafd523131997',
-    baseURL: '/steamgriddb',
+    // baseURL: '/steamgriddb',
   })
 
   const ids: Array<string> = [
