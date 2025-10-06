@@ -1415,7 +1415,6 @@
     filter: brightness(50%);
   }
   .filter-class {
-    filter: brightness(0) invert(1) drop-shadow(2px 4px 0px red) drop-shadow(-2px -4px 0px blue);
+    filter:brightness(0) invert(1)
   }
-
 </style>
