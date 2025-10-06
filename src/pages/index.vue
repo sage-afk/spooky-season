@@ -40,9 +40,9 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row v-if="isDevMode" class="justify-center">
+      <v-row class="justify-center">
         <v-switch label="tall?" v-model="tall" />
-        <v-btn text="Get Data" @click="getData" />
+        <v-btn v-if="isDevMode" text="Get Data" @click="getData" />
       </v-row>
     </v-container>
   </v-sheet>
