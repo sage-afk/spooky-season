@@ -21,11 +21,10 @@
           >
             <v-img
               v-if="game.logo"
-              class="justify-center"
+              class="justify-center filter-class"
               :max-height="75"
               :max-width="256"
               :src="game.logo?.url"
-              style="filter:brightness(0) invert(1)"
             />
           </v-card>
         </v-col>
@@ -1415,4 +1414,8 @@
   :deep(.v-img img) {
     filter: brightness(50%);
   }
+  .filter-class {
+    filter: brightness(0) invert(1) drop-shadow(2px 4px 0px red) drop-shadow(-2px -4px 0px blue);
+  }
+
 </style>
