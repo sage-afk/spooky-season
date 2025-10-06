@@ -23,6 +23,7 @@
             <v-img
               v-if="game.logo"
               class="justify-center filter-class"
+              :class="threedee ? 'filter3d' : ''"
               :max-height="75"
               :max-width="256"
               :src="game.logo?.url"
@@ -40,8 +41,9 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row class="justify-center">
+      <v-row class="justify-center ga-4">
         <v-switch label="tall?" v-model="tall" />
+        <v-switch label="3D?" v-model="threedee" />
         <v-btn v-if="isDevMode" text="Get Data" @click="getData" />
       </v-row>
     </v-container>
@@ -54,6 +56,7 @@
 
   const isDevMode = process.env.NODE_ENV === 'development'
   const tall = ref(false)
+  const threedee = ref(false)
 
   const steam_url = 'https://store.steampowered.com/app/'
 
@@ -1429,5 +1432,9 @@
   }
   .filter-class {
     filter:brightness(0) invert(1)
+  }
+
+  .filter3d {
+    filter:brightness(0) invert(1) drop-shadow(4px 4px 0 red) drop-shadow(-4px -4px 0 blue)
   }
 </style>
