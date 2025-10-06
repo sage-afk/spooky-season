@@ -15,7 +15,7 @@
             class="d-flex justify-center align-center text-center"
             height="100"
             :href="steam_url + game.id"
-            :image="game.hero?.url || 'https://i.pinimg.com/1200x/39/88/12/398812c0d73f2e5bebcf2007faad058b.jpg'"
+            :image="game.hero?.url || `https://shared.steamstatic.com/store_item_assets/steam/apps/${game.id}/library_hero.jpg`"
             target="_blank"
             :title="game.logo ? undefined : game.info.name"
           >
