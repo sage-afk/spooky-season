@@ -20,6 +20,7 @@
             target="_blank"
             :title="game.logo ? undefined : game.info.name"
           >
+            <v-icon v-if="game.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
             <v-img
               v-if="game.logo"
               class="justify-center filter-class"
@@ -38,12 +39,13 @@
             target="_blank"
             :title="game.logo ? undefined : game.info.name"
           >
+            <v-icon v-if="game.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
           </v-card>
         </v-col>
       </v-row>
       <v-row class="justify-center ga-4">
-        <v-switch label="tall?" v-model="tall" />
-        <v-switch label="3D?" v-model="threedee" />
+        <v-switch v-model="tall" label="tall?" />
+        <v-switch v-model="threedee" label="3D?" />
         <v-btn v-if="isDevMode" text="Get Data" @click="getData" />
       </v-row>
     </v-container>
@@ -64,6 +66,13 @@
     key: 'a3bcf1c34029d5477bbfafd523131997',
     baseURL: '/steamgriddb',
   })
+
+  const completed_games = new Set<number> ([
+    1_577_120,
+    594_650,
+    1_962_663,
+    2_444_750,
+  ])
 
   const ids: Array<string> = [
     '594650',
@@ -89,10 +98,147 @@
     '2475490',
     '381210',
     '221100',
+    '1962663',
+    '2444750',
   ]
   const games = ref([
     {
+      id: '2444750',
+      completed: true,
+      info: {
+        id: 5_447_631,
+        name: 'Shape of Dream',
+        release_date: 1_740_787_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        url: 'https://shared.steamstatic.com/store_item_assets/steam/apps/2444750/logo_2x.png',
+      },
+    },
+    {
+      id: '1962663',
+      completed: true,
+      info: {
+        id: 5_419_564,
+        name: 'Call of Duty: Warzone',
+        release_date: 1_686_700_800,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 134_265,
+        score: 0,
+        style: 'official',
+        width: 3270,
+        height: 1112,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/33c6a2754710cc752fd82963e7dfad20.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/33c6a2754710cc752fd82963e7dfad20.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'jakearty',
+          steam64: '76561199079444502',
+          avatar: 'https://avatars.steamstatic.com/3d288a6c0e639a5d18426c213580c04648c73a54_medium.jpg',
+        },
+      },
+      hero: {
+        id: 136_715,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: '2025 Q2 Verdansk banner.',
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/009e8fe04c76b27c69d1b5df016a8a02.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/009e8fe04c76b27c69d1b5df016a8a02.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'atuburapaler',
+          steam64: '76561198840412181',
+          avatar: 'https://avatars.steamstatic.com/4cfc4d1ef2cb2c4dfc32def99ea209a55df7c057_medium.jpg',
+        },
+      },
+    },
+    {
+      id: '1577120',
+      completed: true,
+      info: {
+        id: 5_322_183,
+        name: 'The Quarry',
+        release_date: 1_654_819_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 59_573,
+        score: 0,
+        style: 'official',
+        width: 1617,
+        height: 592,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/c07969d7b6bf5fa22409039424748c99.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/c07969d7b6bf5fa22409039424748c99.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'BlooHook',
+          steam64: '76561197981303481',
+          avatar: 'https://avatars.steamstatic.com/d404a79a772c0921351cca1584573c246354ab19_medium.jpg',
+        },
+      },
+      hero: {
+        id: 65_042,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/4c3bbeac327140f9de54e86ad98e1af6.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4c3bbeac327140f9de54e86ad98e1af6.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
+        },
+      },
+    },
+    {
       id: '594650',
+      completed: true,
       info: {
         id: 16_833,
         name: 'Hunt: Showdown',
@@ -151,6 +297,7 @@
     },
     {
       id: '1929610',
+      completed: false,
       info: {
         id: 5_363_656,
         name: 'Demonologist',
@@ -209,6 +356,7 @@
     },
     {
       id: '2208570',
+      completed: false,
       info: {
         id: 5_401_947,
         name: 'Dark Hours',
@@ -244,6 +392,7 @@
     },
     {
       id: '1274570',
+      completed: false,
       info: {
         id: 5_257_954,
         name: 'DEVOUR',
@@ -302,6 +451,7 @@
     },
     {
       id: '2947440',
+      completed: false,
       info: {
         id: 5_436_386,
         name: 'Silent Hill f',
@@ -360,6 +510,7 @@
     },
     {
       id: '1304930',
+      completed: false,
       info: {
         id: 5_262_204,
         name: 'The Outlast Trials',
@@ -418,6 +569,7 @@
     },
     {
       id: '3241660',
+      completed: false,
       info: {
         id: 5_478_421,
         name: 'R.E.P.O.',
@@ -476,6 +628,7 @@
     },
     {
       id: '1966720',
+      completed: false,
       info: {
         id: 5_339_777,
         name: 'Lethal Company',
@@ -534,6 +687,7 @@
     },
     {
       id: '2016590',
+      completed: false,
       info: {
         id: 5_335_281,
         name: 'Dark and Darker',
@@ -591,65 +745,8 @@
       },
     },
     {
-      id: '1577120',
-      info: {
-        id: 5_322_183,
-        name: 'The Quarry',
-        release_date: 1_654_819_200,
-        types: [
-          'steam',
-        ],
-        verified: true,
-      },
-      logo: {
-        id: 59_573,
-        score: 0,
-        style: 'official',
-        width: 1617,
-        height: 592,
-        nsfw: false,
-        humor: false,
-        notes: null,
-        mime: 'image/png',
-        language: 'en',
-        url: 'https://cdn2.steamgriddb.com/logo/c07969d7b6bf5fa22409039424748c99.png',
-        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/c07969d7b6bf5fa22409039424748c99.png',
-        lock: false,
-        epilepsy: false,
-        upvotes: 0,
-        downvotes: 0,
-        author: {
-          name: 'BlooHook',
-          steam64: '76561197981303481',
-          avatar: 'https://avatars.steamstatic.com/d404a79a772c0921351cca1584573c246354ab19_medium.jpg',
-        },
-      },
-      hero: {
-        id: 65_042,
-        score: 0,
-        style: 'alternate',
-        width: 1920,
-        height: 620,
-        nsfw: false,
-        humor: false,
-        notes: null,
-        mime: 'image/png',
-        language: 'en',
-        url: 'https://cdn2.steamgriddb.com/hero/4c3bbeac327140f9de54e86ad98e1af6.png',
-        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4c3bbeac327140f9de54e86ad98e1af6.jpg',
-        lock: false,
-        epilepsy: false,
-        upvotes: 0,
-        downvotes: 0,
-        author: {
-          name: 'ABH20',
-          steam64: '76561198058544946',
-          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
-        },
-      },
-    },
-    {
       id: '108600',
+      completed: false,
       info: {
         id: 1255,
         name: 'Project Zomboid',
@@ -709,6 +806,7 @@
     },
     {
       id: '214490',
+      completed: false,
       info: {
         id: 2108,
         name: 'Alien: Isolation',
@@ -767,6 +865,7 @@
     },
     {
       id: '3008130',
+      completed: false,
       info: {
         id: 5_462_362,
         name: 'Dying Light: The Beast',
@@ -825,6 +924,7 @@
     },
     {
       id: '493520',
+      completed: false,
       info: {
         id: 12_552,
         name: 'GTFO',
@@ -883,6 +983,7 @@
     },
     {
       id: '872670',
+      completed: false,
       info: {
         id: 5_433_328,
         name: 'SCP: 5K',
@@ -941,6 +1042,7 @@
     },
     {
       id: '594330',
+      completed: false,
       info: {
         id: 16_822,
         name: 'Visage',
@@ -999,6 +1101,7 @@
     },
     {
       id: '1002300',
+      completed: false,
       info: {
         id: 195,
         name: 'Fear & Hunger',
@@ -1057,6 +1160,7 @@
     },
     {
       id: '1392860',
+      completed: false,
       info: {
         id: 5_423_718,
         name: 'Little Nightmares III',
@@ -1115,6 +1219,7 @@
     },
     {
       id: '1179080',
+      completed: false,
       info: {
         id: 5_250_035,
         name: 'FAITH: The Unholy Trinity',
@@ -1173,6 +1278,7 @@
     },
     {
       id: '1943950',
+      completed: false,
       info: {
         id: 5_323_165,
         name: 'Escape the Backrooms',
@@ -1231,6 +1337,7 @@
     },
     {
       id: '2475490',
+      completed: false,
       info: {
         id: 5_426_126,
         name: 'Mouthwashing',
@@ -1289,6 +1396,7 @@
     },
     {
       id: '381210',
+      completed: false,
       info: {
         id: 8168,
         name: 'Dead by Daylight',
@@ -1347,6 +1455,7 @@
     },
     {
       id: '221100',
+      completed: false,
       info: {
         id: 2280,
         name: 'DayZ',
@@ -1403,20 +1512,32 @@
         },
       },
     },
-  ])
+  ],
+
+  )
   async function getData () {
     const items = []
     for (const id of ids) {
       const game = await client.getGameBySteamAppId(Number(id))
       const heros = await client.getHeroesBySteamAppId(Number(id))
       const logos = await client.getLogosBySteamAppId(Number(id))
+      const completed = completed_games.has(Number(id))
 
-      items.push ({
-        id: id,
-        info: game,
-        logo: logos[0]!,
-        hero: heros[0]!,
-      })
+      completed
+        ? items.unshift({
+          id: id,
+          completed: completed,
+          info: game,
+          logo: logos[0]! ?? { url: `https://shared.steamstatic.com/store_item_assets/steam/apps/${id}/logo_2x.png` },
+          hero: heros[0]!,
+        })
+        : items.push ({
+          id: id,
+          completed: completed,
+          info: game,
+          logo: logos[0]!,
+          hero: heros[0]!,
+        })
     }
     console.log(items)
 
