@@ -5,6 +5,7 @@
         <draggable
           v-model="games"
           class="d-flex flex-wrap w-100 mt-5 dragArea list-group"
+          :disabled="!isDevMode"
           group="people"
           item-key="id"
           @change="console.log(JSON.parse(JSON.stringify(games)))"
