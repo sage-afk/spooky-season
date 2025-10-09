@@ -2,46 +2,57 @@
   <v-sheet class="h-100 align-center">
     <v-container fluid>
       <v-row class="justify-center" dense>
-        <v-col
-          v-for="game in games"
-          :key="game.info.id"
-          cols="12"
-          :lg="3"
-          :md="4"
-          :sm="6"
-          :xs="12"
+        <draggable
+          v-model="games"
+          class="d-flex flex-wrap w-100 mt-5 dragArea list-group"
+          group="people"
+          item-key="id"
+          @change="console.log(JSON.parse(JSON.stringify(games)))"
+          @end="drag=false"
+          @start="drag=true"
         >
-          <v-card
-            v-if="!tall"
-            class="darken d-flex justify-center align-center text-center"
-            height="100"
-            :href="steam_url + game.id"
-            :image="game.hero?.url || `https://shared.steamstatic.com/store_item_assets/steam/apps/${game.id}/library_hero.jpg`"
-            target="_blank"
-            :title="game.logo ? undefined : game.info.name"
-          >
-            <v-icon v-if="game.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
-            <v-img
-              v-if="game.logo"
-              class="justify-center filter-class"
-              :class="threedee ? 'filter3d' : ''"
-              :max-height="75"
-              :max-width="256"
-              :src="game.logo?.url"
-            />
-          </v-card>
-          <v-card
-            v-else
-            class="d-flex justify-center align-center text-center"
-            height="600"
-            :href="steam_url + game.id"
-            :image="`https://steamcdn-a.akamaihd.net/steam/apps/${game.id}/library_600x900_2x.jpg`"
-            target="_blank"
-            :title="game.logo ? undefined : game.info.name"
-          >
-            <v-icon v-if="game.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
-          </v-card>
-        </v-col>
+          <template #item="{element}">
+            <v-col
+              class="pa-1"
+              cols="12"
+              :lg="3"
+              :md="4"
+              :sm="6"
+              :xs="12"
+            >
+              <v-card
+                v-if="!tall"
+                class="darken d-flex justify-center align-center text-center"
+                height="100"
+                :href="steam_url + element?.id"
+                :image="element?.hero?.url || `https://shared.steamstatic.com/store_item_assets/steam/apps/${element?.id}/library_hero.jpg`"
+                target="_blank"
+                :title="element?.logo ? undefined : element?.info?.name"
+              >
+                <v-icon v-if="element?.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
+                <v-img
+                  v-if="element?.logo"
+                  class="justify-center filter-class"
+                  :class="threedee ? 'filter3d' : ''"
+                  :max-height="75"
+                  :max-width="256"
+                  :src="element?.logo?.url"
+                />
+              </v-card>
+              <v-card
+                v-else
+                class="d-flex justify-center align-center text-center"
+                height="600"
+                :href="steam_url + element?.id"
+                :image="`https://steamcdn-a.akamaihd.net/steam/apps/${element?.id}/library_600x900_2x.jpg`"
+                target="_blank"
+                :title="element?.logo ? undefined : element?.info?.name"
+              >
+                <v-icon v-if="element.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
+              </v-card>
+            </v-col>
+          </template>
+        </draggable>
       </v-row>
       <v-row class="justify-center ga-4">
         <v-switch v-model="tall" label="tall?" />
@@ -59,6 +70,7 @@
   const isDevMode = process.env.NODE_ENV === 'development'
   const tall = ref(false)
   const threedee = ref(false)
+  const drag = ref(false)
 
   const steam_url = 'https://store.steampowered.com/app/'
 
@@ -75,6 +87,10 @@
   ])
 
   const ids: Array<string> = [
+    '774861',
+    '408900',
+    '1361000',
+    '945360',
     '594650',
     '1929610',
     '2208570',
@@ -100,6 +116,8 @@
     '221100',
     '1962663',
     '2444750',
+    '2835570',
+    '2881650',
   ]
   const games = ref([
     {
@@ -164,7 +182,7 @@
         notes: '2025 Q2 Verdansk banner.',
         mime: 'image/jpeg',
         language: 'en',
-        url: 'https://cdn2.steamgriddb.com/hero/009e8fe04c76b27c69d1b5df016a8a02.jpg',
+        url: 'https://cdn2.steamgriddb.com/hero_thumb/80d65ffd8012adb804f546f171fd635f.jpg',
         thumb: 'https://cdn2.steamgriddb.com/hero_thumb/009e8fe04c76b27c69d1b5df016a8a02.jpg',
         lock: false,
         epilepsy: false,
@@ -296,6 +314,160 @@
       },
     },
     {
+      id: '2208570',
+      completed: false,
+      info: {
+        id: 5_401_947,
+        name: 'Dark Hours',
+        release_date: 1_725_148_800,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 133_687,
+        score: 0,
+        style: 'official',
+        width: 1903,
+        height: 289,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/b7b9afd39320e7e74fd84e389dabbc91.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/b7b9afd39320e7e74fd84e389dabbc91.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
+        },
+      },
+    },
+    {
+      id: '2835570',
+      completed: false,
+      info: {
+        id: 5_440_099,
+        name: 'Buckshot Roulette',
+        release_date: 1_703_721_600,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 102_091,
+        score: 0,
+        style: 'white',
+        width: 1038,
+        height: 532,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/f1a9f77d4f6fa9e16391c58cb9442c64.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/f1a9f77d4f6fa9e16391c58cb9442c64.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'tempervoid',
+          steam64: '76561198074237002',
+          avatar: 'https://avatars.steamstatic.com/007aa24c29032bc798e6969f280b7bdcde720e4c_medium.jpg',
+        },
+      },
+      hero: {
+        id: 103_831,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: 'Buckshot Roulette Shotgun Shells Hero Image',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/8d4b1013b07ceb7e1a314a823c7e04d3.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/8d4b1013b07ceb7e1a314a823c7e04d3.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'aetherium.',
+          steam64: '76561198360411264',
+          avatar: 'https://avatars.steamstatic.com/baeea57bff4c5f337fd3c27827d4bf078152d2e6_medium.jpg',
+        },
+      },
+    },
+    {
+      id: '2881650',
+      completed: false,
+      info: {
+        id: 5_448_263,
+        name: 'Content Warning',
+        release_date: 1_711_987_136,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 109_419,
+        score: 0,
+        style: 'official',
+        width: 6929,
+        height: 8968,
+        nsfw: false,
+        humor: false,
+        notes: 'Logo from Official [Press Kit](https://drive.google.com/drive/folders/1UqChL_5HEwaXbS1wt_GHyW3xGDYRXpgM)\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/2023913bcd0b798e30803c3add96aa1e.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/2023913bcd0b798e30803c3add96aa1e.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'BigHungryChicken',
+          steam64: '76561198110105678',
+          avatar: 'https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg',
+        },
+      },
+      hero: {
+        id: 103_637,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: 'Steam 2x hero\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)',
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/9328283bf09fb59d03ebc615dff13a14.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/9328283bf09fb59d03ebc615dff13a14.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'BigHungryChicken',
+          steam64: '76561198110105678',
+          avatar: 'https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg',
+        },
+      },
+    },
+    {
       id: '1929610',
       completed: false,
       info: {
@@ -351,42 +523,6 @@
           name: '✩ | Addams | ✩',
           steam64: '76561198369486824',
           avatar: 'https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg',
-        },
-      },
-    },
-    {
-      id: '2208570',
-      completed: false,
-      info: {
-        id: 5_401_947,
-        name: 'Dark Hours',
-        release_date: 1_725_148_800,
-        types: [
-          'steam',
-        ],
-        verified: true,
-      },
-      logo: {
-        id: 133_687,
-        score: 0,
-        style: 'official',
-        width: 1903,
-        height: 289,
-        nsfw: false,
-        humor: false,
-        notes: null,
-        mime: 'image/png',
-        language: 'en',
-        url: 'https://cdn2.steamgriddb.com/logo/b7b9afd39320e7e74fd84e389dabbc91.png',
-        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/b7b9afd39320e7e74fd84e389dabbc91.png',
-        lock: false,
-        epilepsy: false,
-        upvotes: 0,
-        downvotes: 0,
-        author: {
-          name: 'ABH20',
-          steam64: '76561198058544946',
-          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
         },
       },
     },
@@ -450,6 +586,124 @@
       },
     },
     {
+      id: '1392860',
+      completed: false,
+      info: {
+        id: 5_423_718,
+        name: 'Little Nightmares III',
+        release_date: 1_704_067_200,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 110_924,
+        score: 0,
+        style: 'white',
+        width: 2199,
+        height: 1206,
+        nsfw: false,
+        humor: false,
+        notes: 'Source: [Press Assets](https://en.bandainamcoent.eu/press/8693)',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/54b10daf199da8dcffe88198c49fad67.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/54b10daf199da8dcffe88198c49fad67.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'TUFKAC',
+          steam64: '76561198374208390',
+          avatar: 'https://avatars.steamstatic.com/a685366e9aa0f46e36022ff86b0a77db06c19671_medium.jpg',
+        },
+      },
+      hero: {
+        id: 123_559,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/c535b620d6f5f30eb7feedf70cefa2d9.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/c535b620d6f5f30eb7feedf70cefa2d9.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Snakerov',
+          steam64: '76561198870831326',
+          avatar: 'https://avatars.steamstatic.com/1ef4ad99cb12a11e31129f3e9e333cb2def2ca6d_medium.jpg',
+        },
+      },
+    },
+    {
+      id: '594330',
+      completed: false,
+      info: {
+        id: 16_822,
+        name: 'Visage',
+        release_date: 1_538_463_628,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 67_818,
+        score: 0,
+        style: 'official',
+        width: 1568,
+        height: 472,
+        nsfw: false,
+        humor: false,
+        notes: 'Retailer web asset',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/a3f11bbce242b4a017959c54fe46161b.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/a3f11bbce242b4a017959c54fe46161b.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Khorosiv',
+          steam64: '76561198799894733',
+          avatar: 'https://avatars.steamstatic.com/8e7c2eb3a01c24506e2217715bec831c5392b951_medium.jpg',
+        },
+      },
+      hero: {
+        id: 48_781,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/4e7dd9fa7156b49c2db167bdc47f95d2.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4e7dd9fa7156b49c2db167bdc47f95d2.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'RESENTMENT',
+          steam64: '76561198322976564',
+          avatar: 'https://avatars.steamstatic.com/2cd7396a56c27113c3cda1002b070c0573a6da14_medium.jpg',
+        },
+      },
+    },
+    {
       id: '2947440',
       completed: false,
       info: {
@@ -505,6 +759,65 @@
           name: 'nativecoruscant',
           steam64: '76561198317914084',
           avatar: 'https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg',
+        },
+      },
+    },
+    {
+      id: '1361000',
+      completed: false,
+      info: {
+        id: 5_263_671,
+        name: 'In Silence',
+        release_date: 1_602_868_631,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 26_205,
+        score: 0,
+        style: 'official',
+        width: 363,
+        height: 73,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/4187252aad1f374c3adad9cdf1a8cdc2.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/4187252aad1f374c3adad9cdf1a8cdc2.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'DoktorYAIKIN',
+          steam64: '76561199002937958',
+          avatar: 'https://avatars.steamstatic.com/d504429b49633aadc139f640b9339aab81922db3_medium.jpg',
+        },
+      },
+      hero: {
+        id: 136_904,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/48e458e0eca3186009953cd7f8c7ada2.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/48e458e0eca3186009953cd7f8c7ada2.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Nomd346',
+          steam64: '76561199216385203',
+          avatar: 'https://avatars.steamstatic.com/475d8f80425dac689d03af39ea0d2a88ae215ef8_medium.jpg',
         },
       },
     },
@@ -745,66 +1058,6 @@
       },
     },
     {
-      id: '108600',
-      completed: false,
-      info: {
-        id: 1255,
-        name: 'Project Zomboid',
-        release_date: 1_383_897_600,
-        types: [
-          'steam',
-          'gog',
-        ],
-        verified: true,
-      },
-      logo: {
-        id: 49_410,
-        score: 0,
-        style: 'official',
-        width: 1090,
-        height: 716,
-        nsfw: false,
-        humor: false,
-        notes: null,
-        mime: 'image/png',
-        language: 'en',
-        url: 'https://cdn2.steamgriddb.com/logo/074ab924540667aad42a8ea3beccd19b.png',
-        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png',
-        lock: false,
-        epilepsy: false,
-        upvotes: 0,
-        downvotes: 0,
-        author: {
-          name: 'VerK',
-          steam64: '76561198134313615',
-          avatar: 'https://avatars.steamstatic.com/24f9cc271a6cf57f650f631fd4405ad8ad213a76_medium.jpg',
-        },
-      },
-      hero: {
-        id: 118_976,
-        score: 0,
-        style: 'alternate',
-        width: 1920,
-        height: 620,
-        nsfw: false,
-        humor: false,
-        notes: null,
-        mime: 'image/png',
-        language: 'en',
-        url: 'https://cdn2.steamgriddb.com/hero/c9afbbba3267b6ac7218283ecdda546c.png',
-        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/c9afbbba3267b6ac7218283ecdda546c.jpg',
-        lock: false,
-        epilepsy: false,
-        upvotes: 0,
-        downvotes: 0,
-        author: {
-          name: 'ABH20',
-          steam64: '76561198058544946',
-          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
-        },
-      },
-    },
-    {
       id: '214490',
       completed: false,
       info: {
@@ -1041,65 +1294,6 @@
       },
     },
     {
-      id: '594330',
-      completed: false,
-      info: {
-        id: 16_822,
-        name: 'Visage',
-        release_date: 1_538_463_628,
-        types: [
-          'steam',
-        ],
-        verified: true,
-      },
-      logo: {
-        id: 67_818,
-        score: 0,
-        style: 'official',
-        width: 1568,
-        height: 472,
-        nsfw: false,
-        humor: false,
-        notes: 'Retailer web asset',
-        mime: 'image/png',
-        language: 'en',
-        url: 'https://cdn2.steamgriddb.com/logo/a3f11bbce242b4a017959c54fe46161b.png',
-        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/a3f11bbce242b4a017959c54fe46161b.png',
-        lock: false,
-        epilepsy: false,
-        upvotes: 0,
-        downvotes: 0,
-        author: {
-          name: 'Khorosiv',
-          steam64: '76561198799894733',
-          avatar: 'https://avatars.steamstatic.com/8e7c2eb3a01c24506e2217715bec831c5392b951_medium.jpg',
-        },
-      },
-      hero: {
-        id: 48_781,
-        score: 0,
-        style: 'alternate',
-        width: 1920,
-        height: 620,
-        nsfw: false,
-        humor: false,
-        notes: null,
-        mime: 'image/jpeg',
-        language: 'en',
-        url: 'https://cdn2.steamgriddb.com/hero/4e7dd9fa7156b49c2db167bdc47f95d2.jpg',
-        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4e7dd9fa7156b49c2db167bdc47f95d2.jpg',
-        lock: false,
-        epilepsy: false,
-        upvotes: 0,
-        downvotes: 0,
-        author: {
-          name: 'RESENTMENT',
-          steam64: '76561198322976564',
-          avatar: 'https://avatars.steamstatic.com/2cd7396a56c27113c3cda1002b070c0573a6da14_medium.jpg',
-        },
-      },
-    },
-    {
       id: '1002300',
       completed: false,
       info: {
@@ -1159,42 +1353,42 @@
       },
     },
     {
-      id: '1392860',
+      id: '774861',
       completed: false,
       info: {
-        id: 5_423_718,
-        name: 'Little Nightmares III',
-        release_date: 1_704_067_200,
+        id: 24_447,
+        name: 'Project Winter',
+        release_date: 1_558_630_920,
         types: [
           'steam',
         ],
         verified: true,
       },
       logo: {
-        id: 110_924,
+        id: 33_865,
         score: 0,
-        style: 'white',
-        width: 2199,
-        height: 1206,
+        style: 'official',
+        width: 1961,
+        height: 306,
         nsfw: false,
         humor: false,
-        notes: 'Source: [Press Assets](https://en.bandainamcoent.eu/press/8693)',
+        notes: null,
         mime: 'image/png',
         language: 'en',
-        url: 'https://cdn2.steamgriddb.com/logo/54b10daf199da8dcffe88198c49fad67.png',
-        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/54b10daf199da8dcffe88198c49fad67.png',
+        url: 'https://cdn2.steamgriddb.com/logo/a4a87e583804c00a14032b615ae88f53.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/a4a87e583804c00a14032b615ae88f53.png',
         lock: false,
         epilepsy: false,
         upvotes: 0,
         downvotes: 0,
         author: {
-          name: 'TUFKAC',
-          steam64: '76561198374208390',
-          avatar: 'https://avatars.steamstatic.com/a685366e9aa0f46e36022ff86b0a77db06c19671_medium.jpg',
+          name: 'SuperG70',
+          steam64: '76561198036468629',
+          avatar: 'https://avatars.steamstatic.com/b46e4a4db177b289f40300f731e177bfbbb43f1e_medium.jpg',
         },
       },
       hero: {
-        id: 123_559,
+        id: 31_116,
         score: 0,
         style: 'alternate',
         width: 1920,
@@ -1204,16 +1398,16 @@
         notes: null,
         mime: 'image/png',
         language: 'en',
-        url: 'https://cdn2.steamgriddb.com/hero/c535b620d6f5f30eb7feedf70cefa2d9.png',
-        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/c535b620d6f5f30eb7feedf70cefa2d9.jpg',
+        url: 'https://cdn2.steamgriddb.com/hero/d2b5afea3aa48308ae9cde8917e2ada9.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/d2b5afea3aa48308ae9cde8917e2ada9.jpg',
         lock: false,
         epilepsy: false,
         upvotes: 0,
         downvotes: 0,
         author: {
-          name: 'Snakerov',
-          steam64: '76561198870831326',
-          avatar: 'https://avatars.steamstatic.com/1ef4ad99cb12a11e31129f3e9e333cb2def2ca6d_medium.jpg',
+          name: 'SuperG70',
+          steam64: '76561198036468629',
+          avatar: 'https://avatars.steamstatic.com/b46e4a4db177b289f40300f731e177bfbbb43f1e_medium.jpg',
         },
       },
     },
@@ -1395,6 +1589,66 @@
       },
     },
     {
+      id: '108600',
+      completed: false,
+      info: {
+        id: 1255,
+        name: 'Project Zomboid',
+        release_date: 1_383_897_600,
+        types: [
+          'steam',
+          'gog',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 103_184,
+        score: 0,
+        style: 'black',
+        width: 1147,
+        height: 608,
+        nsfw: false,
+        humor: false,
+        notes: '- Project Zomboid unofficial japanese logo\r\n- プロジェクトゾンビイド非公式日本語ロゴ\r\n\r\nV - BLACK',
+        mime: 'image/png',
+        language: 'ja',
+        url: 'https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/31d325b353f122d331e59b3d42357413.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: '0gauss',
+          steam64: '76561198892734163',
+          avatar: 'https://avatars.steamstatic.com/8c316d614d4cbbd4f413d7971630520914bbdfc9_medium.jpg',
+        },
+      },
+      hero: {
+        id: 118_976,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/c9afbbba3267b6ac7218283ecdda546c.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/c9afbbba3267b6ac7218283ecdda546c.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'ABH20',
+          steam64: '76561198058544946',
+          avatar: 'https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg',
+        },
+      },
+    },
+    {
       id: '381210',
       completed: false,
       info: {
@@ -1512,9 +1766,103 @@
         },
       },
     },
-  ],
+    {
+      id: '408900',
+      completed: false,
+      info: {
+        id: 9373,
+        name: 'Unfortunate Spacemen',
+        release_date: 1_462_565_686,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      hero: {
+        id: 44_163,
+        score: 0,
+        style: 'alternate',
+        width: 3840,
+        height: 1240,
+        nsfw: false,
+        humor: false,
+        notes: 'Previous official Steam 2x hero.',
+        mime: 'image/jpeg',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/15afaeb2c3c4446728e3adfbd35d0801.jpg',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/15afaeb2c3c4446728e3adfbd35d0801.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Luckspeare',
+          steam64: '76561198094314206',
+          avatar: 'https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg',
+        },
+      },
+    },
+    {
+      id: '945360',
+      completed: false,
+      info: {
+        id: 31_588,
+        name: 'Among Us',
+        release_date: 1_542_387_634,
+        types: [
+          'steam',
+        ],
+        verified: true,
+      },
+      logo: {
+        id: 50_068,
+        score: 0,
+        style: 'custom',
+        width: 2816,
+        height: 734,
+        nsfw: false,
+        humor: false,
+        notes: '**[Website VR logo](https://www.steamgriddb.com/logo/48371)**\n\nCropped & darkened outline',
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png',
+        thumb: 'https://cdn2.steamgriddb.com/logo_thumb/9fa0bb67ba754c1b4e5921c3bc837ceb.png',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'CluckenDip',
+          steam64: '76561198120642113',
+          avatar: 'https://avatars.steamstatic.com/f28d01aa8699660622000414b70dae52f59f037e_medium.jpg',
+        },
+      },
+      hero: {
+        id: 21_793,
+        score: 0,
+        style: 'alternate',
+        width: 1920,
+        height: 620,
+        nsfw: false,
+        humor: false,
+        notes: null,
+        mime: 'image/png',
+        language: 'en',
+        url: 'https://cdn2.steamgriddb.com/hero/4ce000edd5012969a87a83d06ea8f914.png',
+        thumb: 'https://cdn2.steamgriddb.com/hero_thumb/4ce000edd5012969a87a83d06ea8f914.jpg',
+        lock: false,
+        epilepsy: false,
+        upvotes: 0,
+        downvotes: 0,
+        author: {
+          name: 'Kam',
+          steam64: '76561198296610889',
+          avatar: 'https://avatars.steamstatic.com/3a8cb912b1deb3e30b98d333ece5c72e0fb7d24e_medium.jpg',
+        },
+      },
+    },
+  ])
 
-  )
   async function getData () {
     const items = []
     for (const id of ids) {
@@ -1548,6 +1896,10 @@
 </script>
 
 <style scoped>
+
+  * {
+    font-family: 'Courier New', Courier, monospace;
+  }
   :deep(.darken .v-img img) {
     filter: brightness(50%);
   }
