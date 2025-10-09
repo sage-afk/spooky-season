@@ -4,8 +4,6 @@
  * Framework documentation: https://vuetifyjs.com`
  */
 
-import draggable from 'vuedraggable'
-
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
