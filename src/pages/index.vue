@@ -1901,6 +1901,15 @@
   * {
     font-family: 'Courier New', Courier, monospace;
   }
+  :deep(.v-card-item){
+    width:100%
+  }
+  :deep(.v-card-item .v-card-title){
+    font-size: 2rem;
+    filter: drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 4px black);
+    text-wrap-mode: wrap;
+    line-height: normal;
+  }
   :deep(.darken .v-img img) {
     filter: brightness(50%);
   }
