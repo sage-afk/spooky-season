@@ -36,15 +36,15 @@
                   <v-icon v-if="element.rating >= 3.0">mdi-star</v-icon>
                   <v-icon v-if="element.rating >= 4.0">mdi-star</v-icon>
                   <v-icon v-if="element.rating >= 5.0">mdi-star</v-icon>
-                  <v-icon v-if="element.rating = 4.5">mdi-star-half-full r</v-icon>
+                  <!-- <v-icon v-if="element.rating = 4.5">mdi-star-half-full r</v-icon> -->
                   <v-icon v-if="element.rating < 4.5">mdi-star-outline</v-icon>
-                  <v-icon v-if="element.rating = 3.5">mdi-star-half-full r</v-icon>
+                  <!-- <v-icon v-if="element.rating = 3.5">mdi-star-half-full r</v-icon> -->
                   <v-icon v-if="element.rating < 3.5">mdi-star-outline</v-icon>
-                  <v-icon v-if="element.rating = 2.5">mdi-star-half-full r</v-icon>
+                  <!-- <v-icon v-if="element.rating = 2.5">mdi-star-half-full r</v-icon> -->
                   <v-icon v-if="element.rating < 2.5">mdi-star-outline</v-icon>
-                  <v-icon v-if="element.rating = 1.5">mdi-star-half-full r</v-icon>
+                  <!-- <v-icon v-if="element.rating = 1.5">mdi-star-half-full r</v-icon> -->
                   <v-icon v-if="element.rating < 1.5">mdi-star-outline</v-icon>
-                  <v-icon v-if="element.rating = 0.5">mdi-star-half-full r</v-icon>
+                  <!-- <v-icon v-if="element.rating = 0.5">mdi-star-half-full r</v-icon> -->
                   <v-icon v-if="element.rating < 0.5">mdi-star-outline</v-icon>
                 </v-row>
                 <v-icon v-if="element?.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
