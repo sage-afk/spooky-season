@@ -30,7 +30,7 @@
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               >
-                <v-row v-if="rating != undefined" class="position-absolute top-0 left-0 d-flex flex-row">
+                <v-row v-if="typeof rating !== 'undefined'" class="position-absolute top-0 left-0 d-flex flex-row">
                   <v-icon v-if="rating >= 1">star</v-icon>
                   <v-icon v-if="rating >= 2">star</v-icon>
                   <v-icon v-if="rating >= 3">star</v-icon>
@@ -138,8 +138,8 @@
   const games = ref([
     {
       id: '2444750',
-      rating: 5,
       completed: true,
+      rating: 5,
       info: {
         id: 5_447_631,
         name: 'Shape of Dream',
