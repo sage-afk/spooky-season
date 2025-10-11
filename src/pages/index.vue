@@ -161,6 +161,7 @@
     {
       id: '1962663',
       completed: true,
+      rating: 4.0,
       info: {
         id: 5_419_564,
         name: 'Call of Duty: Warzone',
@@ -220,6 +221,7 @@
     {
       id: '1577120',
       completed: true,
+      rating: 4.5,
       info: {
         id: 5_322_183,
         name: 'The Quarry',
@@ -278,6 +280,7 @@
     },
     {
       id: '594650',
+      rating: 4.0,
       completed: true,
       info: {
         id: 16_833,
@@ -338,6 +341,7 @@
     {
       id: '2835570',
       completed: true,
+      rating: 5.0,
       info: {
         id: 5_440_099,
         name: 'Buckshot Roulette',
@@ -457,6 +461,7 @@
     {
       id: '1304930',
       completed: true,
+      rating: 1.0,
       info: {
         id: 5_262_204,
         name: 'The Outlast Trials',
@@ -516,6 +521,7 @@
     {
       id: '381210',
       completed: true,
+      rating: 4.5,
       info: {
         id: 8168,
         name: 'Dead by Daylight',
