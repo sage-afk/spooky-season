@@ -31,16 +31,16 @@
                 :title="element?.logo ? undefined : element?.info?.name"
               >
                 <v-row v-if="element.rating" class="position-absolute top-0 left-0 d-flex flex-row">
-                  <v-icon v-if="element.rating >= 1">star</v-icon>
-                  <v-icon v-if="element.rating >= 2">star</v-icon>
-                  <v-icon v-if="element.rating >= 3">star</v-icon>
-                  <v-icon v-if="element.rating >= 4">star</v-icon>
-                  <v-icon v-if="element.rating >= 5">star</v-icon>
-                  <v-icon v-if="element.rating < 5">star-outline</v-icon>
-                  <v-icon v-if="element.rating < 4">star-outline</v-icon>
-                  <v-icon v-if="element.rating < 3">star-outline</v-icon>
-                  <v-icon v-if="element.rating < 2">star-outline</v-icon>
-                  <v-icon v-if="element.rating < 1">star-outline</v-icon>
+                  <v-icon v-if="element.rating >= 1">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 2">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 3">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 4">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 5">mdi-star</v-icon>
+                  <v-icon v-if="element.rating < 5">mdi-star-outline</v-icon>
+                  <v-icon v-if="element.rating < 4">mdi-star-outline</v-icon>
+                  <v-icon v-if="element.rating < 3">mdi-star-outline</v-icon>
+                  <v-icon v-if="element.rating < 2">mdi-star-outline</v-icon>
+                  <v-icon v-if="element.rating < 1">mdi-star-outline</v-icon>
                 </v-row>
                 <v-icon v-if="element?.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
                 <v-img
