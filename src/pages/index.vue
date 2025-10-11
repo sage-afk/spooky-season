@@ -31,11 +31,11 @@
                 :title="element?.logo ? undefined : element?.info?.name"
               >
                 <v-row v-if="element.rating" class="position-absolute top-0 left-0 ma-2 d-flex flex-row">
-                  <v-icon v-if="element.rating >= 1">mdi-star</v-icon>
-                  <v-icon v-if="element.rating >= 2">mdi-star</v-icon>
-                  <v-icon v-if="element.rating >= 3">mdi-star</v-icon>
-                  <v-icon v-if="element.rating >= 4">mdi-star</v-icon>
-                  <v-icon v-if="element.rating >= 5">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 1.0">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 2.0">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 3.0">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 4.0">mdi-star</v-icon>
+                  <v-icon v-if="element.rating >= 5.0">mdi-star</v-icon>
                   <v-icon v-if="element.rating = 4.5">mdi-star-half-full r</v-icon>
                   <v-icon v-if="element.rating < 4.5">mdi-star-outline</v-icon>
                   <v-icon v-if="element.rating = 3.5">mdi-star-half-full r</v-icon>
@@ -144,7 +144,7 @@
     {
       id: '2444750',
       completed: true,
-      rating: 5,
+      rating: 5.0,
       info: {
         id: 5_447_631,
         name: 'Shape of Dream',
