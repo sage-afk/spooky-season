@@ -461,7 +461,7 @@
     {
       id: '1304930',
       completed: true,
-      rating: 1.0,
+      rating: 2.0,
       info: {
         id: 5_262_204,
         name: 'The Outlast Trials',
