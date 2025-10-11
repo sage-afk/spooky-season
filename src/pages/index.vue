@@ -352,7 +352,7 @@
     },
     {
       id: '2835570',
-      completed: false,
+      completed: true,
       info: {
         id: 5_440_099,
         name: 'Buckshot Roulette',
@@ -588,7 +588,7 @@
     },
     {
       id: '1392860',
-      completed: false,
+      completed: true,
       info: {
         id: 5_423_718,
         name: 'Little Nightmares III',
@@ -824,7 +824,7 @@
     },
     {
       id: '1304930',
-      completed: false,
+      completed: true,
       info: {
         id: 5_262_204,
         name: 'The Outlast Trials',
@@ -1651,7 +1651,7 @@
     },
     {
       id: '381210',
-      completed: false,
+      completed: true,
       info: {
         id: 8168,
         name: 'Dead by Daylight',
