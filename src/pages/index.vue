@@ -31,21 +31,21 @@
                 :title="element?.logo ? undefined : element?.info?.name"
               >
                 <v-row v-if="element.rating" class="position-absolute top-0 left-0 ma-2 d-flex flex-row">
-                  <v-icon x-small v-if="element.rating < 0.5">mdi-star-outline</v-icon>
-                  <v-icon x-small v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
-                  <v-icon x-small v-else>mdi-star</v-icon>
-                  <v-icon x-small v-if="element.rating < 1.5">mdi-star-outline</v-icon>
-                  <v-icon x-small v-else-if="element.rating == 1.5">mdi-star-half-full</v-icon>
-                  <v-icon x-small v-else>mdi-star</v-icon>
-                  <v-icon x-small v-if="element.rating < 2.5">mdi-star-outline</v-icon>
-                  <v-icon x-small v-else-if="element.rating == 2.5">mdi-star-half-full</v-icon>
-                  <v-icon x-small v-else>mdi-star</v-icon>
-                  <v-icon x-small v-if="element.rating < 3.5">mdi-star-outline</v-icon>
-                  <v-icon x-small v-else-if="element.rating == 3.5">mdi-star-half-full</v-icon>
-                  <v-icon x-small v-else>mdi-star</v-icon>
-                  <v-icon x-small v-if="element.rating < 4.5">mdi-star-outline</v-icon>
-                  <v-icon x-small v-else-if="element.rating == 4.5">mdi-star-half-full</v-icon>
-                  <v-icon x-small v-else>mdi-star</v-icon>
+                  <v-icon size="small" v-if="element.rating < 0.5">mdi-star-outline</v-icon>
+                  <v-icon size="small" v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
+                  <v-icon size="small" v-else>mdi-star</v-icon>
+                  <v-icon size="small" v-if="element.rating < 1.5">mdi-star-outline</v-icon>
+                  <v-icon size="small" v-else-if="element.rating == 1.5">mdi-star-half-full</v-icon>
+                  <v-icon size="small" v-else>mdi-star</v-icon>
+                  <v-icon size="small" v-if="element.rating < 2.5">mdi-star-outline</v-icon>
+                  <v-icon size="small" v-else-if="element.rating == 2.5">mdi-star-half-full</v-icon>
+                  <v-icon size="small" v-else>mdi-star</v-icon>
+                  <v-icon size="small" v-if="element.rating < 3.5">mdi-star-outline</v-icon>
+                  <v-icon size="small" v-else-if="element.rating == 3.5">mdi-star-half-full</v-icon>
+                  <v-icon size="small" v-else>mdi-star</v-icon>
+                  <v-icon size="small" v-if="element.rating < 4.5">mdi-star-outline</v-icon>
+                  <v-icon size="small" v-else-if="element.rating == 4.5">mdi-star-half-full</v-icon>
+                  <v-icon size="small" v-else>mdi-star</v-icon>
                 </v-row>
                 <v-icon v-if="element?.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
                 <v-img
