@@ -30,7 +30,7 @@
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               >
-                <v-row v-if="element.rating" class="position-absolute top-15 left-15 d-flex flex-row">
+                <v-row v-if="element.rating" class="position-absolute top-0 left-0 ma-2 d-flex flex-row">
                   <v-icon v-if="element.rating >= 1">mdi-star</v-icon>
                   <v-icon v-if="element.rating >= 2">mdi-star</v-icon>
                   <v-icon v-if="element.rating >= 3">mdi-star</v-icon>
