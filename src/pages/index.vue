@@ -280,7 +280,7 @@
     },
     {
       id: '594650',
-      rating: 4.0,
+      rating: 3.5,
       completed: true,
       info: {
         id: 16_833,
@@ -341,7 +341,7 @@
     {
       id: '2835570',
       completed: true,
-      rating: 5.0,
+      rating: 4.5,
       info: {
         id: 5_440_099,
         name: 'Buckshot Roulette',
@@ -521,7 +521,7 @@
     {
       id: '381210',
       completed: true,
-      rating: 4.5,
+      rating: 5,
       info: {
         id: 8168,
         name: 'Dead by Daylight',
