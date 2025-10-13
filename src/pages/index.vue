@@ -97,7 +97,7 @@
     baseURL: '/steamgriddb',
   })
 
-  const completed_games = {
+  const completed_games: {[key: number]: number} = {
     1_577_120: 4.5,
     594_650: 3.5,
     1_962_663: 4,
@@ -2153,18 +2153,17 @@
       const heros = await client.getHeroesBySteamAppId(Number(id))
       const logos = await client.getLogosBySteamAppId(Number(id))
       const completed = Object.keys(completed_games).includes(id)
-
-      if (overrides[id]?.logo) {
-        logos[0].url = overrides[id].logo
-      }
+      const overidess : {
+        [key: string]: number | string | undefined,
+      }[] = [];
 
       completed
         ? items.unshift({
           id: id,
           completed: completed,
-          rating: completed_games[id],
+          rating: completed_games[Number(id)],
           info: game,
-          logo: logos[0]! ?? { url: `https://shared.steamstatic.com/store_item_assets/steam/apps/${id}/logo_2x.png` },
+          logo: overidess[Number(id)]?.logo ?? logos[0]! ?? { url: `https://shared.steamstatic.com/store_item_assets/steam/apps/${id}/logo_2x.png` },
           hero: heros[0]!,
         })
         : items.push ({
