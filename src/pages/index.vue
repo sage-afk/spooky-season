@@ -30,7 +30,7 @@
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               >
-                <v-row v-if="element.rating" class="position-absolute top-0 left-0 ma-2 d-flex flex-row">
+                <v-row v-if="element.rating" class="filter position-absolute top-0 left-0 ma-2 d-flex flex-row">
                   <v-icon size="x-small" v-if="element.rating < 0.5">mdi-star-outline</v-icon>
                   <v-icon size="x-small" v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
                   <v-icon size="x-small" v-else>mdi-star</v-icon>
@@ -66,6 +66,23 @@
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               >
+              <v-row v-if="element.rating" class=" filter position-absolute top-0 left-0 ma-2 d-flex flex-row">
+                  <v-icon size="x-small" v-if="element.rating < 0.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" v-if="element.rating < 1.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" v-else-if="element.rating == 1.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" v-if="element.rating < 2.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" v-else-if="element.rating == 2.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" v-if="element.rating < 3.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" v-else-if="element.rating == 3.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" v-if="element.rating < 4.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" v-else-if="element.rating == 4.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" v-else>mdi-star</v-icon>
+                </v-row>
                 <v-icon v-if="element.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
               </v-card>
             </v-col>
@@ -110,12 +127,16 @@
     3_228_590: 4.5,
   }
 
-  const overrides = {
-    371970 : {
-      logo: 'https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png',
+  const overrides : { 
+    [key: string]: { 
+        [logo:string]: string
+    }
+    } = {
+    '371970' : {
+      url: 'https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png',
     },
-    108600 : {
-      logo : 'https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png'
+    '108600' : {
+      url : 'https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png'
     }
   }
 
@@ -158,6 +179,66 @@
   ]
 
   const games = ref([
+    {
+        "id": "3228590",
+        "completed": true,
+        "rating": 4.5,
+        "info": {
+            "id": 5465463,
+            "name": "Deadzone Rogue",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 150574,
+            "score": 0,
+            "style": "white",
+            "width": 1280,
+            "height": 621,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/f2ecd49b201687e941dd3f084ca9f7c5.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/f2ecd49b201687e941dd3f084ca9f7c5.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "r_dsgnd",
+                "steam64": "76561198355292092",
+                "avatar": "https://avatars.steamstatic.com/bccae340dd39a6d73f97368ee0555905373d1986_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 148552,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/6f8983ae3d9c0caae3e53bd9ee630da1.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/6f8983ae3d9c0caae3e53bd9ee630da1.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Seto2k",
+                "steam64": "76561199099283585",
+                "avatar": "https://avatars.steamstatic.com/6f9a0b3077f1b1af936cf4e003f406348b204741_medium.jpg"
+            }
+        }
+    },
     {
         "id": "2835570",
         "completed": true,
@@ -1213,27 +1294,7 @@
             "verified": true
         },
         "logo": {
-            "id": 103184,
-            "score": 0,
-            "style": "black",
-            "width": 1147,
-            "height": 608,
-            "nsfw": false,
-            "humor": false,
-            "notes": "- Project Zomboid unofficial japanese logo\r\n- プロジェクトゾンビイド非公式日本語ロゴ\r\n\r\nV - BLACK",
-            "mime": "image/png",
-            "language": "ja",
-            "url": "https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/31d325b353f122d331e59b3d42357413.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "0gauss",
-                "steam64": "76561198892734163",
-                "avatar": "https://avatars.steamstatic.com/8c316d614d4cbbd4f413d7971630520914bbdfc9_medium.jpg"
-            }
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png"
         },
         "hero": {
             "id": 118976,
@@ -1922,27 +1983,7 @@
             "verified": true
         },
         "logo": {
-            "id": 51669,
-            "score": 0,
-            "style": "official",
-            "width": 1280,
-            "height": 580,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Official Steam 2x logo.",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/7d5f821625e474fe242850b7c24e8bb8.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Luckspeare",
-                "steam64": "76561198094314206",
-                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
-            }
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png"
         },
         "hero": {
             "id": 78843,
@@ -2028,65 +2069,6 @@
         }
     },
     {
-        "id": "3228590",
-        "completed": false,
-        "info": {
-            "id": 5465463,
-            "name": "Deadzone Rogue",
-            "release_date": 1735689600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 150574,
-            "score": 0,
-            "style": "white",
-            "width": 1280,
-            "height": 621,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/f2ecd49b201687e941dd3f084ca9f7c5.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/f2ecd49b201687e941dd3f084ca9f7c5.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "r_dsgnd",
-                "steam64": "76561198355292092",
-                "avatar": "https://avatars.steamstatic.com/bccae340dd39a6d73f97368ee0555905373d1986_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 148552,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/6f8983ae3d9c0caae3e53bd9ee630da1.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/6f8983ae3d9c0caae3e53bd9ee630da1.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Seto2k",
-                "steam64": "76561199099283585",
-                "avatar": "https://avatars.steamstatic.com/6f9a0b3077f1b1af936cf4e003f406348b204741_medium.jpg"
-            }
-        }
-    },
-    {
         "id": "1096570",
         "completed": false,
         "info": {
@@ -2154,9 +2136,6 @@
       const heros = await client.getHeroesBySteamAppId(Number(id))
       const logos = await client.getLogosBySteamAppId(Number(id))
       const completed = Object.keys(completed_games).includes(id)
-      const overidess : {
-        [key: string]: number | string | undefined,
-      }[] = [];
 
       completed
         ? items.unshift({
@@ -2164,14 +2143,14 @@
           completed: completed,
           rating: completed_games[Number(id)],
           info: game,
-          logo: overidess[Number(id)]?.logo ?? logos[0]! ?? { url: `https://shared.steamstatic.com/store_item_assets/steam/apps/${id}/logo_2x.png` },
+          logo: overrides[id] ?? logos[0]! ?? { url: `https://shared.steamstatic.com/store_item_assets/steam/apps/${id}/logo_2x.png` },
           hero: heros[0]!,
         })
         : items.push ({
           id: id,
           completed: completed,
           info: game,
-          logo: logos[0]!,
+          logo: overrides[id] ?? logos[0]!,
           hero: heros[0]!,
         })
     }
@@ -2207,4 +2186,9 @@
   .filter3d {
     filter:brightness(0) invert(1) drop-shadow(4px 4px 0 red) drop-shadow(-4px -4px 0 blue)
   }
+
+  .filter { 
+    filter: drop-shadow(0px 0px 10px black) drop-shadow(0px 0px 10px black) drop-shadow(0px 0px 10px black)
+  }
+
 </style>
