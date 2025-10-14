@@ -25,29 +25,29 @@
                 v-if="!tall"
                 class="darken d-flex justify-center align-center text-center"
                 height="100"
-                :href="steam_url + element?.id"
+                :href="!toggle ? steam_url + element?.id : undefined"
                 :image="element?.hero?.url || `https://shared.steamstatic.com/store_item_assets/steam/apps/${element?.id}/library_hero.jpg`"
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               >
-                <v-row v-if="element.rating" class="filter position-absolute top-0 left-0 ma-2 d-flex flex-row">
-                  <v-icon size="x-small" v-if="element.rating < 0.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 1.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 1.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 2.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 2.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 3.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 3.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 4.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 4.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
+              <v-row v-if="element.rating" class=" filter position-absolute top-0 left-0 ma-2 d-flex flex-row">
+                  <v-icon size="x-small" @click="element.rating=1" v-if="element.rating < 0.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=1" v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=1" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=2" v-if="element.rating < 1.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=2" v-else-if="element.rating == 1.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=2" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=3" v-if="element.rating < 2.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=3" v-else-if="element.rating == 2.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=3" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=4" v-if="element.rating < 3.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=4" v-else-if="element.rating == 3.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=4" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=5" v-if="element.rating < 4.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=5" v-else-if="element.rating == 4.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=5" v-else>mdi-star</v-icon>
                 </v-row>
-                <v-icon v-if="element?.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
+                <v-icon :class="element?.completed ? 'opacity-100' : 'opacity-0'" @click="element.completed = !element.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
                 <v-img
                   v-if="element?.logo"
                   class="justify-center filter-class"
@@ -61,27 +61,27 @@
                 v-else
                 class="d-flex justify-center align-center text-center"
                 height="600"
-                :href="steam_url + element?.id"
+                :href="!toggle ? steam_url + element?.id : undefined"
                 :image="`https://steamcdn-a.akamaihd.net/steam/apps/${element?.id}/library_600x900_2x.jpg`"
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               >
               <v-row v-if="element.rating" class=" filter position-absolute top-0 left-0 ma-2 d-flex flex-row">
-                  <v-icon size="x-small" v-if="element.rating < 0.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 1.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 1.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 2.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 2.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 3.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 3.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
-                  <v-icon size="x-small" v-if="element.rating < 4.5">mdi-star-outline</v-icon>
-                  <v-icon size="x-small" v-else-if="element.rating == 4.5">mdi-star-half-full</v-icon>
-                  <v-icon size="x-small" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=1" v-if="element.rating < 0.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=1" v-else-if="element.rating == 0.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=1" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=2" v-if="element.rating < 1.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=2" v-else-if="element.rating == 1.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=2" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=3" v-if="element.rating < 2.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=3" v-else-if="element.rating == 2.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=3" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=4" v-if="element.rating < 3.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=4" v-else-if="element.rating == 3.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=4" v-else>mdi-star</v-icon>
+                  <v-icon size="x-small" @click="element.rating=5" v-if="element.rating < 4.5">mdi-star-outline</v-icon>
+                  <v-icon size="x-small" @click="element.rating=5" v-else-if="element.rating == 4.5">mdi-star-half-full</v-icon>
+                  <v-icon size="x-small" @click="element.rating=5" v-else>mdi-star</v-icon>
                 </v-row>
                 <v-icon v-if="element.completed" class="ma-2 rounded-circle bg-black position-absolute top-0 right-0" color="green" icon="mdi-check-circle-outline" />
               </v-card>
@@ -92,6 +92,7 @@
       <v-row class="justify-center ga-4">
         <v-switch v-model="tall" label="tall?" />
         <v-switch v-model="threedee" label="3D?" />
+        <v-switch v-if="isDevMode" v-model="toggle" label="toggle?" />
         <v-btn v-if="isDevMode" text="Get Data" @click="getData" />
       </v-row>
     </v-container>
@@ -106,6 +107,7 @@
   const tall = ref(false)
   const threedee = ref(false)
   const drag = ref(false)
+  const toggle = ref(false)
 
   const steam_url = 'https://store.steampowered.com/app/'
 
