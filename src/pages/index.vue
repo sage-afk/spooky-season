@@ -96,7 +96,7 @@
     key: 'a3bcf1c34029d5477bbfafd523131997',
     baseURL: '/steamgriddb',
   })
-
+  
   const completed_games: {[key: number]: number} = {
     1_577_120: 4.5,
     594_650: 3.5,
@@ -107,6 +107,7 @@
     1_304_930: 2,
     3_241_660: 4,
     381_210: 5,
+    3_228_590: 4.5,
   }
 
   const overrides = {
