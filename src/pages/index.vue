@@ -737,278 +737,6 @@
         }
     },
     {
-        "id": "774861",
-        "completed": false,
-        "info": {
-            "id": 24447,
-            "name": "Project Winter",
-            "release_date": 1558630920,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 33865,
-            "score": 0,
-            "style": "official",
-            "width": 1961,
-            "height": 306,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/a4a87e583804c00a14032b615ae88f53.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/a4a87e583804c00a14032b615ae88f53.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "SuperG70",
-                "steam64": "76561198036468629",
-                "avatar": "https://avatars.steamstatic.com/b46e4a4db177b289f40300f731e177bfbbb43f1e_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 31116,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/d2b5afea3aa48308ae9cde8917e2ada9.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/d2b5afea3aa48308ae9cde8917e2ada9.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "SuperG70",
-                "steam64": "76561198036468629",
-                "avatar": "https://avatars.steamstatic.com/b46e4a4db177b289f40300f731e177bfbbb43f1e_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "408900",
-        "completed": false,
-        "info": {
-            "id": 9373,
-            "name": "Unfortunate Spacemen",
-            "release_date": 1462565686,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "hero": {
-            "id": 44163,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Previous official Steam 2x hero.",
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/15afaeb2c3c4446728e3adfbd35d0801.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/15afaeb2c3c4446728e3adfbd35d0801.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Luckspeare",
-                "steam64": "76561198094314206",
-                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1361000",
-        "completed": false,
-        "info": {
-            "id": 5263671,
-            "name": "In Silence",
-            "release_date": 1602868631,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 26205,
-            "score": 0,
-            "style": "official",
-            "width": 363,
-            "height": 73,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/4187252aad1f374c3adad9cdf1a8cdc2.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/4187252aad1f374c3adad9cdf1a8cdc2.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "DoktorYAIKIN",
-                "steam64": "76561199002937958",
-                "avatar": "https://avatars.steamstatic.com/d504429b49633aadc139f640b9339aab81922db3_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 136904,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/48e458e0eca3186009953cd7f8c7ada2.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/48e458e0eca3186009953cd7f8c7ada2.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Nomd346",
-                "steam64": "76561199216385203",
-                "avatar": "https://avatars.steamstatic.com/475d8f80425dac689d03af39ea0d2a88ae215ef8_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "945360",
-        "completed": false,
-        "info": {
-            "id": 31588,
-            "name": "Among Us",
-            "release_date": 1542387634,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 50068,
-            "score": 0,
-            "style": "custom",
-            "width": 2816,
-            "height": 734,
-            "nsfw": false,
-            "humor": false,
-            "notes": "**[Website VR logo](https://www.steamgriddb.com/logo/48371)**\n\nCropped & darkened outline",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "CluckenDip",
-                "steam64": "76561198120642113",
-                "avatar": "https://avatars.steamstatic.com/f28d01aa8699660622000414b70dae52f59f037e_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 21793,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/4ce000edd5012969a87a83d06ea8f914.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4ce000edd5012969a87a83d06ea8f914.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Kam",
-                "steam64": "76561198296610889",
-                "avatar": "https://avatars.steamstatic.com/3a8cb912b1deb3e30b98d333ece5c72e0fb7d24e_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1929610",
-        "completed": false,
-        "info": {
-            "id": 5363656,
-            "name": "Demonologist",
-            "release_date": 1677628800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 147690,
-            "score": 0,
-            "style": "official",
-            "width": 1295,
-            "height": 222,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "✩ | Addams | ✩",
-                "steam64": "76561198369486824",
-                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 145175,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "✩ | Addams | ✩",
-                "steam64": "76561198369486824",
-                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
-            }
-        }
-    },
-    {
         "id": "2208570",
         "completed": false,
         "info": {
@@ -1041,6 +769,65 @@
                 "name": "ABH20",
                 "steam64": "76561198058544946",
                 "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "2881650",
+        "completed": false,
+        "info": {
+            "id": 5448263,
+            "name": "Content Warning",
+            "release_date": 1711987136,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 109419,
+            "score": 0,
+            "style": "official",
+            "width": 6929,
+            "height": 8968,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Logo from Official [Press Kit](https://drive.google.com/drive/folders/1UqChL_5HEwaXbS1wt_GHyW3xGDYRXpgM)\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/2023913bcd0b798e30803c3add96aa1e.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/2023913bcd0b798e30803c3add96aa1e.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "BigHungryChicken",
+                "steam64": "76561198110105678",
+                "avatar": "https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 103637,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Steam 2x hero\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/9328283bf09fb59d03ebc615dff13a14.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/9328283bf09fb59d03ebc615dff13a14.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "BigHungryChicken",
+                "steam64": "76561198110105678",
+                "avatar": "https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg"
             }
         }
     },
@@ -1104,61 +891,61 @@
         }
     },
     {
-        "id": "2947440",
+        "id": "1929610",
         "completed": false,
         "info": {
-            "id": 5436386,
-            "name": "Silent Hill f",
-            "release_date": 1758672000,
+            "id": 5363656,
+            "name": "Demonologist",
+            "release_date": 1677628800,
             "types": [
                 "steam"
             ],
             "verified": true
         },
         "logo": {
-            "id": 141082,
+            "id": 147690,
             "score": 0,
             "style": "official",
-            "width": 2876,
-            "height": 583,
+            "width": 1295,
+            "height": 222,
             "nsfw": false,
             "humor": false,
-            "notes": "**PS [logo](https://image.api.playstation.com/vulcan/ap/rnd/202503/0507/fa34a85c483a940beea531cea410f8ead1dd731d1bec9007.png)**",
+            "notes": null,
             "mime": "image/png",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/7cca61ebeafd9e323d6295f6e987549a.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/7cca61ebeafd9e323d6295f6e987549a.png",
+            "url": "https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "nativecoruscant",
-                "steam64": "76561198317914084",
-                "avatar": "https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg"
+                "name": "✩ | Addams | ✩",
+                "steam64": "76561198369486824",
+                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
             }
         },
         "hero": {
-            "id": 138407,
+            "id": 145175,
             "score": 0,
             "style": "alternate",
-            "width": 3840,
-            "height": 1240,
+            "width": 1920,
+            "height": 620,
             "nsfw": false,
             "humor": false,
-            "notes": "**MS [hero](https://store-images.s-microsoft.com/image/apps.9825.14442789290930947.de2fee27-cdb8-46b7-ab7f-167185f990ef.46018927-542c-4d5d-bb84-ac336e0859c1)**",
+            "notes": null,
             "mime": "image/png",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/9fa12826259e9181f9e4f023d7c20096.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/9fa12826259e9181f9e4f023d7c20096.jpg",
+            "url": "https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "nativecoruscant",
-                "steam64": "76561198317914084",
-                "avatar": "https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg"
+                "name": "✩ | Addams | ✩",
+                "steam64": "76561198369486824",
+                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
             }
         }
     },
@@ -1222,42 +1009,278 @@
         }
     },
     {
-        "id": "2016590",
+        "id": "2947440",
         "completed": false,
         "info": {
-            "id": 5335281,
-            "name": "Dark and Darker",
-            "release_date": 1717718400,
+            "id": 5436386,
+            "name": "Silent Hill f",
+            "release_date": 1758672000,
             "types": [
                 "steam"
             ],
             "verified": true
         },
         "logo": {
-            "id": 109834,
+            "id": 141082,
             "score": 0,
             "style": "official",
-            "width": 1280,
-            "height": 720,
+            "width": 2876,
+            "height": 583,
             "nsfw": false,
             "humor": false,
-            "notes": null,
+            "notes": "**PS [logo](https://image.api.playstation.com/vulcan/ap/rnd/202503/0507/fa34a85c483a940beea531cea410f8ead1dd731d1bec9007.png)**",
             "mime": "image/png",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/9f4daa9161444515136a7907f77a2acd.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/9f4daa9161444515136a7907f77a2acd.png",
+            "url": "https://cdn2.steamgriddb.com/logo/7cca61ebeafd9e323d6295f6e987549a.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/7cca61ebeafd9e323d6295f6e987549a.png",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "sandri",
-                "steam64": "76561198208108863",
-                "avatar": "https://avatars.steamstatic.com/c26b96b1c833df729a24f7b408e495361f8e24f9_medium.jpg"
+                "name": "nativecoruscant",
+                "steam64": "76561198317914084",
+                "avatar": "https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg"
             }
         },
         "hero": {
-            "id": 76965,
+            "id": 138407,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "**MS [hero](https://store-images.s-microsoft.com/image/apps.9825.14442789290930947.de2fee27-cdb8-46b7-ab7f-167185f990ef.46018927-542c-4d5d-bb84-ac336e0859c1)**",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/9fa12826259e9181f9e4f023d7c20096.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/9fa12826259e9181f9e4f023d7c20096.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "nativecoruscant",
+                "steam64": "76561198317914084",
+                "avatar": "https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1361000",
+        "completed": false,
+        "info": {
+            "id": 5263671,
+            "name": "In Silence",
+            "release_date": 1602868631,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 26205,
+            "score": 0,
+            "style": "official",
+            "width": 363,
+            "height": 73,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/4187252aad1f374c3adad9cdf1a8cdc2.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/4187252aad1f374c3adad9cdf1a8cdc2.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "DoktorYAIKIN",
+                "steam64": "76561199002937958",
+                "avatar": "https://avatars.steamstatic.com/d504429b49633aadc139f640b9339aab81922db3_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 136904,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/48e458e0eca3186009953cd7f8c7ada2.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/48e458e0eca3186009953cd7f8c7ada2.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Nomd346",
+                "steam64": "76561199216385203",
+                "avatar": "https://avatars.steamstatic.com/475d8f80425dac689d03af39ea0d2a88ae215ef8_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "594330",
+        "completed": false,
+        "info": {
+            "id": 16822,
+            "name": "Visage",
+            "release_date": 1538463628,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 67818,
+            "score": 0,
+            "style": "official",
+            "width": 1568,
+            "height": 472,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Retailer web asset",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/a3f11bbce242b4a017959c54fe46161b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/a3f11bbce242b4a017959c54fe46161b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Khorosiv",
+                "steam64": "76561198799894733",
+                "avatar": "https://avatars.steamstatic.com/8e7c2eb3a01c24506e2217715bec831c5392b951_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 48781,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/4e7dd9fa7156b49c2db167bdc47f95d2.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4e7dd9fa7156b49c2db167bdc47f95d2.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "RESENTMENT",
+                "steam64": "76561198322976564",
+                "avatar": "https://avatars.steamstatic.com/2cd7396a56c27113c3cda1002b070c0573a6da14_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1096570",
+        "completed": false,
+        "info": {
+            "id": 5246756,
+            "name": "Song of Horror",
+            "release_date": 1572533548,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 17183,
+            "score": 0,
+            "style": "white",
+            "width": 414,
+            "height": 260,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/439b968b83f96a704ad09bf8ffe2e91b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/439b968b83f96a704ad09bf8ffe2e91b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "weissnichts vom Leben",
+                "steam64": "76561198199179110",
+                "avatar": "https://avatars.steamstatic.com/ae8f899f6ea7da866c7e42d1532849d1764c8b2f_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 61901,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Official GOG Galaxy background art.\n\nResized/clipped to Steam hero and resharpened.",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/f53df2f26ac452a67c02f41d9c3c83b0.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/f53df2f26ac452a67c02f41d9c3c83b0.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Luckspeare",
+                "steam64": "76561198094314206",
+                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1943950",
+        "completed": false,
+        "info": {
+            "id": 5323165,
+            "name": "Escape the Backrooms",
+            "release_date": 1640995200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 88824,
+            "score": 0,
+            "style": "official",
+            "width": 2142,
+            "height": 603,
+            "nsfw": false,
+            "humor": false,
+            "notes": "I am the graphic designer for this game and this is the official logo.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Oldmangames",
+                "steam64": "76561199010646669",
+                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 70673,
             "score": 0,
             "style": "alternate",
             "width": 3840,
@@ -1267,56 +1290,16 @@
             "notes": null,
             "mime": "image/png",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a56ee11d03e067e9b5d626098bb82572.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a56ee11d03e067e9b5d626098bb82572.jpg",
+            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "Neochaotics",
-                "steam64": "76561198359405988",
-                "avatar": "https://avatars.steamstatic.com/213f673473f6be7b8a44363a68afcaaf52748028_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "108600",
-        "completed": false,
-        "info": {
-            "id": 1255,
-            "name": "Project Zomboid",
-            "release_date": 1383897600,
-            "types": [
-                "steam",
-                "gog"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "url": "https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png"
-        },
-        "hero": {
-            "id": 118976,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/c9afbbba3267b6ac7218283ecdda546c.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/c9afbbba3267b6ac7218283ecdda546c.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ABH20",
-                "steam64": "76561198058544946",
-                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+                "name": "ZeeSG",
+                "steam64": "76561199087753210",
+                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
             }
         }
     },
@@ -1376,6 +1359,124 @@
                 "name": "BETAFIX",
                 "steam64": "76561198038132921",
                 "avatar": "https://avatars.steamstatic.com/9e9cede3ca6b787273294b0b469b38f4e5360a80_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "872670",
+        "completed": false,
+        "info": {
+            "id": 5433328,
+            "name": "SCP: 5K",
+            "release_date": 1645488000,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 95110,
+            "score": 0,
+            "style": "official",
+            "width": 1000,
+            "height": 994,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Logo from [Official site](https://scp5k.gg/) direct link [here](https://static1.squarespace.com/static/629d59cf833ace13c5fbbdc4/t/64406d1b994a9f314d24f1a3/1681943898295/SCP5KLogo_Rendered_Transparent_1024.png)\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/edbe7b7c335e68cd2a5aff9e36cefc0b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/edbe7b7c335e68cd2a5aff9e36cefc0b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "BigHungryChicken",
+                "steam64": "76561198110105678",
+                "avatar": "https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 107841,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/3926135ef2e1e174965034cf6d2ba32c.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/3926135ef2e1e174965034cf6d2ba32c.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "JoJoJoker",
+                "steam64": "76561198072935217",
+                "avatar": "https://avatars.steamstatic.com/f17b253ee3b47cb7f18c8b1ed7276d3c023f215d_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "2016590",
+        "completed": false,
+        "info": {
+            "id": 5335281,
+            "name": "Dark and Darker",
+            "release_date": 1717718400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 109834,
+            "score": 0,
+            "style": "official",
+            "width": 1280,
+            "height": 720,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/9f4daa9161444515136a7907f77a2acd.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/9f4daa9161444515136a7907f77a2acd.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "sandri",
+                "steam64": "76561198208108863",
+                "avatar": "https://avatars.steamstatic.com/c26b96b1c833df729a24f7b408e495361f8e24f9_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 76965,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/a56ee11d03e067e9b5d626098bb82572.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a56ee11d03e067e9b5d626098bb82572.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Neochaotics",
+                "steam64": "76561198359405988",
+                "avatar": "https://avatars.steamstatic.com/213f673473f6be7b8a44363a68afcaaf52748028_medium.jpg"
             }
         }
     },
@@ -1498,183 +1599,6 @@
         }
     },
     {
-        "id": "872670",
-        "completed": false,
-        "info": {
-            "id": 5433328,
-            "name": "SCP: 5K",
-            "release_date": 1645488000,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 95110,
-            "score": 0,
-            "style": "official",
-            "width": 1000,
-            "height": 994,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Logo from [Official site](https://scp5k.gg/) direct link [here](https://static1.squarespace.com/static/629d59cf833ace13c5fbbdc4/t/64406d1b994a9f314d24f1a3/1681943898295/SCP5KLogo_Rendered_Transparent_1024.png)\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/edbe7b7c335e68cd2a5aff9e36cefc0b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/edbe7b7c335e68cd2a5aff9e36cefc0b.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "BigHungryChicken",
-                "steam64": "76561198110105678",
-                "avatar": "https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 107841,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/3926135ef2e1e174965034cf6d2ba32c.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/3926135ef2e1e174965034cf6d2ba32c.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "JoJoJoker",
-                "steam64": "76561198072935217",
-                "avatar": "https://avatars.steamstatic.com/f17b253ee3b47cb7f18c8b1ed7276d3c023f215d_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "594330",
-        "completed": false,
-        "info": {
-            "id": 16822,
-            "name": "Visage",
-            "release_date": 1538463628,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 67818,
-            "score": 0,
-            "style": "official",
-            "width": 1568,
-            "height": 472,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Retailer web asset",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/a3f11bbce242b4a017959c54fe46161b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/a3f11bbce242b4a017959c54fe46161b.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Khorosiv",
-                "steam64": "76561198799894733",
-                "avatar": "https://avatars.steamstatic.com/8e7c2eb3a01c24506e2217715bec831c5392b951_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 48781,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/4e7dd9fa7156b49c2db167bdc47f95d2.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4e7dd9fa7156b49c2db167bdc47f95d2.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "RESENTMENT",
-                "steam64": "76561198322976564",
-                "avatar": "https://avatars.steamstatic.com/2cd7396a56c27113c3cda1002b070c0573a6da14_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1002300",
-        "completed": false,
-        "info": {
-            "id": 195,
-            "name": "Fear & Hunger",
-            "release_date": 1544515200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 17208,
-            "score": 0,
-            "style": "white",
-            "width": 574,
-            "height": 272,
-            "nsfw": false,
-            "humor": false,
-            "notes": "credit to Bon Bon for original image (white version)",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/156b84a86601888c714c58079409a07e.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/156b84a86601888c714c58079409a07e.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Moofy",
-                "steam64": "76561198079610188",
-                "avatar": "https://avatars.steamstatic.com/683b08fcdfb60bf2ae0a4184240375f88c71049d_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 91468,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/0444f4b8fc9f7ea0af52eafc4b751b01.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/0444f4b8fc9f7ea0af52eafc4b751b01.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "DEFKLUKER",
-                "steam64": "76561198330781856",
-                "avatar": "https://avatars.steamstatic.com/0e185e23712dc5f7b9569dcfc4a22c24a07187ea_medium.jpg"
-            }
-        }
-    },
-    {
         "id": "1179080",
         "completed": false,
         "info": {
@@ -1730,65 +1654,6 @@
                 "name": "nickgames8",
                 "steam64": "76561198142078770",
                 "avatar": "https://avatars.steamstatic.com/31c5fe40563918d325ef877640ae99f314b473c3_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1943950",
-        "completed": false,
-        "info": {
-            "id": 5323165,
-            "name": "Escape the Backrooms",
-            "release_date": 1640995200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 88824,
-            "score": 0,
-            "style": "official",
-            "width": 2142,
-            "height": 603,
-            "nsfw": false,
-            "humor": false,
-            "notes": "I am the graphic designer for this game and this is the official logo.",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Oldmangames",
-                "steam64": "76561199010646669",
-                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 70673,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ZeeSG",
-                "steam64": "76561199087753210",
-                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
             }
         }
     },
@@ -1852,6 +1717,124 @@
         }
     },
     {
+        "id": "1002300",
+        "completed": false,
+        "info": {
+            "id": 195,
+            "name": "Fear & Hunger",
+            "release_date": 1544515200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 17208,
+            "score": 0,
+            "style": "white",
+            "width": 574,
+            "height": 272,
+            "nsfw": false,
+            "humor": false,
+            "notes": "credit to Bon Bon for original image (white version)",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/156b84a86601888c714c58079409a07e.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/156b84a86601888c714c58079409a07e.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Moofy",
+                "steam64": "76561198079610188",
+                "avatar": "https://avatars.steamstatic.com/683b08fcdfb60bf2ae0a4184240375f88c71049d_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 91468,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/0444f4b8fc9f7ea0af52eafc4b751b01.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/0444f4b8fc9f7ea0af52eafc4b751b01.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "DEFKLUKER",
+                "steam64": "76561198330781856",
+                "avatar": "https://avatars.steamstatic.com/0e185e23712dc5f7b9569dcfc4a22c24a07187ea_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "945360",
+        "completed": false,
+        "info": {
+            "id": 31588,
+            "name": "Among Us",
+            "release_date": 1542387634,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 50068,
+            "score": 0,
+            "style": "custom",
+            "width": 2816,
+            "height": 734,
+            "nsfw": false,
+            "humor": false,
+            "notes": "**[Website VR logo](https://www.steamgriddb.com/logo/48371)**\n\nCropped & darkened outline",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "CluckenDip",
+                "steam64": "76561198120642113",
+                "avatar": "https://avatars.steamstatic.com/f28d01aa8699660622000414b70dae52f59f037e_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 21793,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/4ce000edd5012969a87a83d06ea8f914.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4ce000edd5012969a87a83d06ea8f914.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Kam",
+                "steam64": "76561198296610889",
+                "avatar": "https://avatars.steamstatic.com/3a8cb912b1deb3e30b98d333ece5c72e0fb7d24e_medium.jpg"
+            }
+        }
+    },
+    {
         "id": "221100",
         "completed": false,
         "info": {
@@ -1907,105 +1890,6 @@
                 "name": "brjoaoed",
                 "steam64": "76561198083527671",
                 "avatar": "https://avatars.steamstatic.com/5baf5cc231fd470aabee54a034678f8c1867f7dd_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "2881650",
-        "completed": false,
-        "info": {
-            "id": 5448263,
-            "name": "Content Warning",
-            "release_date": 1711987136,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 109419,
-            "score": 0,
-            "style": "official",
-            "width": 6929,
-            "height": 8968,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Logo from Official [Press Kit](https://drive.google.com/drive/folders/1UqChL_5HEwaXbS1wt_GHyW3xGDYRXpgM)\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/2023913bcd0b798e30803c3add96aa1e.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/2023913bcd0b798e30803c3add96aa1e.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "BigHungryChicken",
-                "steam64": "76561198110105678",
-                "avatar": "https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 103637,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Steam 2x hero\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/9328283bf09fb59d03ebc615dff13a14.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/9328283bf09fb59d03ebc615dff13a14.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "BigHungryChicken",
-                "steam64": "76561198110105678",
-                "avatar": "https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "371970",
-        "completed": false,
-        "info": {
-            "id": 7759,
-            "name": "Barony",
-            "release_date": 1435075187,
-            "types": [
-                "steam",
-                "gog"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "url": "https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png"
-        },
-        "hero": {
-            "id": 78843,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Official GOG Galaxy background art, resized/clipped to Steam hero with leftward bias and resharpened.",
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/7b438ebfae511d81ac2285d02d829ad5.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/7b438ebfae511d81ac2285d02d829ad5.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Luckspeare",
-                "steam64": "76561198094314206",
-                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
             }
         }
     },
@@ -2069,53 +1953,70 @@
         }
     },
     {
-        "id": "1096570",
+        "id": "108600",
         "completed": false,
         "info": {
-            "id": 5246756,
-            "name": "Song of Horror",
-            "release_date": 1572533548,
+            "id": 1255,
+            "name": "Project Zomboid",
+            "release_date": 1383897600,
             "types": [
-                "steam"
+                "steam",
+                "gog"
             ],
             "verified": true
         },
         "logo": {
-            "id": 17183,
-            "score": 0,
-            "style": "white",
-            "width": 414,
-            "height": 260,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/439b968b83f96a704ad09bf8ffe2e91b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/439b968b83f96a704ad09bf8ffe2e91b.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "weissnichts vom Leben",
-                "steam64": "76561198199179110",
-                "avatar": "https://avatars.steamstatic.com/ae8f899f6ea7da866c7e42d1532849d1764c8b2f_medium.jpg"
-            }
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png"
         },
         "hero": {
-            "id": 61901,
+            "id": 118976,
             "score": 0,
             "style": "alternate",
             "width": 1920,
             "height": 620,
             "nsfw": false,
             "humor": false,
-            "notes": "Official GOG Galaxy background art.\n\nResized/clipped to Steam hero and resharpened.",
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/c9afbbba3267b6ac7218283ecdda546c.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/c9afbbba3267b6ac7218283ecdda546c.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "408900",
+        "completed": false,
+        "info": {
+            "id": 9373,
+            "name": "Unfortunate Spacemen",
+            "release_date": 1462565686,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "hero": {
+            "id": 44163,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Previous official Steam 2x hero.",
             "mime": "image/jpeg",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/f53df2f26ac452a67c02f41d9c3c83b0.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/f53df2f26ac452a67c02f41d9c3c83b0.jpg",
+            "url": "https://cdn2.steamgriddb.com/hero/15afaeb2c3c4446728e3adfbd35d0801.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/15afaeb2c3c4446728e3adfbd35d0801.jpg",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
@@ -2124,6 +2025,105 @@
                 "name": "Luckspeare",
                 "steam64": "76561198094314206",
                 "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "371970",
+        "completed": false,
+        "info": {
+            "id": 7759,
+            "name": "Barony",
+            "release_date": 1435075187,
+            "types": [
+                "steam",
+                "gog"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png"
+        },
+        "hero": {
+            "id": 78843,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Official GOG Galaxy background art, resized/clipped to Steam hero with leftward bias and resharpened.",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/7b438ebfae511d81ac2285d02d829ad5.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/7b438ebfae511d81ac2285d02d829ad5.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Luckspeare",
+                "steam64": "76561198094314206",
+                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "774861",
+        "completed": false,
+        "info": {
+            "id": 24447,
+            "name": "Project Winter",
+            "release_date": 1558630920,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 33865,
+            "score": 0,
+            "style": "official",
+            "width": 1961,
+            "height": 306,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/a4a87e583804c00a14032b615ae88f53.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/a4a87e583804c00a14032b615ae88f53.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "SuperG70",
+                "steam64": "76561198036468629",
+                "avatar": "https://avatars.steamstatic.com/b46e4a4db177b289f40300f731e177bfbbb43f1e_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 31116,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/d2b5afea3aa48308ae9cde8917e2ada9.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/d2b5afea3aa48308ae9cde8917e2ada9.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "SuperG70",
+                "steam64": "76561198036468629",
+                "avatar": "https://avatars.steamstatic.com/b46e4a4db177b289f40300f731e177bfbbb43f1e_medium.jpg"
             }
         }
     }
