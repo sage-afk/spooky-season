@@ -25,16 +25,16 @@
                 <v-rating
                   v-bind="props"
                   v-model="element.rating"
-                  full-icon="mdi-skull"
-                  empty-icon="mdi-skull"
                   active-color="orange-lighten-1"
-                  color="brown"
                   class="filter position-absolute px-3 py-2 z-1 top-0 left-0"
                   :class="element.rating || isHovering ? 'opacity-100' : 'opacity-20'"
+                  color="brown"
                   density="compact"
+                  empty-icon="mdi-skull"
+                  full-icon="mdi-skull"
                   half-increments
                   hover
-                  size="small"
+                  size="x-small"
                 />
               </v-hover>
               <v-hover v-slot="{ isHovering, props }">
@@ -268,4 +268,7 @@
     z-index: 1
   }
 
+  :deep(.v-rating button){
+    margin-right: 2px;
+  }
 </style>
