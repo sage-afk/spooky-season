@@ -558,7 +558,8 @@
     },
     {
         "id": "2208570",
-        "completed": false,
+        "completed": true,
+        "rating": 3.5,
         "info": {
             "id": 5401947,
             "name": "Dark Hours",
@@ -589,6 +590,66 @@
                 "name": "ABH20",
                 "steam64": "76561198058544946",
                 "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1274570",
+        "completed": true,
+        "rating": 3.0,
+        "info": {
+            "id": 5257954,
+            "name": "DEVOUR",
+            "release_date": 1577836800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 68158,
+            "score": 0,
+            "style": "official",
+            "width": 1260,
+            "height": 564,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Steam _2x logo",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/7687228498aff94678fb35fd9f76573c.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/7687228498aff94678fb35fd9f76573c.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Akela",
+                "steam64": "76561197981066031",
+                "avatar": "https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 61854,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "art from supporter edition",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/de04b69dc1dd87f188c8f52b7a57a628.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/de04b69dc1dd87f188c8f52b7a57a628.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "jkcrmptn",
+                "steam64": "76561199035417743",
+                "avatar": "https://avatars.steamstatic.com/0e331eaa738fc5422f7429c58beabf17e51817e1_medium.jpg"
             }
         }
     },
@@ -766,65 +827,6 @@
                 "name": "Nomd346",
                 "steam64": "76561199216385203",
                 "avatar": "https://avatars.steamstatic.com/475d8f80425dac689d03af39ea0d2a88ae215ef8_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1274570",
-        "completed": false,
-        "info": {
-            "id": 5257954,
-            "name": "DEVOUR",
-            "release_date": 1577836800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 68158,
-            "score": 0,
-            "style": "official",
-            "width": 1260,
-            "height": 564,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Steam _2x logo",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/7687228498aff94678fb35fd9f76573c.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/7687228498aff94678fb35fd9f76573c.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Akela",
-                "steam64": "76561197981066031",
-                "avatar": "https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 61854,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": "art from supporter edition",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/de04b69dc1dd87f188c8f52b7a57a628.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/de04b69dc1dd87f188c8f52b7a57a628.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "jkcrmptn",
-                "steam64": "76561199035417743",
-                "avatar": "https://avatars.steamstatic.com/0e331eaa738fc5422f7429c58beabf17e51817e1_medium.jpg"
             }
         }
     },
