@@ -394,6 +394,66 @@
         }
     },
     {
+        "id": "1929610",
+        "completed": true,
+        "rating": 4,
+        "info": {
+            "id": 5363656,
+            "name": "Demonologist",
+            "release_date": 1677628800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 147690,
+            "score": 0,
+            "style": "official",
+            "width": 1295,
+            "height": 222,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "✩ | Addams | ✩",
+                "steam64": "76561198369486824",
+                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 145175,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "✩ | Addams | ✩",
+                "steam64": "76561198369486824",
+                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
+            }
+        }
+    },
+    {
         "id": "1962663",
         "completed": true,
         "rating": 3.5,
@@ -607,66 +667,6 @@
                 "name": "jkcrmptn",
                 "steam64": "76561199035417743",
                 "avatar": "https://avatars.steamstatic.com/0e331eaa738fc5422f7429c58beabf17e51817e1_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1929610",
-        "completed": true,
-        "rating": 4,
-        "info": {
-            "id": 5363656,
-            "name": "Demonologist",
-            "release_date": 1677628800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 147690,
-            "score": 0,
-            "style": "official",
-            "width": 1295,
-            "height": 222,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "✩ | Addams | ✩",
-                "steam64": "76561198369486824",
-                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 145175,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "✩ | Addams | ✩",
-                "steam64": "76561198369486824",
-                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
             }
         }
     },
