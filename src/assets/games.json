@@ -317,6 +317,23 @@
         }
     },
     {
+        "id": "3631290",
+        "completed": true,
+        "rating": 4.5,
+        "info": {
+            "id": 5496536,
+            "name": "Slots & Daggers",
+            "release_date": 1761264000,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "url": "https://shared.steamstatic.com/store_item_assets/steam/apps/3631290/8e8e2fb4ced8d6b0ffc9ab338803c399fb57625a/logo.png?t=1761322414"
+        }
+    },
+    {
         "id": "3241660",
         "completed": true,
         "rating": 4,
