@@ -1,64 +1,5 @@
 [
-    {
-        "id": "381210",
-        "completed": true,
-        "rating": 5,
-        "info": {
-            "id": 8168,
-            "name": "Dead by Daylight",
-            "release_date": 1465887600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 42022,
-            "score": 0,
-            "style": "white",
-            "width": 4071,
-            "height": 344,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Resident Evil crossover logo cropped",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/3cb189e9f3764c6b4a0d13c44bd922d8.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/3cb189e9f3764c6b4a0d13c44bd922d8.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "CluckenDip",
-                "steam64": "76561198120642113",
-                "avatar": "https://avatars.steamstatic.com/f28d01aa8699660622000414b70dae52f59f037e_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 1989,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/4a3e00961a08879c34f91ca0070ea2f5.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4a3e00961a08879c34f91ca0070ea2f5.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Rixer97",
-                "steam64": "76561198113691613",
-                "avatar": "https://avatars.steamstatic.com/8fd8ddfcbeef305cffe974e230bda6126d1da1fc_medium.jpg"
-            }
-        }
-    },
+    
     {
         "id": "2444750",
         "completed": true,
@@ -135,64 +76,63 @@
                 "avatar": "https://avatars.steamstatic.com/6f9a0b3077f1b1af936cf4e003f406348b204741_medium.jpg"
             }
         }
-    },
-    {
-        "id": "1943950",
+    },{
+        "id": "381210",
         "completed": true,
-        "rating": 4.5,
+        "rating": 5,
         "info": {
-            "id": 5323165,
-            "name": "Escape the Backrooms",
-            "release_date": 1640995200,
+            "id": 8168,
+            "name": "Dead by Daylight",
+            "release_date": 1465887600,
             "types": [
                 "steam"
             ],
             "verified": true
         },
         "logo": {
-            "id": 88824,
+            "id": 42022,
             "score": 0,
-            "style": "official",
-            "width": 2142,
-            "height": 603,
+            "style": "white",
+            "width": 4071,
+            "height": 344,
             "nsfw": false,
             "humor": false,
-            "notes": "I am the graphic designer for this game and this is the official logo.",
+            "notes": "Resident Evil crossover logo cropped",
             "mime": "image/png",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "url": "https://cdn2.steamgriddb.com/logo/3cb189e9f3764c6b4a0d13c44bd922d8.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/3cb189e9f3764c6b4a0d13c44bd922d8.png",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "Oldmangames",
-                "steam64": "76561199010646669",
-                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
+                "name": "CluckenDip",
+                "steam64": "76561198120642113",
+                "avatar": "https://avatars.steamstatic.com/f28d01aa8699660622000414b70dae52f59f037e_medium.jpg"
             }
         },
         "hero": {
-            "id": 70673,
+            "id": 1989,
             "score": 0,
             "style": "alternate",
-            "width": 3840,
-            "height": 1240,
+            "width": 1920,
+            "height": 620,
             "nsfw": false,
             "humor": false,
             "notes": null,
-            "mime": "image/png",
+            "mime": "image/jpeg",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
+            "url": "https://cdn2.steamgriddb.com/hero/4a3e00961a08879c34f91ca0070ea2f5.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4a3e00961a08879c34f91ca0070ea2f5.jpg",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "ZeeSG",
-                "steam64": "76561199087753210",
-                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
+                "name": "Rixer97",
+                "steam64": "76561198113691613",
+                "avatar": "https://avatars.steamstatic.com/8fd8ddfcbeef305cffe974e230bda6126d1da1fc_medium.jpg"
             }
         }
     },
@@ -253,6 +193,66 @@
                 "name": "ABH20",
                 "steam64": "76561198058544946",
                 "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1943950",
+        "completed": true,
+        "rating": 4.5,
+        "info": {
+            "id": 5323165,
+            "name": "Escape the Backrooms",
+            "release_date": 1640995200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 88824,
+            "score": 0,
+            "style": "official",
+            "width": 2142,
+            "height": 603,
+            "nsfw": false,
+            "humor": false,
+            "notes": "I am the graphic designer for this game and this is the official logo.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Oldmangames",
+                "steam64": "76561199010646669",
+                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 70673,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ZeeSG",
+                "steam64": "76561199087753210",
+                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
             }
         }
     },
