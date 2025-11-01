@@ -654,6 +654,126 @@
         }
     },
     {
+        "id": "1929610",
+        "completed": true,
+        "rating": 4,
+        "info": {
+            "id": 5363656,
+            "name": "Demonologist",
+            "release_date": 1677628800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 147690,
+            "score": 0,
+            "style": "official",
+            "width": 1295,
+            "height": 222,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "✩ | Addams | ✩",
+                "steam64": "76561198369486824",
+                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 145175,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "✩ | Addams | ✩",
+                "steam64": "76561198369486824",
+                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1943950",
+        "completed": true,
+        "rating": 4.5,
+        "info": {
+            "id": 5323165,
+            "name": "Escape the Backrooms",
+            "release_date": 1640995200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 88824,
+            "score": 0,
+            "style": "official",
+            "width": 2142,
+            "height": 603,
+            "nsfw": false,
+            "humor": false,
+            "notes": "I am the graphic designer for this game and this is the official logo.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Oldmangames",
+                "steam64": "76561199010646669",
+                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 70673,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ZeeSG",
+                "steam64": "76561199087753210",
+                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
+            }
+        }
+    },
+    {
         "id": "2881650",
         "completed": false,
         "info": {
@@ -709,65 +829,6 @@
                 "name": "BigHungryChicken",
                 "steam64": "76561198110105678",
                 "avatar": "https://avatars.steamstatic.com/81e432d895ec3f421ca670a2d17a00819b85f614_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1929610",
-        "completed": false,
-        "info": {
-            "id": 5363656,
-            "name": "Demonologist",
-            "release_date": 1677628800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 147690,
-            "score": 0,
-            "style": "official",
-            "width": 1295,
-            "height": 222,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "✩ | Addams | ✩",
-                "steam64": "76561198369486824",
-                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 145175,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/57a12017a3074fdfec8ec0e0428c7fc0.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/57a12017a3074fdfec8ec0e0428c7fc0.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "✩ | Addams | ✩",
-                "steam64": "76561198369486824",
-                "avatar": "https://avatars.steamstatic.com/367ee965129fd5d0f9339b142521c8af97a3e025_medium.jpg"
             }
         }
     },
@@ -1299,65 +1360,6 @@
                 "name": "nickgames8",
                 "steam64": "76561198142078770",
                 "avatar": "https://avatars.steamstatic.com/31c5fe40563918d325ef877640ae99f314b473c3_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1943950",
-        "completed": false,
-        "info": {
-            "id": 5323165,
-            "name": "Escape the Backrooms",
-            "release_date": 1640995200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 88824,
-            "score": 0,
-            "style": "official",
-            "width": 2142,
-            "height": 603,
-            "nsfw": false,
-            "humor": false,
-            "notes": "I am the graphic designer for this game and this is the official logo.",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Oldmangames",
-                "steam64": "76561199010646669",
-                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 70673,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ZeeSG",
-                "steam64": "76561199087753210",
-                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
             }
         }
     },
