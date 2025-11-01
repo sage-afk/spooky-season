@@ -77,6 +77,126 @@
         }
     },
     {
+        "id": "3228590",
+        "completed": true,
+        "rating": 5,
+        "info": {
+            "id": 5465463,
+            "name": "Deadzone Rogue",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 150574,
+            "score": 0,
+            "style": "white",
+            "width": 1280,
+            "height": 621,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/f2ecd49b201687e941dd3f084ca9f7c5.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/f2ecd49b201687e941dd3f084ca9f7c5.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "r_dsgnd",
+                "steam64": "76561198355292092",
+                "avatar": "https://avatars.steamstatic.com/bccae340dd39a6d73f97368ee0555905373d1986_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 148552,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/6f8983ae3d9c0caae3e53bd9ee630da1.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/6f8983ae3d9c0caae3e53bd9ee630da1.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Seto2k",
+                "steam64": "76561199099283585",
+                "avatar": "https://avatars.steamstatic.com/6f9a0b3077f1b1af936cf4e003f406348b204741_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1943950",
+        "completed": true,
+        "rating": 4.5,
+        "info": {
+            "id": 5323165,
+            "name": "Escape the Backrooms",
+            "release_date": 1640995200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 88824,
+            "score": 0,
+            "style": "official",
+            "width": 2142,
+            "height": 603,
+            "nsfw": false,
+            "humor": false,
+            "notes": "I am the graphic designer for this game and this is the official logo.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Oldmangames",
+                "steam64": "76561199010646669",
+                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 70673,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ZeeSG",
+                "steam64": "76561199087753210",
+                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
+            }
+        }
+    },
+    {
         "id": "1577120",
         "completed": true,
         "rating": 4.5,
@@ -193,66 +313,6 @@
                 "name": "aetherium.",
                 "steam64": "76561198360411264",
                 "avatar": "https://avatars.steamstatic.com/baeea57bff4c5f337fd3c27827d4bf078152d2e6_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "3228590",
-        "completed": true,
-        "rating": 4.5,
-        "info": {
-            "id": 5465463,
-            "name": "Deadzone Rogue",
-            "release_date": 1735689600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 150574,
-            "score": 0,
-            "style": "white",
-            "width": 1280,
-            "height": 621,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/f2ecd49b201687e941dd3f084ca9f7c5.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/f2ecd49b201687e941dd3f084ca9f7c5.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "r_dsgnd",
-                "steam64": "76561198355292092",
-                "avatar": "https://avatars.steamstatic.com/bccae340dd39a6d73f97368ee0555905373d1986_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 148552,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/6f8983ae3d9c0caae3e53bd9ee630da1.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/6f8983ae3d9c0caae3e53bd9ee630da1.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Seto2k",
-                "steam64": "76561199099283585",
-                "avatar": "https://avatars.steamstatic.com/6f9a0b3077f1b1af936cf4e003f406348b204741_medium.jpg"
             }
         }
     },
@@ -377,6 +437,43 @@
         }
     },
     {
+        "id": "2208570",
+        "completed": true,
+        "rating": 3.5,
+        "info": {
+            "id": 5401947,
+            "name": "Dark Hours",
+            "release_date": 1725148800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 133687,
+            "score": 0,
+            "style": "official",
+            "width": 1903,
+            "height": 289,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/b7b9afd39320e7e74fd84e389dabbc91.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/b7b9afd39320e7e74fd84e389dabbc91.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        }
+    },
+    {
         "id": "594650",
         "completed": true,
         "rating": 3,
@@ -433,163 +530,6 @@
                 "name": "Skizzeh",
                 "steam64": "76561198177570226",
                 "avatar": "https://avatars.steamstatic.com/daee305972779cc6bbd0530eb88993e5b2bccffd_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1304930",
-        "completed": true,
-        "rating": 2,
-        "info": {
-            "id": 5262204,
-            "name": "The Outlast Trials",
-            "release_date": 1609459200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 86158,
-            "score": 0,
-            "style": "official",
-            "width": 1232,
-            "height": 503,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Official Steam 2x logo.",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/5c3ffe926e1bcc81560fd641f705f2c4.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/5c3ffe926e1bcc81560fd641f705f2c4.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Luckspeare",
-                "steam64": "76561198094314206",
-                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 124233,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": "[Image Source](https://i.imgur.com/uVnrD4z.jpeg)",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/84274981a66afd92acb42e3e578d4030.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/84274981a66afd92acb42e3e578d4030.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Akela",
-                "steam64": "76561197981066031",
-                "avatar": "https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "1392860",
-        "completed": true,
-        "rating": 0.5,
-        "info": {
-            "id": 5423718,
-            "name": "Little Nightmares III",
-            "release_date": 1704067200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 110924,
-            "score": 0,
-            "style": "white",
-            "width": 2199,
-            "height": 1206,
-            "nsfw": false,
-            "humor": false,
-            "notes": "Source: [Press Assets](https://en.bandainamcoent.eu/press/8693)",
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/54b10daf199da8dcffe88198c49fad67.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/54b10daf199da8dcffe88198c49fad67.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "TUFKAC",
-                "steam64": "76561198374208390",
-                "avatar": "https://avatars.steamstatic.com/a685366e9aa0f46e36022ff86b0a77db06c19671_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 123559,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/c535b620d6f5f30eb7feedf70cefa2d9.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/c535b620d6f5f30eb7feedf70cefa2d9.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Snakerov",
-                "steam64": "76561198870831326",
-                "avatar": "https://avatars.steamstatic.com/1ef4ad99cb12a11e31129f3e9e333cb2def2ca6d_medium.jpg"
-            }
-        }
-    },
-    {
-        "id": "2208570",
-        "completed": true,
-        "rating": 3.5,
-        "info": {
-            "id": 5401947,
-            "name": "Dark Hours",
-            "release_date": 1725148800,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 133687,
-            "score": 0,
-            "style": "official",
-            "width": 1903,
-            "height": 289,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/b7b9afd39320e7e74fd84e389dabbc91.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/b7b9afd39320e7e74fd84e389dabbc91.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ABH20",
-                "steam64": "76561198058544946",
-                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
             }
         }
     },
@@ -714,62 +654,122 @@
         }
     },
     {
-        "id": "1943950",
+        "id": "1304930",
         "completed": true,
-        "rating": 4.5,
+        "rating": 2,
         "info": {
-            "id": 5323165,
-            "name": "Escape the Backrooms",
-            "release_date": 1640995200,
+            "id": 5262204,
+            "name": "The Outlast Trials",
+            "release_date": 1609459200,
             "types": [
                 "steam"
             ],
             "verified": true
         },
         "logo": {
-            "id": 88824,
+            "id": 86158,
             "score": 0,
             "style": "official",
-            "width": 2142,
-            "height": 603,
+            "width": 1232,
+            "height": 503,
             "nsfw": false,
             "humor": false,
-            "notes": "I am the graphic designer for this game and this is the official logo.",
+            "notes": "Official Steam 2x logo.",
             "mime": "image/png",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "url": "https://cdn2.steamgriddb.com/logo/5c3ffe926e1bcc81560fd641f705f2c4.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/5c3ffe926e1bcc81560fd641f705f2c4.png",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "Oldmangames",
-                "steam64": "76561199010646669",
-                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
+                "name": "Luckspeare",
+                "steam64": "76561198094314206",
+                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
             }
         },
         "hero": {
-            "id": 70673,
+            "id": 124233,
             "score": 0,
             "style": "alternate",
             "width": 3840,
             "height": 1240,
             "nsfw": false,
             "humor": false,
-            "notes": null,
+            "notes": "[Image Source](https://i.imgur.com/uVnrD4z.jpeg)",
             "mime": "image/png",
             "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/a23f4ecc97aae620242779f62f22bed5.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a23f4ecc97aae620242779f62f22bed5.jpg",
+            "url": "https://cdn2.steamgriddb.com/hero/84274981a66afd92acb42e3e578d4030.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/84274981a66afd92acb42e3e578d4030.jpg",
             "lock": false,
             "epilepsy": false,
             "upvotes": 0,
             "downvotes": 0,
             "author": {
-                "name": "ZeeSG",
-                "steam64": "76561199087753210",
-                "avatar": "https://avatars.steamstatic.com/47fa460c60e51c6ab4178fc9b2b3661734699ebe_medium.jpg"
+                "name": "Akela",
+                "steam64": "76561197981066031",
+                "avatar": "https://avatars.steamstatic.com/a519d3e56578de7455f2e52f4828c1e872804dbb_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1392860",
+        "completed": true,
+        "rating": 0.5,
+        "info": {
+            "id": 5423718,
+            "name": "Little Nightmares III",
+            "release_date": 1704067200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 110924,
+            "score": 0,
+            "style": "white",
+            "width": 2199,
+            "height": 1206,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Source: [Press Assets](https://en.bandainamcoent.eu/press/8693)",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/54b10daf199da8dcffe88198c49fad67.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/54b10daf199da8dcffe88198c49fad67.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "TUFKAC",
+                "steam64": "76561198374208390",
+                "avatar": "https://avatars.steamstatic.com/a685366e9aa0f46e36022ff86b0a77db06c19671_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 123559,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/c535b620d6f5f30eb7feedf70cefa2d9.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/c535b620d6f5f30eb7feedf70cefa2d9.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Snakerov",
+                "steam64": "76561198870831326",
+                "avatar": "https://avatars.steamstatic.com/1ef4ad99cb12a11e31129f3e9e333cb2def2ca6d_medium.jpg"
             }
         }
     },
