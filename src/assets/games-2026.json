@@ -523,7 +523,7 @@
             "release_date": 0
         },
         "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314580/d33f88f90ad8997733c7f27813ac102c4067c5b2/ss_d33f88f90ad8997733c7f27813ac102c4067c5b2.1920x1080.jpg?t=1789069776"
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314580/d33f88f90ad8997733c7f27813ac102c4067c5b2/ss_d33f88f90ad8997733c7f27813ac102c4067c5b2.1920x1080.jpg?t=1790966686"
         }
     },
     {
@@ -901,6 +901,242 @@
                 "name": "iiNgm",
                 "steam64": "76561199073106392",
                 "avatar": "https://avatars.steamstatic.com/25192228a0579cd2cbe4e6591c43078d873f8c12_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "2406770",
+        "completed": false,
+        "info": {
+            "id": 5397442,
+            "name": "Bodycam",
+            "release_date": 1717718400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 115013,
+            "score": 0,
+            "style": "official",
+            "width": 1265,
+            "height": 485,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Steam 2x logo\r\n\r\nIf you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/72424d6a9bd473f2f265c35df9751aaa.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/72424d6a9bd473f2f265c35df9751aaa.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "BigHungryChicken",
+                "steam64": "76561198110105678",
+                "avatar": "https://avatars.steamstatic.com/bd6485c9404e30a90ee0f336858a5a75fbf0694d_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 109497,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/b4a31eef2a931ffa97b90ecbd5ef334c.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/b4a31eef2a931ffa97b90ecbd5ef334c.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "9iNE",
+                "steam64": "76561198241236682",
+                "avatar": "https://avatars.steamstatic.com/cc57ff79abb79ff29f7bc7df808c93148522d2f9_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "493520",
+        "completed": false,
+        "info": {
+            "id": 12552,
+            "name": "GTFO",
+            "release_date": 1575921761,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 47669,
+            "score": 0,
+            "style": "official",
+            "width": 4146,
+            "height": 1188,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Official 1.0 logo from press kit. Light/Tagline version.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/3292cdae49eccd5e6f96bad182e43112.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/3292cdae49eccd5e6f96bad182e43112.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Akela",
+                "steam64": "76561197981066031",
+                "avatar": "https://avatars.steamstatic.com/857e89d0d5f8f638db2defe0046947d2e1d1b2e9_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 42198,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/7c40611ab3917aa747d7f7fb249b9620.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/7c40611ab3917aa747d7f7fb249b9620.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "VietCommie",
+                "steam64": "76561198117965742",
+                "avatar": "https://avatars.steamstatic.com/3079c4f48f760a797fe42ade099f321ed1233f65_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "214490",
+        "completed": false,
+        "info": {
+            "id": 2108,
+            "name": "Alien: Isolation",
+            "release_date": 1412607600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 121169,
+            "score": 0,
+            "style": "official",
+            "width": 4512,
+            "height": 713,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/c12eadd7fc1fb5af7f1d3209e0bddda0.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c12eadd7fc1fb5af7f1d3209e0bddda0.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "tyler2448",
+                "steam64": "76561198111739422",
+                "avatar": "https://avatars.steamstatic.com/688fbadc410582fd860c2ef0b96538f0c46bdaca_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 26412,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/26fdf7a66ca64f8a53765bf80d84a4ed.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/26fdf7a66ca64f8a53765bf80d84a4ed.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "BETAFIX",
+                "steam64": "76561198038132921",
+                "avatar": "https://avatars.steamstatic.com/9e9cede3ca6b787273294b0b469b38f4e5360a80_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1295920",
+        "completed": false,
+        "info": {
+            "id": 5259003,
+            "name": "The Mortuary Assistant",
+            "release_date": 1609459200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 95143,
+            "score": 0,
+            "style": "official",
+            "width": 2560,
+            "height": 648,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/32e98ebafd30b41cea4ce914e504a7fd.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/32e98ebafd30b41cea4ce914e504a7fd.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "TheChilledLiquidSoul",
+                "steam64": "76561198303715245",
+                "avatar": "https://avatars.steamstatic.com/2adaeb9e936aa1897351ddb2bd4216f8db6062da_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 90097,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/0ac674786ed726e255e2216b56c61b5a.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/0ac674786ed726e255e2216b56c61b5a.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "TheChilledLiquidSoul",
+                "steam64": "76561198303715245",
+                "avatar": "https://avatars.steamstatic.com/2adaeb9e936aa1897351ddb2bd4216f8db6062da_medium.jpg"
             }
         }
     }
