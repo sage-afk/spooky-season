@@ -185,6 +185,9 @@
     1144200: {
       logo: { url: 'https://cdn2.steamgriddb.com/logo/b4ac75fb0770998bda4910782f116fc5-fakepng.png' },
     },
+    550: {
+      logo: { url: 'https://cdn2.steamgriddb.com/logo/99b3613c6a997dc4195f957f89282e0c.png' },
+    },
   }
 
   const idsByYear: Record<Year, string[]> = {
@@ -254,6 +257,18 @@
       '493520',
       '214490',
       '1295920',
+      '506610',
+      '1643320',
+      '671290',
+      '4108000',
+      '2569760',
+      '1096570',
+      '550',
+      '2909110',
+      '1577120',
+      '2881650',
+      '700330',
+      '859570',
     ],
   }
 
