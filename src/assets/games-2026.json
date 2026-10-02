@@ -1,0 +1,349 @@
+[
+    {
+        "id": "2272250",
+        "completed": false,
+        "info": {
+            "id": 5393496,
+            "name": "Forgive Me Father 2",
+            "release_date": 1697673600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 105764,
+            "score": 0,
+            "style": "official",
+            "width": 2504,
+            "height": 1260,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/6139121fbeb379a29f3152e2197d53fd.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/6139121fbeb379a29f3152e2197d53fd.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ACCESS_DENIIED",
+                "steam64": "76561199068513758",
+                "avatar": "https://avatars.steamstatic.com/8a0eb1caefd6ae44de652aca306fcf23728ae04b_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 100014,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/a3c3a95f3e42519d7ba5284cffcd4e25.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/a3c3a95f3e42519d7ba5284cffcd4e25.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ACCESS_DENIIED",
+                "steam64": "76561199068513758",
+                "avatar": "https://avatars.steamstatic.com/8a0eb1caefd6ae44de652aca306fcf23728ae04b_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "4310610",
+        "completed": false,
+        "info": {
+            "id": 5515087,
+            "name": "The Skin Stapler",
+            "release_date": 1785974400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 176613,
+            "score": 0,
+            "style": "official",
+            "width": 1088,
+            "height": 709,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/5abacacb0165732daedb470226c382f3.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/5abacacb0165732daedb470226c382f3.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Storbfall",
+                "steam64": "76561198027171080",
+                "avatar": "https://avatars.steamstatic.com/2378cddb69ffc646f05c77b9e74cfa0f7565dc37_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 179205,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/6ded26bc15d174de52efc32e41dbfb39.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/6ded26bc15d174de52efc32e41dbfb39.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Storbfall",
+                "steam64": "76561198027171080",
+                "avatar": "https://avatars.steamstatic.com/2378cddb69ffc646f05c77b9e74cfa0f7565dc37_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "4450620",
+        "completed": false,
+        "info": {
+            "id": 5527789,
+            "name": "Grain Rot",
+            "release_date": 1786060800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 176703,
+            "score": 0,
+            "style": "official",
+            "width": 1279,
+            "height": 319,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/1c5036f18f375f26042f6261d18b4f46.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/1c5036f18f375f26042f6261d18b4f46.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "DeusDeceptor",
+                "steam64": "76561198020946812",
+                "avatar": "https://avatars.steamstatic.com/6e7a2dbc0d9ee8565d556b2227835d4e96a58858_medium.jpg"
+            }
+        },
+        "hero": {
+            "url": "https://shared.steamstatic.com/store_item_assets/steam/apps/4450620/6655fbc076713998995bc53007de40c0f02aa224/library_hero_2x.jpg?t=1786114486"
+        }
+    },
+    {
+        "id": "1966720",
+        "completed": false,
+        "info": {
+            "id": 5339777,
+            "name": "Lethal Company",
+            "release_date": 1698019200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 97415,
+            "score": 0,
+            "style": "official",
+            "width": 530,
+            "height": 213,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/cc189ac0d80bf2fd24b182030f707664.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/cc189ac0d80bf2fd24b182030f707664.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Devilman",
+                "steam64": "76561199038677115",
+                "avatar": "https://avatars.steamstatic.com/1b281b23151b1ca21209ae95b33dfa4832a76ea2_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 100391,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": "by Carlos Ruiz \n\nsource: https://twitter.com/Kairuiz_/status/1741917063176761347",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/82e3a96ae559ff4cfc27aaef54856319.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/82e3a96ae559ff4cfc27aaef54856319.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "The Demon Seated",
+                "steam64": "76561198096385391",
+                "avatar": "https://avatars.steamstatic.com/6d52e56cbaf35c2d20ca21b1d51eb2be8cd95df7_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "3834090",
+        "completed": false,
+        "info": {
+            "id": 5495704,
+            "name": "YAPYAP",
+            "release_date": null,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 162243,
+            "score": 0,
+            "style": "white",
+            "width": 1239,
+            "height": 623,
+            "nsfw": false,
+            "humor": false,
+            "notes": "A plain white logo variant I made just for aesthetic reasons",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/8cf963d2808002c6ac609115b09fb6fb.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/8cf963d2808002c6ac609115b09fb6fb.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "MidnightMage279",
+                "steam64": "76561199566685608",
+                "avatar": "https://avatars.steamstatic.com/782b7af1566d75e1fe796217527b606d2b751e6c_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 159072,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/8e75ed5f41bb22ddd7e8a8b92292c577.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/8e75ed5f41bb22ddd7e8a8b92292c577.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "basemelon",
+                "steam64": "76561199580239071",
+                "avatar": "https://avatars.steamstatic.com/772a6fad415dc7e28d2e08edf801e02ed15530b0_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1943950",
+        "completed": false,
+        "info": { "id": 5323165, "name": "Escape the Backrooms", "release_date": 1640995200, "types": ["steam"], "verified": true },
+        "logo": { "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png" },
+        "hero": { "url": "https://cdn2.steamgriddb.com/hero/128d5eb8d8a614e90f1faf4dc5b76e96.png" }
+    },
+    {
+        "id": "1911610",
+        "completed": false,
+        "info": { "id": 5438466, "name": "Windblown", "release_date": 1704067200, "types": ["steam"], "verified": true },
+        "logo": { "url": "https://cdn2.steamgriddb.com/logo/e800b03dc17d219c4b5c8d0f77cba177.png" },
+        "hero": { "url": "https://cdn2.steamgriddb.com/hero/1edff0bf06f209a65f8829b303eac0e2.png" }
+    },
+    {
+        "id": "2121510",
+        "completed": false,
+        "info": { "id": 2121510, "name": "Tenebris Somnia", "types": ["steam"], "verified": false, "release_date": 0 },
+        "logo": { "url": "https://cdn2.steamgriddb.com/logo/d2cc4c081ffeae23283c52e74c486601.png" },
+        "hero": { "url": "https://cdn2.steamgriddb.com/hero/da2ea6c8a6c7743436827721683aea61.png" }
+    },
+    {
+        "id": "3247750",
+        "completed": false,
+        "info": { "id": 5486877, "name": "Mycopunk", "release_date": 1735689600, "types": ["steam"], "verified": true },
+        "logo": { "url": "https://cdn2.steamgriddb.com/logo/1d97d2eb7f417bc14ba9f996bfd1d140.png" },
+        "hero": { "url": "https://cdn2.steamgriddb.com/hero/570b5f2c7778f94355aad3081a5cb9a5.jpg" }
+    },
+    {
+        "id": "3314580",
+        "completed": false,
+        "info": { "id": 3314580, "name": "Trash Day", "types": ["steam"], "verified": false, "release_date": 0 },
+        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314580/d33f88f90ad8997733c7f27813ac102c4067c5b2/ss_d33f88f90ad8997733c7f27813ac102c4067c5b2.1920x1080.jpg?t=1789069776" }
+    },
+    {
+        "id": "3071240",
+        "completed": false,
+        "info": { "id": 5484997, "name": "Voodoo Fishin'", "release_date": 1759276800, "types": ["steam"], "verified": true },
+        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3071240/f9b9167abc721327f9a32be685c449fc05af634b/ss_f9b9167abc721327f9a32be685c449fc05af634b.1920x1080.jpg?t=1790624315" }
+    },
+    {
+        "id": "3978820",
+        "completed": false,
+        "info": { "id": 5505458, "name": "Rules of Engagement: The Grey State", "release_date": null, "types": ["steam"], "verified": true },
+        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3978820/021cd602e6708373746ad677dd0d577651b6897e/ss_021cd602e6708373746ad677dd0d577651b6897e.1920x1080.jpg?t=1785417328" }
+    },
+    {
+        "id": "3948160",
+        "completed": false,
+        "info": { "id": 3948160, "name": "Waste The Fallen", "types": ["steam"], "verified": false, "release_date": 0 },
+        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948160/8f8d4c4e53e74af70d68eae2d6b650784ce8744b/ss_8f8d4c4e53e74af70d68eae2d6b650784ce8744b.1920x1080.jpg?t=1787648574" }
+    },
+    {
+        "id": "2748340",
+        "completed": false,
+        "info": { "id": 5440489, "name": "Goblin Cleanup", "release_date": 1735689600, "types": ["steam"], "verified": true },
+        "logo": { "url": "https://cdn2.steamgriddb.com/logo/e0fec5651d3442179e19243622337e1d.png" },
+        "hero": { "url": "https://cdn2.steamgriddb.com/hero/8ff2da678bc5e8b6b91ed271ca93e096.jpg" }
+    },
+    {
+        "id": "3569420",
+        "completed": false,
+        "info": { "id": 5489687, "name": "Chained Beasts", "release_date": 1735689600, "types": ["steam"], "verified": true },
+        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3569420/27c1b81a3c373420573c6de9a32218689de6b3ff/ss_27c1b81a3c373420573c6de9a32218689de6b3ff.1920x1080.jpg?t=1790671068" }
+    },
+    {
+        "id": "1302240",
+        "completed": false,
+        "info": { "id": 5259669, "name": "Labyrinthine", "release_date": 1577836800, "types": ["steam"], "verified": true },
+        "logo": { "url": "https://cdn2.steamgriddb.com/logo/cbe8ffcb78f6eede50da766c84812032.png" },
+        "hero": { "url": "https://cdn2.steamgriddb.com/hero/8bd7a497d7c2f63f6dd64dbda8a0a781.png" }
+    }
+]

@@ -76,6 +76,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: path => path.replace(/^\/steamgriddb/, ''),
       },
+      '/steamstore': {
+        target: 'https://store.steampowered.com/api',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/steamstore/, ''),
+      },
     },
     port: 3000,
   },

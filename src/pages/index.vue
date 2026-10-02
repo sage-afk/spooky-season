@@ -52,7 +52,7 @@
                 class="darken d-flex justify-center align-center text-center"
                 height="100"
                 :href="!toggle ? steam_url + element?.id : undefined"
-                :image="element?.hero?.url || `https://shared.steamstatic.com/store_item_assets/steam/apps/${element?.id}/library_hero.jpg`"
+                :image="element?.hero?.url || `https://store.akamai.steamstatic.com/images/storepagebackground/app/${element?.id}`"
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               >
@@ -70,7 +70,11 @@
                 class="d-flex justify-center align-center text-center"
                 height="600"
                 :href="!toggle ? steam_url + element?.id : undefined"
-                :image="`https://steamcdn-a.akamaihd.net/steam/apps/${element?.id}/library_600x900_2x.jpg`"
+                :style="{
+                  backgroundImage: `url(https://steamcdn-a.akamaihd.net/steam/apps/${element?.id}/library_600x900_2x.jpg), url(https://store.akamai.steamstatic.com/images/storepagebackground/app/${element?.id})`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover',
+                }"
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
               />
@@ -93,8 +97,15 @@
 
 <script lang="ts" setup>
   import SGDB, { type SGDBGame, type SGDBImage } from 'steamgriddb'
-  import { ref } from 'vue'
-  import savedData from '@/assets/games.json'
+  import { computed, ref, watch } from 'vue'
+  import { useRoute } from 'vue-router'
+  import savedData2025 from '@/assets/games.json'
+  import savedData2026 from '@/assets/games-2026.json'
+
+  type Year = 2025 | 2026
+
+  const route = useRoute()
+  const year = computed<Year>(() => route.query.year === '2025' ? 2025 : 2026)
 
   const isDevMode = process.env.NODE_ENV === 'development'
   const tall = ref(false)
@@ -109,7 +120,8 @@
     baseURL: '/steamgriddb',
   })
 
-  const completed_games: { [key: number]: number } = {
+  const completedGamesByYear: Record<Year, Record<number, number>> = {
+    2025: {
     381_210: 5,
     594_650: 3,
     1_304_930: 2,
@@ -120,6 +132,8 @@
     2_835_570: 4.5,
     3_228_590: 4.5,
     3_241_660: 4,
+    },
+    2026: {},
   }
 
   function getGamesOrder () {
@@ -141,25 +155,34 @@
   function getRatings () {
     const results: { [key: number]: number } = {}
     for (const game of games.value) {
-      if (game.rating) results[Number(game.id)] = game.rating
+      if ('rating' in game && game.rating) results[Number(game.id)] = game.rating
     }
     console.log(results)
   }
 
-  const overrides: {
-    [key: string]: {
-      [logo: string]: string
-    }
-  } = {
+  const overrides: Record<string, { name?: string; logo?: { url: string }; hero?: { url: string } }> = {
     371_970: {
-      url: 'https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png',
+      logo: { url: 'https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png' },
     },
     108_600: {
-      url: 'https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png',
+      logo: { url: 'https://cdn2.steamgriddb.com/logo_thumb/074ab924540667aad42a8ea3beccd19b.png' },
+    },
+    4_450_620: {
+      hero: { url: 'https://shared.steamstatic.com/store_item_assets/steam/apps/4450620/6655fbc076713998995bc53007de40c0f02aa224/library_hero_2x.jpg?t=1786114486' },
+    },
+    3314580: {
+      name: 'Trash Day',
+    },
+    3948160: {
+      name: 'Waste The Fallen',
+    },
+    2121510: {
+      name: 'Tenebris Somnia',
     },
   }
 
-  const ids: Array<string> = [
+  const idsByYear: Record<Year, string[]> = {
+    2025: [
     '3228590',
     '2835570',
     '2444750',
@@ -194,35 +217,77 @@
     '945360',
     '774861',
     '1002300',
-    '408900',
-  ]
+      '408900',
+    ],
+    2026: [
+      '2272250',
+      '4310610',
+      '4450620',
+      '1966720',
+      '3834090',
+      '1943950',
+      '1911610',
+      '2121510',
+      '3247750',
+      '3314580',
+      '3071240',
+      '3978820',
+      '3948160',
+      '2748340',
+      '3569420',
+      '1302240',
+    ],
+  }
 
-  const games = ref(savedData)
+  const savedDataByYear = {
+    2025: savedData2025,
+    2026: savedData2026,
+  }
+  const games = ref(structuredClone(savedDataByYear[year.value]))
+
+  watch(year, (selectedYear) => {
+    games.value = structuredClone(savedDataByYear[selectedYear])
+  })
 
   async function getData () {
     const items = []
-    for (const id of ids) {
-      const game = await client.getGameBySteamAppId(Number(id))
-      const heros = await client.getHeroesBySteamAppId(Number(id))
-      const logos = await client.getLogosBySteamAppId(Number(id))
-      const completed = Object.keys(completed_games).includes(id)
+    for (const id of idsByYear[year.value]) {
+      const gameRequest = overrides[id]?.name
+        ? Promise.resolve(undefined)
+        : client.getGameBySteamAppId(Number(id)).catch(() => undefined)
+      const [gameResult, heros, logos] = await Promise.all([
+        gameRequest,
+        client.getHeroesBySteamAppId(Number(id)).catch(() => []),
+        client.getLogosBySteamAppId(Number(id)).catch(() => []),
+      ])
+      const steamApp = !gameResult || (!overrides[id]?.hero && !heros[0])
+        ? await getSteamStoreApp(id)
+        : undefined
+      const game: SGDBGame = gameResult ?? {
+        id: Number(id),
+        name: overrides[id]?.name ?? steamApp?.name ?? `Steam App ${id}`,
+        types: ['steam'],
+        verified: false,
+        release_date: 0,
+      }
+      const completed = Object.keys(completedGamesByYear[year.value]).includes(id)
+      const logo = overrides[id]?.logo ?? logos[0]
+      const hero = overrides[id]?.hero ?? heros[0] ?? {
+        url: steamApp?.screenshots?.[0]?.path_full
+          ?? `https://store.akamai.steamstatic.com/images/storepagebackground/app/${id}`,
+      }
+      const item = {
+        id,
+        completed,
+        rating: undefined,
+        info: game,
+        logo,
+        hero,
+      }
 
       completed
-        ? items.unshift({
-          id: id,
-          completed: completed,
-          rating: completed_games[Number(id)],
-          info: game,
-          logo: overrides[id] ?? logos[0]! ?? { url: `https://shared.steamstatic.com/store_item_assets/steam/apps/${id}/logo_2x.png` },
-          hero: heros[0]!,
-        })
-        : items.push ({
-          id: id,
-          completed: completed,
-          info: game,
-          logo: overrides[id] ?? logos[0]!,
-          hero: heros[0]!,
-        })
+        ? items.unshift({ ...item, rating: completedGamesByYear[year.value][Number(id)] })
+        : items.push(item)
     }
 
     items.sort((a, b) => {
@@ -235,6 +300,25 @@
     games.value = items
     // return items
   }
+
+  async function getSteamStoreApp (id: string) {
+    try {
+      const response = await fetch(`/steamstore/appdetails?appids=${id}`)
+      if (!response.ok) return undefined
+
+      const result = await response.json()
+      const app = result[id]
+      if (!app?.success) return undefined
+
+      return app.data as {
+        name?: string
+        screenshots?: Array<{ path_full: string }>
+      }
+    } catch {
+      return undefined
+    }
+  }
+
 </script>
 
 <style scoped>
