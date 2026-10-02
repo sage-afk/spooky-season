@@ -905,6 +905,242 @@
         }
     },
     {
+        "id": "2747330",
+        "completed": false,
+        "info": {
+            "id": 5453150,
+            "name": "Species: Unknown",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 158715,
+            "score": 0,
+            "style": "official",
+            "width": 1001,
+            "height": 299,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/f0f2cffb2adcddd5ee4f636fe48baa6a.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/f0f2cffb2adcddd5ee4f636fe48baa6a.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "DeusDeceptor",
+                "steam64": "76561198020946812",
+                "avatar": "https://avatars.steamstatic.com/6e7a2dbc0d9ee8565d556b2227835d4e96a58858_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 171491,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/01f7aba67d433597b42471ca6ec9b398.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/01f7aba67d433597b42471ca6ec9b398.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Qshka",
+                "steam64": "76561198121867754",
+                "avatar": "https://avatars.steamstatic.com/d0a51137b6502b75904c1f5010fcbc86c7b00c0e_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "3932890",
+        "completed": false,
+        "info": {
+            "id": 5248472,
+            "name": "Escape from Tarkov",
+            "release_date": 1470268800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 1662,
+            "score": 0,
+            "style": "official",
+            "width": 1692,
+            "height": 603,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/b2531e7bb29bf22e1daae486fae3417a.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/b2531e7bb29bf22e1daae486fae3417a.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Olympian",
+                "steam64": "76561198035808269",
+                "avatar": "https://avatars.steamstatic.com/efbed738dce11c5f63cfc288b57897c4a15f3f01_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 151490,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "New Hero - 15/11/2025",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/ff091855d00c49c5e4cb66ba3c26b7d3.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/ff091855d00c49c5e4cb66ba3c26b7d3.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "apfelspeier",
+                "steam64": "76561199106571101",
+                "avatar": "https://avatars.steamstatic.com/cc652080d1b0ee82c731f42f2feb67f7fd9ae1c3_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "3008130",
+        "completed": false,
+        "info": {
+            "id": 5462362,
+            "name": "Dying Light: The Beast",
+            "release_date": 1755734400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 120341,
+            "score": 0,
+            "style": "official",
+            "width": 2663,
+            "height": 1000,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Original pre-release logo.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/31a810b7f276682519e8ef59dc27cb52.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/31a810b7f276682519e8ef59dc27cb52.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Viator_",
+                "steam64": "76561199121916473",
+                "avatar": "https://cdn2.steamgriddb.com/profile/avatar_19789.png?1723566231"
+            }
+        },
+        "hero": {
+            "id": 116226,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/8d5e076c8efbe9ce4ff98f3090e09035.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/8d5e076c8efbe9ce4ff98f3090e09035.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "13",
+                "steam64": "76561199134735036",
+                "avatar": "https://avatars.steamstatic.com/0f9c99d1a55c3d2abc9104b21d1d236a0cbf23cd_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1326470",
+        "completed": false,
+        "info": {
+            "id": 5327126,
+            "name": "Sons of the Forest",
+            "release_date": 1664582400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 78393,
+            "score": 0,
+            "style": "official",
+            "width": 920,
+            "height": 715,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/eeda516778aee8b34289e88cae1bc9d1.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/eeda516778aee8b34289e88cae1bc9d1.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "UnduGT",
+                "steam64": "76561198226350904",
+                "avatar": "https://avatars.steamstatic.com/e4353f9b1942d72826ec0bf6d8a9a2628ee7f3d5_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 73351,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/46673d49b30de9f06adfcdd257a7556b.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/46673d49b30de9f06adfcdd257a7556b.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Sleepy Lu",
+                "steam64": "76561198094006778",
+                "avatar": "https://avatars.steamstatic.com/4a5099fa86f569ff5e38a3a5cb86a2717c31d194_medium.jpg"
+            }
+        }
+    },
+    {
         "id": "2406770",
         "completed": false,
         "info": {
