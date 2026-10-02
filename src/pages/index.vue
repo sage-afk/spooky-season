@@ -179,6 +179,9 @@
     2121510: {
       name: 'Tenebris Somnia',
     },
+    3892270: {
+      logo: { url: 'https://cdn2.steamgriddb.com/logo/e6c07d1b091b2f6cb26b9967ce733690.png' },
+    },
   }
 
   const idsByYear: Record<Year, string[]> = {
@@ -236,6 +239,9 @@
       '2748340',
       '3569420',
       '1302240',
+      '3892270',
+      '1929610',
+      '3241660',
     ],
   }
 

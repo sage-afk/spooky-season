@@ -277,73 +277,592 @@
     {
         "id": "1943950",
         "completed": false,
-        "info": { "id": 5323165, "name": "Escape the Backrooms", "release_date": 1640995200, "types": ["steam"], "verified": true },
-        "logo": { "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png" },
-        "hero": { "url": "https://cdn2.steamgriddb.com/hero/128d5eb8d8a614e90f1faf4dc5b76e96.png" }
+        "info": {
+            "id": 5323165,
+            "name": "Escape the Backrooms",
+            "release_date": 1640995200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 88824,
+            "score": 0,
+            "style": "official",
+            "width": 2142,
+            "height": 603,
+            "nsfw": false,
+            "humor": false,
+            "notes": "I am the graphic designer for this game and this is the official logo.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/38a978f88b70aa7322c6f2f7eb59751b.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Oldmangames",
+                "steam64": "76561199010646669",
+                "avatar": "https://avatars.steamstatic.com/caf8ee4363356ffa980e8059bfd4a0a853f8c803_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 67918,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": "If you wish to support me or my work feel free to do so on [PayPal](https://paypal.me/lukesgraphics) or [Ko-Fi](https://ko-fi.com/bighungrychicken) :)",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/128d5eb8d8a614e90f1faf4dc5b76e96.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/128d5eb8d8a614e90f1faf4dc5b76e96.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "BigHungryChicken",
+                "steam64": "76561198110105678",
+                "avatar": "https://avatars.steamstatic.com/bd6485c9404e30a90ee0f336858a5a75fbf0694d_medium.jpg"
+            }
+        }
     },
     {
         "id": "1911610",
         "completed": false,
-        "info": { "id": 5438466, "name": "Windblown", "release_date": 1704067200, "types": ["steam"], "verified": true },
-        "logo": { "url": "https://cdn2.steamgriddb.com/logo/e800b03dc17d219c4b5c8d0f77cba177.png" },
-        "hero": { "url": "https://cdn2.steamgriddb.com/hero/1edff0bf06f209a65f8829b303eac0e2.png" }
+        "info": {
+            "id": 5438466,
+            "name": "Windblown",
+            "release_date": 1704067200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 137022,
+            "score": 0,
+            "style": "official",
+            "width": 4009,
+            "height": 848,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/e800b03dc17d219c4b5c8d0f77cba177.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/e800b03dc17d219c4b5c8d0f77cba177.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 123655,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/1edff0bf06f209a65f8829b303eac0e2.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/1edff0bf06f209a65f8829b303eac0e2.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Trent Anthony Francis",
+                "steam64": "76561198098680293",
+                "avatar": "https://cdn2.steamgriddb.com/profile/avatar_39070.jpg?1733587570"
+            }
+        }
     },
     {
         "id": "2121510",
         "completed": false,
-        "info": { "id": 2121510, "name": "Tenebris Somnia", "types": ["steam"], "verified": false, "release_date": 0 },
-        "logo": { "url": "https://cdn2.steamgriddb.com/logo/d2cc4c081ffeae23283c52e74c486601.png" },
-        "hero": { "url": "https://cdn2.steamgriddb.com/hero/da2ea6c8a6c7743436827721683aea61.png" }
+        "info": {
+            "id": 2121510,
+            "name": "Tenebris Somnia",
+            "types": [
+                "steam"
+            ],
+            "verified": false,
+            "release_date": 0
+        },
+        "logo": {
+            "id": 124582,
+            "score": 0,
+            "style": "official",
+            "width": 1024,
+            "height": 525,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/d2cc4c081ffeae23283c52e74c486601.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/d2cc4c081ffeae23283c52e74c486601.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 119818,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/da2ea6c8a6c7743436827721683aea61.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/da2ea6c8a6c7743436827721683aea61.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        }
     },
     {
         "id": "3247750",
         "completed": false,
-        "info": { "id": 5486877, "name": "Mycopunk", "release_date": 1735689600, "types": ["steam"], "verified": true },
-        "logo": { "url": "https://cdn2.steamgriddb.com/logo/1d97d2eb7f417bc14ba9f996bfd1d140.png" },
-        "hero": { "url": "https://cdn2.steamgriddb.com/hero/570b5f2c7778f94355aad3081a5cb9a5.jpg" }
+        "info": {
+            "id": 5486877,
+            "name": "Mycopunk",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 137945,
+            "score": 0,
+            "style": "official",
+            "width": 3687,
+            "height": 1206,
+            "nsfw": false,
+            "humor": false,
+            "notes": "From the official website",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/1d97d2eb7f417bc14ba9f996bfd1d140.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/1d97d2eb7f417bc14ba9f996bfd1d140.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Yamstreed",
+                "steam64": "76561198841813948",
+                "avatar": "https://avatars.steamstatic.com/92ef18c4fc5f0b27f7107491b28813fe0a227b75_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 173367,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "official hero artwork",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/570b5f2c7778f94355aad3081a5cb9a5.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/570b5f2c7778f94355aad3081a5cb9a5.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "silibop",
+                "steam64": "76561198025237689",
+                "avatar": "https://avatars.steamstatic.com/ae540d37eef3cfcff194166b7325340a698fe0e0_medium.jpg"
+            }
+        }
     },
     {
         "id": "3314580",
         "completed": false,
-        "info": { "id": 3314580, "name": "Trash Day", "types": ["steam"], "verified": false, "release_date": 0 },
-        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314580/d33f88f90ad8997733c7f27813ac102c4067c5b2/ss_d33f88f90ad8997733c7f27813ac102c4067c5b2.1920x1080.jpg?t=1789069776" }
+        "info": {
+            "id": 3314580,
+            "name": "Trash Day",
+            "types": [
+                "steam"
+            ],
+            "verified": false,
+            "release_date": 0
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314580/d33f88f90ad8997733c7f27813ac102c4067c5b2/ss_d33f88f90ad8997733c7f27813ac102c4067c5b2.1920x1080.jpg?t=1789069776"
+        }
     },
     {
         "id": "3071240",
         "completed": false,
-        "info": { "id": 5484997, "name": "Voodoo Fishin'", "release_date": 1759276800, "types": ["steam"], "verified": true },
-        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3071240/f9b9167abc721327f9a32be685c449fc05af634b/ss_f9b9167abc721327f9a32be685c449fc05af634b.1920x1080.jpg?t=1790624315" }
+        "info": {
+            "id": 5484997,
+            "name": "Voodoo Fishin'",
+            "release_date": 1759276800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3071240/f9b9167abc721327f9a32be685c449fc05af634b/ss_f9b9167abc721327f9a32be685c449fc05af634b.1920x1080.jpg?t=1790624315"
+        }
     },
     {
         "id": "3978820",
         "completed": false,
-        "info": { "id": 5505458, "name": "Rules of Engagement: The Grey State", "release_date": null, "types": ["steam"], "verified": true },
-        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3978820/021cd602e6708373746ad677dd0d577651b6897e/ss_021cd602e6708373746ad677dd0d577651b6897e.1920x1080.jpg?t=1785417328" }
+        "info": {
+            "id": 5505458,
+            "name": "Rules of Engagement: The Grey State",
+            "release_date": null,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3978820/021cd602e6708373746ad677dd0d577651b6897e/ss_021cd602e6708373746ad677dd0d577651b6897e.1920x1080.jpg?t=1785417328"
+        }
     },
     {
         "id": "3948160",
         "completed": false,
-        "info": { "id": 3948160, "name": "Waste The Fallen", "types": ["steam"], "verified": false, "release_date": 0 },
-        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948160/8f8d4c4e53e74af70d68eae2d6b650784ce8744b/ss_8f8d4c4e53e74af70d68eae2d6b650784ce8744b.1920x1080.jpg?t=1787648574" }
+        "info": {
+            "id": 3948160,
+            "name": "Waste The Fallen",
+            "types": [
+                "steam"
+            ],
+            "verified": false,
+            "release_date": 0
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948160/8f8d4c4e53e74af70d68eae2d6b650784ce8744b/ss_8f8d4c4e53e74af70d68eae2d6b650784ce8744b.1920x1080.jpg?t=1787648574"
+        }
     },
     {
         "id": "2748340",
         "completed": false,
-        "info": { "id": 5440489, "name": "Goblin Cleanup", "release_date": 1735689600, "types": ["steam"], "verified": true },
-        "logo": { "url": "https://cdn2.steamgriddb.com/logo/e0fec5651d3442179e19243622337e1d.png" },
-        "hero": { "url": "https://cdn2.steamgriddb.com/hero/8ff2da678bc5e8b6b91ed271ca93e096.jpg" }
+        "info": {
+            "id": 5440489,
+            "name": "Goblin Cleanup",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 150966,
+            "score": 0,
+            "style": "white",
+            "width": 1163,
+            "height": 600,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/e0fec5651d3442179e19243622337e1d.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/e0fec5651d3442179e19243622337e1d.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "clam.buttocks",
+                "steam64": "76561198064624230",
+                "avatar": "https://avatars.steamstatic.com/6db435993dad39439ce5f8bed3afec20abf6ffce_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 176335,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/8ff2da678bc5e8b6b91ed271ca93e096.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/8ff2da678bc5e8b6b91ed271ca93e096.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Storbfall",
+                "steam64": "76561198027171080",
+                "avatar": "https://avatars.steamstatic.com/2378cddb69ffc646f05c77b9e74cfa0f7565dc37_medium.jpg"
+            }
+        }
     },
     {
         "id": "3569420",
         "completed": false,
-        "info": { "id": 5489687, "name": "Chained Beasts", "release_date": 1735689600, "types": ["steam"], "verified": true },
-        "hero": { "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3569420/27c1b81a3c373420573c6de9a32218689de6b3ff/ss_27c1b81a3c373420573c6de9a32218689de6b3ff.1920x1080.jpg?t=1790671068" }
+        "info": {
+            "id": 5489687,
+            "name": "Chained Beasts",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3569420/27c1b81a3c373420573c6de9a32218689de6b3ff/ss_27c1b81a3c373420573c6de9a32218689de6b3ff.1920x1080.jpg?t=1790671068"
+        }
     },
     {
         "id": "1302240",
         "completed": false,
-        "info": { "id": 5259669, "name": "Labyrinthine", "release_date": 1577836800, "types": ["steam"], "verified": true },
-        "logo": { "url": "https://cdn2.steamgriddb.com/logo/cbe8ffcb78f6eede50da766c84812032.png" },
-        "hero": { "url": "https://cdn2.steamgriddb.com/hero/8bd7a497d7c2f63f6dd64dbda8a0a781.png" }
+        "info": {
+            "id": 5259669,
+            "name": "Labyrinthine",
+            "release_date": 1577836800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 80394,
+            "score": 0,
+            "style": "official",
+            "width": 455,
+            "height": 141,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/cbe8ffcb78f6eede50da766c84812032.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/cbe8ffcb78f6eede50da766c84812032.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Lunecho",
+                "steam64": "76561198089053518",
+                "avatar": "https://avatars.steamstatic.com/0da8c5cc057738696e903705db54c895a7efb3e4_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 79676,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/8bd7a497d7c2f63f6dd64dbda8a0a781.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/8bd7a497d7c2f63f6dd64dbda8a0a781.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "RabidLime",
+                "steam64": "76561197994046209",
+                "avatar": "https://avatars.steamstatic.com/f2a5ce3ad37e1a26c805d111a873dafa3fcb96c7_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "3892270",
+        "completed": false,
+        "info": {
+            "id": 5498763,
+            "name": "Gamble With Your Friends",
+            "release_date": null,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "url": "https://cdn2.steamgriddb.com/logo/e6c07d1b091b2f6cb26b9967ce733690.png"
+        },
+        "hero": {
+            "id": 168179,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/2f3cf58114103d5c4a8aa1485385843f.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/2f3cf58114103d5c4a8aa1485385843f.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Kuzin",
+                "steam64": "76561198051230031",
+                "avatar": "https://avatars.steamstatic.com/7fcce159337c87db42ee67a2529b91d4358b401f_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "1929610",
+        "completed": false,
+        "info": {
+            "id": 5363656,
+            "name": "Demonologist",
+            "release_date": 1677628800,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 147690,
+            "score": 0,
+            "style": "official",
+            "width": 1295,
+            "height": 222,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/c729068a95e3ad1f94d41be11cb3e836.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/c729068a95e3ad1f94d41be11cb3e836.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Addams",
+                "steam64": "76561198369486824",
+                "avatar": "https://avatars.steamstatic.com/b9c9ba7d80963e6990c84aa1dde8cac47f5c4afe_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 173161,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/f3525a7d03fa26ba97557f505793c83c.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/f3525a7d03fa26ba97557f505793c83c.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Storbfall",
+                "steam64": "76561198027171080",
+                "avatar": "https://avatars.steamstatic.com/2378cddb69ffc646f05c77b9e74cfa0f7565dc37_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "3241660",
+        "completed": false,
+        "info": {
+            "id": 5478421,
+            "name": "R.E.P.O.",
+            "release_date": 1740528000,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 134917,
+            "score": 0,
+            "style": "custom",
+            "width": 2488,
+            "height": 597,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Yet another upscale, but with better detail and redone drop shadows.",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/a3f2ad23852a72af62ecb68eb765b281.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/a3f2ad23852a72af62ecb68eb765b281.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Ozzian",
+                "steam64": "76561198037642355",
+                "avatar": "https://avatars.steamstatic.com/7626a9764092134bfdf9da79243fa669630c4470_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 150488,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/5602dcaba560c4255a34a3dfea93d2cd.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/5602dcaba560c4255a34a3dfea93d2cd.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "iiNgm",
+                "steam64": "76561199073106392",
+                "avatar": "https://avatars.steamstatic.com/25192228a0579cd2cbe4e6591c43078d873f8c12_medium.jpg"
+            }
+        }
     }
 ]
