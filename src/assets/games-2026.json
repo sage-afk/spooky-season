@@ -1495,19 +1495,157 @@
         }
     },
     {
-        "id": "671290",
+        "id": "3059070",
         "completed": false,
         "info": {
-            "id": 19785,
-            "name": "Deadliners",
-            "release_date": 1501572810,
+            "id": 5456545,
+            "name": "Headliners",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 157275,
+            "score": 0,
+            "style": "white",
+            "width": 1853,
+            "height": 373,
+            "nsfw": false,
+            "humor": false,
+            "notes": "removed black drop-shadow thing and whitened [Akela](https://www.steamgriddb.com/logo/132117)'s",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/cef95946e7a019dfb3f55e57be71bf66.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/cef95946e7a019dfb3f55e57be71bf66.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "RabidLime",
+                "steam64": "76561197994046209",
+                "avatar": "https://avatars.steamstatic.com/f2a5ce3ad37e1a26c805d111a873dafa3fcb96c7_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 141387,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/3f71986844e0d69dd7b205cae2cb3fb1.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/3f71986844e0d69dd7b205cae2cb3fb1.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Pouria",
+                "steam64": "76561199042157726",
+                "avatar": "https://avatars.steamstatic.com/f8d7d691ab0c9d649e2f21ad4e699727be638cf3_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "2780980",
+        "completed": false,
+        "info": {
+            "id": 5442778,
+            "name": "LOCKDOWN Protocol",
+            "release_date": 1704067200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 120259,
+            "score": 0,
+            "style": "white",
+            "width": 611,
+            "height": 287,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/ac9d49ac859420120c49a62af37b986d.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/ac9d49ac859420120c49a62af37b986d.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "MarioMUI",
+                "steam64": "76561198351618091",
+                "avatar": "https://avatars.steamstatic.com/2c91e56e7930dd771238a4849aa7d8b022631f58_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 116288,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/6a6c637e879d61ab164011c996bc504c.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/6a6c637e879d61ab164011c996bc504c.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Julot",
+                "steam64": "76561198308412881",
+                "avatar": "https://avatars.steamstatic.com/e336bf00fad9de01b2363d78d2bfbe5053b59475_medium.jpg"
+            }
+        }
+    },
+    {
+        "id": "408900",
+        "completed": false,
+        "info": {
+            "id": 9373,
+            "name": "Unfortunate Spacemen",
+            "release_date": 1462565686,
             "types": [
                 "steam"
             ],
             "verified": true
         },
         "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/671290/ss_1c9c7143054a0d91978a778d7a667d2824a29639.1920x1080.jpg?t=1517515976"
+            "id": 44163,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Previous official Steam 2x hero.",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/15afaeb2c3c4446728e3adfbd35d0801.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/15afaeb2c3c4446728e3adfbd35d0801.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Luckspeare",
+                "steam64": "76561198094314206",
+                "avatar": "https://avatars.steamstatic.com/6c98f552e0cdf315b6bd8b1fb81e2990117d15b1_medium.jpg"
+            }
         }
     },
     {

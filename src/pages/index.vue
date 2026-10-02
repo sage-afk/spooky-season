@@ -160,7 +160,7 @@
     console.log(results)
   }
 
-  const overrides: Record<string, { name?: string; logo?: { url: string }; hero?: { url: string } }> = {
+  const overrides: Record<string, { name?: string; logo?: { url: string }; hero?: { url: string }; hideLogo?: boolean }> = {
     371_970: {
       logo: { url: 'https://cdn2.steamgriddb.com/logo_thumb/8b9845fa0b5ce34fb2de2050a0bb1353.png' },
     },
@@ -187,6 +187,9 @@
     },
     550: {
       logo: { url: 'https://cdn2.steamgriddb.com/logo/99b3613c6a997dc4195f957f89282e0c.png' },
+    },
+    408900: {
+      hideLogo: true,
     },
   }
 
@@ -259,7 +262,9 @@
       '1295920',
       '506610',
       '1643320',
-      '671290',
+      '3059070',
+      '2780980',
+      '408900',
       '4108000',
       '2569760',
       '1096570',
@@ -304,7 +309,7 @@
         release_date: 0,
       }
       const completed = Object.keys(completedGamesByYear[year.value]).includes(id)
-      const logo = overrides[id]?.logo ?? logos[0]
+      const logo = overrides[id]?.hideLogo ? undefined : overrides[id]?.logo ?? logos[0]
       const hero = overrides[id]?.hero ?? heros[0] ?? {
         url: steamApp?.screenshots?.[0]?.path_full
           ?? `https://store.akamai.steamstatic.com/images/storepagebackground/app/${id}`,
