@@ -2295,27 +2295,7 @@
             "verified": true
         },
         "logo": {
-            "id": 23013,
-            "score": 0,
-            "style": "custom",
-            "width": 4544,
-            "height": 1757,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/8549c938065011dc634e597bacb611de.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/8549c938065011dc634e597bacb611de.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Maxine",
-                "steam64": "76561198130550992",
-                "avatar": "https://avatars.steamstatic.com/eab8da0499e6e78cdc9d7b62cd4bdf8c5dc18fed_medium.jpg"
-            }
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/d199bd19ee974e3b1d5d51aabd4de5f4.png"
         },
         "hero": {
             "id": 20731,
@@ -2339,6 +2319,9 @@
                 "steam64": "76561198151580434",
                 "avatar": "https://avatars.steamstatic.com/8f6916be3dcc60a0c3e9391276bce389a138b83a_medium.jpg"
             }
+        },
+        "logoOverride": {
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/d199bd19ee974e3b1d5d51aabd4de5f4.png"
         }
     },
     {
