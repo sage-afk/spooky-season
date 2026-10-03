@@ -2478,7 +2478,10 @@
             "verified": true
         },
         "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1992370/ss_512727c802573cbdedaa3575dbe1ea8d50e92c14.1920x1080.jpg?t=1726135219"
+            "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1992370/ss_25e14199f4991604ad0ad13896d97dcfc9001d05.1920x1080.jpg?t=1726135219"
+        },
+        "heroOverride": {
+            "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1992370/ss_25e14199f4991604ad0ad13896d97dcfc9001d05.1920x1080.jpg?t=1726135219"
         }
     }
 ]
