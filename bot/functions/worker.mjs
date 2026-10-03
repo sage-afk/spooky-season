@@ -301,6 +301,28 @@ export function clearUserRating (game, userId) {
   return true
 }
 
+export function repositionGameByRating (games, appId) {
+  const index = games.findIndex(game => String(game.id) === appId)
+  if (index === -1) {
+    return false
+  }
+
+  const [game] = games.splice(index, 1)
+  let low = 0
+  let high = games.length
+  while (low < high) {
+    const middle = Math.floor((low + high) / 2)
+    const middleRating = games[middle].rating
+    if (game.rating !== undefined && (middleRating === undefined || middleRating < game.rating)) {
+      high = middle
+    } else {
+      low = middle + 1
+    }
+  }
+  games.splice(low, 0, game)
+  return true
+}
+
 function responseSalutation (user, env) {
   if (user?.id && user.id === env.MASTER_USER_ID) {
     return 'Master'
@@ -526,6 +548,7 @@ async function updateGameSetting (appId, env, command, user, value) {
       if (!changed) {
         return { status, title: game.info?.name, userRating: value, average: game.rating }
       }
+      repositionGameByRating(state.games, appId)
       break
     }
     case 'clear-rating': {
@@ -533,6 +556,7 @@ async function updateGameSetting (appId, env, command, user, value) {
         return { status: 'ratingNotSet', title: game.info?.name }
       }
       status = 'ratingCleared'
+      repositionGameByRating(state.games, appId)
       break
     }
     default: {

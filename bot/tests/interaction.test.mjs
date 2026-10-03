@@ -455,12 +455,16 @@ test('records a user rating and reports the new average', async () => {
     if (String(url).startsWith('https://api.github.com/')) {
       return Response.json({
         encoding: 'base64',
-        content: Buffer.from(JSON.stringify([{
-          id: '42',
-          info: { name: 'Test Game' },
-          userRatings: { 'another-user': 3 },
-          rating: 3,
-        }])).toString('base64'),
+        content: Buffer.from(JSON.stringify([
+          { id: '41', info: { name: 'Higher rated game' }, rating: 4 },
+          {
+            id: '42',
+            info: { name: 'Test Game' },
+            userRatings: { 'another-user': 3 },
+            rating: 3,
+          },
+          { id: '43', info: { name: 'Lower rated game' }, rating: 2 },
+        ])).toString('base64'),
         sha: 'old-sha',
       })
     }
@@ -486,11 +490,12 @@ test('records a user rating and reports the new average', async () => {
     await backgroundTask
     const writeRequest = requests.find(({ options }) => options.method === 'PUT')
     const updatedGames = JSON.parse(Buffer.from(JSON.parse(writeRequest.options.body).content, 'base64').toString())
-    assert.deepEqual(updatedGames[0].userRatings, {
+    assert.deepEqual(updatedGames.map(game => game.id), ['41', '42', '43'])
+    assert.deepEqual(updatedGames[1].userRatings, {
       'another-user': 3,
       '187258416102768640': 4.5,
     })
-    assert.equal(updatedGames[0].rating, 3.75)
+    assert.equal(updatedGames[1].rating, 3.75)
     const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
     assert.match(followUp.options.body, /recorded your 4\.5-star rating.*average is now 3\.75 stars/)
   } finally {

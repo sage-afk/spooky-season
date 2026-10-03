@@ -1,5 +1,53 @@
 [
     {
+        "id": "3892270",
+        "completed": false,
+        "info": {
+            "id": 5498763,
+            "name": "Gamble With Your Friends",
+            "release_date": null,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "url": "https://cdn2.steamgriddb.com/logo/e6c07d1b091b2f6cb26b9967ce733690.png"
+        },
+        "hero": {
+            "id": 168179,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/2f3cf58114103d5c4a8aa1485385843f.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/2f3cf58114103d5c4a8aa1485385843f.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Kuzin",
+                "steam64": "76561198051230031",
+                "avatar": "https://avatars.steamstatic.com/7fcce159337c87db42ee67a2529b91d4358b401f_medium.jpg"
+            }
+        },
+        "userRatings": {
+            "187258416102768640": 3.5
+        },
+        "rating": 3.5,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        }
+    },
+    {
         "id": "2272250",
         "completed": false,
         "info": {
@@ -826,54 +874,6 @@
                 "avatar": "https://avatars.steamstatic.com/f67f97702b1ced8f78137710fa56d18e92ed3970_medium.jpg"
             }
         },
-        "addedBy": {
-            "id": "187258416102768640",
-            "name": "Ghost",
-            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
-        }
-    },
-    {
-        "id": "3892270",
-        "completed": false,
-        "info": {
-            "id": 5498763,
-            "name": "Gamble With Your Friends",
-            "release_date": null,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "url": "https://cdn2.steamgriddb.com/logo/e6c07d1b091b2f6cb26b9967ce733690.png"
-        },
-        "hero": {
-            "id": 168179,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/2f3cf58114103d5c4a8aa1485385843f.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/2f3cf58114103d5c4a8aa1485385843f.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Kuzin",
-                "steam64": "76561198051230031",
-                "avatar": "https://avatars.steamstatic.com/7fcce159337c87db42ee67a2529b91d4358b401f_medium.jpg"
-            }
-        },
-        "userRatings": {
-            "187258416102768640": 3.5
-        },
-        "rating": 3.5,
         "addedBy": {
             "id": "187258416102768640",
             "name": "Ghost",

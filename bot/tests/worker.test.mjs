@@ -3,6 +3,7 @@ import test from 'node:test'
 import {
   clearUserRating,
   getGameMetadata,
+  repositionGameByRating,
   removeGame,
   setUserRating,
   upsertGame,
@@ -107,6 +108,23 @@ test('removes average when the last user rating is cleared', () => {
   assert.equal(clearUserRating(game, 'first'), true)
   assert.equal('userRatings' in game, false)
   assert.equal('rating' in game, false)
+})
+
+test('repositions only the updated game in descending average-rating order', () => {
+  const games = [
+    { id: '1', rating: 5 },
+    { id: '2', rating: 4 },
+    { id: '3', rating: 3 },
+    { id: '4' },
+  ]
+
+  games[2].rating = 4.5
+  assert.equal(repositionGameByRating(games, '3'), true)
+  assert.deepEqual(games.map(game => game.id), ['1', '3', '2', '4'])
+
+  delete games[0].rating
+  assert.equal(repositionGameByRating(games, '1'), true)
+  assert.deepEqual(games.map(game => game.id), ['3', '2', '4', '1'])
 })
 
 test('preserves manual image overrides when refreshing metadata', () => {
