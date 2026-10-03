@@ -2115,5 +2115,21 @@
                 "avatar": "https://avatars.steamstatic.com/c5aca0613de11cdaf8e8f985b49d38849a94e1a6_medium.jpg"
             }
         }
+    },
+    {
+        "id": "1757350",
+        "completed": false,
+        "info": {
+            "id": 1757350,
+            "name": "ILL",
+            "release_date": 1798761600,
+            "types": [
+                "steam"
+            ],
+            "verified": false
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1757350/a3c4c3d6ff8818a9449a1f90eff98bb518bd0e74/ss_a3c4c3d6ff8818a9449a1f90eff98bb518bd0e74.1920x1080.jpg?t=1780439134"
+        }
     }
 ]
