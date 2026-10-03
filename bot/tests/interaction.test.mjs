@@ -11,7 +11,7 @@ function signatureFor (body, privateKey, timestamp) {
   return sign(null, Buffer.from(`${timestamp}${body}`), privateKey).toString('hex')
 }
 
-async function runGameCommand (command, options, games) {
+async function runGameCommand (command, options, games, resolved) {
   const { publicKey, privateKey } = generateKeyPairSync('ed25519')
   const publicDer = publicKey.export({ format: 'der', type: 'spki' })
   const publicKeyHex = publicDer.subarray(-32).toString('hex')
@@ -24,7 +24,7 @@ async function runGameCommand (command, options, games) {
     member: {
       user: { id: '187258416102768640', username: 'master-user', avatar: null },
     },
-    data: { name: command, options },
+    data: { name: command, options, ...(resolved && { resolved }) },
   })
   const request = new Request('https://worker.example/', {
     method: 'POST',
@@ -489,6 +489,40 @@ test('sets an image override and clears only the requesting user rating', async 
   assert.deepEqual(cleared.writtenGames[0].userRatings, { 'another-user': 3 })
   assert.equal(cleared.writtenGames[0].rating, 3)
   assert.match(cleared.followUp.options.body, /cleared your rating.*average is now 3\.00 stars/)
+})
+
+test('changes the credited adder using a selected Discord user', async () => {
+  const result = await runGameCommand('set-adder', [
+    { name: 'game', value: '42' },
+    { name: 'user', value: '987654321098765432' },
+  ], [{
+    id: '42',
+    info: { name: 'Test Game' },
+    addedBy: {
+      id: '123456789012345678',
+      name: 'Old Adder',
+      avatarUrl: 'https://example.com/old-avatar.png',
+    },
+  }], {
+    users: {
+      '987654321098765432': {
+        id: '987654321098765432',
+        username: 'new-adder',
+        global_name: 'New Adder',
+        avatar: 'new-avatar-hash',
+      },
+    },
+    members: {
+      '987654321098765432': { nick: 'New Adder Nickname' },
+    },
+  })
+
+  assert.deepEqual(result.writtenGames[0].addedBy, {
+    id: '987654321098765432',
+    name: 'New Adder Nickname',
+    avatarUrl: 'https://cdn.discordapp.com/avatars/987654321098765432/new-avatar-hash.png?size=64',
+  })
+  assert.match(result.followUp.options.body, /updated the added-by credit.*to New Adder Nickname/)
 })
 
 test('rejects a rating that is not in half-star increments without committing', async () => {

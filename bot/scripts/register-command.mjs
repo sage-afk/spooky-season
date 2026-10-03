@@ -67,6 +67,19 @@ const response = await fetch(
         ],
       },
       {
+        name: 'set-adder',
+        description: 'Change who is credited with adding a game.',
+        options: [
+          gameOption(),
+          {
+            name: 'user',
+            description: 'Discord user to credit as the adder',
+            type: 6,
+            required: true,
+          },
+        ],
+      },
+      {
         name: 'clear-hero',
         description: 'Clear the custom hero image for a game.',
         options: [gameOption()],

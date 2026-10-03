@@ -8,6 +8,7 @@ const gameCommands = new Set([
   'remove',
   'set-hero',
   'set-logo',
+  'set-adder',
   'clear-hero',
   'clear-logo',
   'rate',
@@ -189,9 +190,7 @@ export function upsertGame (games, appId, metadata, addedBy) {
   return { games, changed }
 }
 
-function discordUser (interaction) {
-  const member = interaction.member
-  const user = member?.user ?? interaction.user
+function discordUserInfo (user, member) {
   if (!user || typeof user.id !== 'string' || !/^\d{1,20}$/.test(user.id)) {
     return undefined
   }
@@ -210,6 +209,11 @@ function discordUser (interaction) {
     name: name.trim(),
     avatarUrl,
   }
+}
+
+function discordUser (interaction) {
+  const member = interaction.member
+  return discordUserInfo(member?.user ?? interaction.user, member)
 }
 
 export function removeGame (games, appId) {
@@ -306,6 +310,9 @@ function resultMessage (command, appId, result, user, env) {
   if (result.status === 'removed') {
     return `${salutation}, I've handled removing ${title} (${appId}) from the live site without issue.`
   }
+  if (result.status === 'adderSet') {
+    return `${salutation}, I've updated the added-by credit for ${title} (${appId}) to ${commitTitle(result.adderName)}.`
+  }
   if (result.status === 'notFound') {
     return `${salutation}, I couldn't ${result.action ?? command} ${title} (${appId}) because it wasn't on the live site.`
   }
@@ -343,6 +350,7 @@ function failureMessage (command, appId, user, env) {
     'remove': 'removing',
     'set-hero': 'changing the hero image for',
     'set-logo': 'changing the logo for',
+    'set-adder': 'changing the added-by credit for',
     'clear-hero': 'clearing the hero image override for',
     'clear-logo': 'clearing the logo override for',
     'rate': 'rating',
@@ -481,39 +489,56 @@ async function updateGameSetting (appId, env, command, user, value) {
   }
 
   let status
-  let changed
-  if (command === 'rate') {
-    changed = setUserRating(game, user.id, value)
-    status = changed ? 'rated' : 'ratingUnchanged'
-    if (!changed) {
-      return { status, title: game.info?.name, userRating: value, average: game.rating }
-    }
-  } else if (command === 'clear-rating') {
-    changed = clearUserRating(game, user.id)
-    if (!changed) {
-      return { status: 'ratingNotSet', title: game.info?.name }
-    }
-    status = 'ratingCleared'
-  } else {
-    const property = command.endsWith('hero') ? 'hero' : 'logo'
-    const overrideProperty = `${property}Override`
-    if (command.startsWith('set-')) {
-      changed = game[overrideProperty]?.url !== value
-      if (changed) {
-        game[overrideProperty] = { url: value }
-        game[property] = { url: value }
+  switch (command) {
+    case 'set-adder': {
+      if (
+        game.addedBy?.id === value.id
+        && game.addedBy.name === value.name
+        && game.addedBy.avatarUrl === value.avatarUrl
+      ) {
+        return { status: 'unchanged', title: game.info?.name }
       }
-      status = `${property}Set`
-    } else {
-      changed = Boolean(game[overrideProperty])
-      if (changed) {
-        delete game[overrideProperty]
-        delete game[property]
-      }
-      status = `${property}Cleared`
+      game.addedBy = value
+      status = 'adderSet'
+      break
     }
-    if (!changed) {
-      return { status: `${property}NoOverride`, title: game.info?.name }
+    case 'rate': {
+      const changed = setUserRating(game, user.id, value)
+      status = changed ? 'rated' : 'ratingUnchanged'
+      if (!changed) {
+        return { status, title: game.info?.name, userRating: value, average: game.rating }
+      }
+      break
+    }
+    case 'clear-rating': {
+      if (!clearUserRating(game, user.id)) {
+        return { status: 'ratingNotSet', title: game.info?.name }
+      }
+      status = 'ratingCleared'
+      break
+    }
+    default: {
+      const property = command.endsWith('hero') ? 'hero' : 'logo'
+      const overrideProperty = `${property}Override`
+      let changed
+      if (command.startsWith('set-')) {
+        changed = game[overrideProperty]?.url !== value
+        if (changed) {
+          game[overrideProperty] = { url: value }
+          game[property] = { url: value }
+        }
+        status = `${property}Set`
+      } else {
+        changed = Boolean(game[overrideProperty])
+        if (changed) {
+          delete game[overrideProperty]
+          delete game[property]
+        }
+        status = `${property}Cleared`
+      }
+      if (!changed) {
+        return { status: `${property}NoOverride`, title: game.info?.name }
+      }
     }
   }
 
@@ -525,6 +550,7 @@ async function updateGameSetting (appId, env, command, user, value) {
   return {
     status,
     title: game.info?.name,
+    ...(command === 'set-adder' && { adderName: value.name }),
     ...(command === 'rate' && { userRating: value }),
     ...(['rate', 'clear-rating'].includes(command) && { average: game.rating }),
   }
@@ -569,7 +595,9 @@ function newGameAnnouncement (user, title, appId, env) {
 async function processGameCommand (interaction, command, appId, env, user, addedBy) {
   const value = command === 'set-hero' || command === 'set-logo'
     ? interaction.data.options.find(option => option.name === 'image_url')?.value
-    : interaction.data.options.find(option => option.name === 'rating')?.value
+    : (command === 'set-adder'
+        ? addedBy
+        : interaction.data.options.find(option => option.name === 'rating')?.value)
   const processGame = command === 'add'
     ? (id, bindings) => updateGame(id, bindings, addedBy)
     : (command === 'remove'
@@ -663,7 +691,12 @@ function validateCommandInput (command, interaction, env) {
     return { error: 'Choose a rating from 0.5 to 5 in half-star increments.' }
   }
 
-  return { appId, imageUrl, rating }
+  const userId = options.find(option => option.name === 'user')?.value
+  if (command === 'set-adder' && (typeof userId !== 'string' || !/^\d{1,20}$/.test(userId))) {
+    return { error: 'Choose a Discord user for the added-by credit.' }
+  }
+
+  return { appId, imageUrl, rating, userId }
 }
 
 function autocompleteResponse (choices) {
@@ -742,6 +775,15 @@ export async function handleRequest (request, env, ctx) {
   }
   const user = discordUser(interaction)
   const addedBy = command === 'add' ? user : undefined
+  const selectedUser = command === 'set-adder'
+    ? discordUserInfo(
+        interaction.data.resolved?.users?.[input.userId],
+        interaction.data.resolved?.members?.[input.userId],
+      )
+    : undefined
+  if (command === 'set-adder' && !selectedUser) {
+    return discordPrivateResponse('Could not identify the selected Discord user. Please select them from the user picker.')
+  }
   if (['add', 'rate', 'clear-rating'].includes(command) && !user) {
     return discordPrivateResponse('Could not identify the Discord user who ran this command.')
   }
@@ -749,7 +791,14 @@ export async function handleRequest (request, env, ctx) {
     return jsonResponse(400, { error: 'Discord interaction is missing follow-up details.' })
   }
 
-  ctx.waitUntil(processGameCommand(interaction, command, input.appId, env, user, addedBy))
+  ctx.waitUntil(processGameCommand(
+    interaction,
+    command,
+    input.appId,
+    env,
+    user,
+    command === 'set-adder' ? selectedUser : addedBy,
+  ))
   return jsonResponse(200, { type: 5, data: { flags: 64 } })
 }
 

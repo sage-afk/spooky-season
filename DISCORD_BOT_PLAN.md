@@ -4,7 +4,7 @@ This setup lets people add, refresh, remove, set/clear image overrides, and rate
 
 ## Flow
 
-1. A Discord user runs `/add`, `/remove`, `/set-hero`, `/set-logo`, `/clear-hero`, `/clear-logo`, `/rate`, or `/clear-rating`. Every command except `/add` autocompletes game titles from the current 2026 list.
+1. A Discord user runs `/add`, `/remove`, `/set-hero`, `/set-logo`, `/set-adder`, `/clear-hero`, `/clear-logo`, `/rate`, or `/clear-rating`. Every command except `/add` autocompletes game titles from the current 2026 list.
 2. Discord sends the signed interaction to the Worker.
 3. The Worker verifies the Ed25519 signature and checks the configured channel.
 4. For autocomplete, the Worker immediately returns matching game titles. For a selected command, it defers the private Discord response, looks up game info, heroes, and logos on SteamGridDB where needed, and uses Steam Store data as fallback.
@@ -13,11 +13,13 @@ This setup lets people add, refresh, remove, set/clear image overrides, and rate
 
 The Worker writes only `src/assets/games-2026.json`. It uses the SteamGridDB game record and first returned logo and hero, matching the website's **Get Game Data** behavior. If SteamGridDB has no game record, Steam's name and release date are used; if it has no hero, a Steam screenshot or store background is used. Existing entries retain user-managed `completed` and `rating` fields; a missing SteamGridDB logo does not erase an existing logo. New entries have `completed: false` and record the Discord user who first added them. That attribution (display name and avatar URL) is stored in the public game-data JSON; refreshing an entry does not replace the original attribution. `/add` keeps a numeric string `game_id`; the other commands show game titles using autocomplete and pass the selected Steam ID to the Worker.
 
-For `/remove`, `/set-hero`, `/set-logo`, `/clear-hero`, `/clear-logo`, `/rate`, and `/clear-rating`, type part of a title into the required `game` option and select a suggestion. Suggestions match title text, are limited to 25 results per Discord request, and use the game ID internally. The list is read from GitHub and briefly cached at Cloudflare's edge, so very recent list changes may take up to 15 seconds to appear in autocomplete. `/add` remains ID-based because the game being added is not necessarily in the existing list.
+For `/remove`, `/set-hero`, `/set-logo`, `/set-adder`, `/clear-hero`, `/clear-logo`, `/rate`, and `/clear-rating`, type part of a title into the required `game` option and select a suggestion. Suggestions match title text, are limited to 25 results per Discord request, and use the game ID internally. The list is read from GitHub and briefly cached at Cloudflare's edge, so very recent list changes may take up to 15 seconds to appear in autocomplete. `/add` remains ID-based because the game being added is not necessarily in the existing list.
 
 `/remove` deletes the matching game ID from the 2026 list without making Steam or SteamGridDB requests. If the ID is not present, the command reports that and does not create a commit. This command removes the list entry, including its saved completion/rating/artwork and attribution fields; it cannot be undone by the bot.
 
 `/set-hero` and `/set-logo` take an autocomplete-selected game and an HTTPS image URL. They store a persistent manual override that subsequent `/add` refreshes preserve. `/clear-hero` and `/clear-logo` remove the corresponding override and clear the current image so the site's normal fallback is used.
+
+`/set-adder` takes an autocomplete-selected game and a Discord user. It uses Discord's native user picker to select a server member, then updates the saved added-by name, user ID, and avatar for that game. The user picker searches server members; Discord does not expose a separate member list scoped to a text channel.
 
 `/rate` accepts 0.5 through 5 in half-star increments. Each Discord user has one rating per game; rating again replaces that user's previous rating. The visible `rating` is the arithmetic mean of current user ratings. `/clear-rating` removes only the invoking user's rating and recalculates the average; if no ratings remain, the `rating` and `userRatings` fields are removed. Older aggregate-only `rating` values cannot be attributed to a user and are replaced when the first Discord vote is recorded.
 
