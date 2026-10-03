@@ -1797,45 +1797,6 @@
         }
     },
     {
-        "id": "550",
-        "completed": false,
-        "info": {
-            "id": 14988,
-            "name": "Left 4 Dead 2",
-            "release_date": 1258329600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "url": "https://cdn2.steamgriddb.com/logo/99b3613c6a997dc4195f957f89282e0c.png"
-        },
-        "hero": {
-            "id": 20731,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/e06015c0688508d35fc02b0434cb7ce9.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/e06015c0688508d35fc02b0434cb7ce9.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Greez",
-                "steam64": "76561198151580434",
-                "avatar": "https://avatars.steamstatic.com/8f6916be3dcc60a0c3e9391276bce389a138b83a_medium.jpg"
-            }
-        }
-    },
-    {
         "id": "2909110",
         "completed": false,
         "info": {
