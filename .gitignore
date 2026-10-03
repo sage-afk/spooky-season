@@ -3,8 +3,12 @@ node_modules
 /dist
 
 # local env files
+.env
 .env.local
 .env.*.local
+.dev.vars
+.wrangler
+.aws-sam
 
 # Log files
 npm-debug.log*

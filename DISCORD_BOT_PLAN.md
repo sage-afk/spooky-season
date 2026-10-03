@@ -1,402 +1,82 @@
-# Discord Bot Plan for Spooky Season Game Additions
+# Discord `/add` on Cloudflare Workers
 
-This document outlines the simplest free-tier setup for a Discord bot that lets users type a command such as `!add 1144200` to suggest a game for the 2026 list. It will hook into the existing GitHub repo and update the game JSON data so the site can rebuild and deploy.
+This setup lets people add, refresh, or remove a Steam game using `/add game_id:1144200` and `/remove game_id:1144200` in one configured Discord channel. A Cloudflare Worker verifies Discord's signed interaction and updates only `src/assets/games-2026.json` through GitHub's Contents API. Commits to `main` start the existing GitHub Pages workflow.
 
-## Goals
+## Flow
 
-- Keep the site running as a static GitHub Pages app
-- Allow Discord users to suggest game IDs from chat
-- Avoid running anything locally 24/7
-- Stay on the lowest-cost / free-friendly setup
-- Keep the flow safe and reviewable
+1. A Discord user runs `/add game_id:<Steam app ID>` or `/remove game_id:<Steam app ID>`.
+2. Discord sends the signed interaction to the Worker.
+3. The Worker verifies the Ed25519 signature and checks the configured channel.
+4. The Worker defers the private Discord response, looks up game info, heroes, and logos on SteamGridDB, and uses Steam Store data as fallback where needed.
+5. For `/add`, the Worker reads the current JSON from GitHub and updates or appends the entry. For `/remove`, it removes the matching ID if present. The Worker commits the JSON change directly to the configured branch.
+6. The Worker posts a private result to Discord. A commit to `main` triggers the existing Pages deployment workflow.
 
-## Recommended architecture
+The Worker writes only `src/assets/games-2026.json`. It uses the SteamGridDB game record and first returned logo and hero, matching the website's **Get Game Data** behavior. If SteamGridDB has no game record, Steam's name and release date are used; if it has no hero, a Steam screenshot or store background is used. Existing entries retain user-managed `completed` and `rating` fields; a missing SteamGridDB logo does not erase an existing logo. New entries have `completed: false` and record the Discord user who first added them. That attribution (display name and avatar URL) is stored in the public game-data JSON; refreshing an entry does not replace the original attribution. Discord's `game_id` option is a string so large numeric IDs are not rounded.
 
-### High-level flow
+`/remove` deletes the matching game ID from the 2026 list without making Steam or SteamGridDB requests. If the ID is not present, the command reports that and does not create a commit. This command removes the list entry, including its saved completion/rating/artwork and attribution fields; it cannot be undone by the bot.
 
-1. Someone in Discord types `!add 1144200`
-2. A hosted Discord bot receives the message
-3. The bot validates that the ID looks valid and fetches Steam metadata
-4. The bot updates the source data file in the repo, likely `src/assets/games-2026.json`
-5. The bot creates a branch and opens a pull request to the repo
-6. A GitHub Action builds/deploys the site after merge
+## Requirements and permissions
 
-This is the safest and easiest approach for a free-tier implementation.
+- A Cloudflare account with Workers enabled; check current plan limits and pricing before deployment.
+- A GitHub fine-grained personal access token restricted to this repository with **Contents: read and write** permission. Do not use `GITHUB_TOKEN` from a GitHub Actions run: commits made with that token do not trigger another Actions workflow.
+- A Discord application with an `/add` command and an interactions endpoint.
+- Direct pushes to the selected branch must be allowed. A ruleset requiring pull requests will reject the commit.
 
----
+The GitHub token is stored as a Cloudflare Worker secret and never goes into source control. The Worker uses GitHub's REST API; it does not need an SSH deploy key, AWS, or a running Discord Gateway bot.
 
-## Why this architecture
+## Configure and deploy
 
-A direct “bot writes to main and deploys immediately” flow is tempting, but it is riskier and less reviewable. A small PR-based workflow is easier to protect and much easier to trust.
+1. Install the Worker tooling and run the local tests:
 
-For a static site like this one, you do not need a full backend. The bot is just a thin automation layer on top of the repo.
+   ```sh
+   npm install --prefix bot/functions
+   npm --prefix bot/functions test
+   ```
 
----
+2. Edit `bot/wrangler.toml` and set `ALLOWED_CHANNEL_ID` to the Discord channel where `/add` is permitted. Check the repository owner, repository name, and branch values there too.
+3. Log in to Cloudflare from the repository root:
 
-## Best free-friendly hosting choice
+   ```sh
+   cd bot/functions
+   npx wrangler login --device --config ../wrangler.toml
+   ```
 
-### Option 1: Render free tier
-Recommended first choice.
+   Device authorization is intended for remote environments: Wrangler prints a URL and code to open in your local browser, so it does not need a localhost callback to reach the web IDE.
 
-Pros:
-- easy deployment
-- simple Node app setup
-- easy env vars
-- easy deployment from GitHub
+4. Store the Discord application's public key, a fine-grained GitHub token, and a SteamGridDB API key as Worker secrets:
 
-Cons:
-- free tier may not always be ideal for always-on bot uptime
-- may sleep depending on plan details
+   ```sh
+   npx wrangler secret put DISCORD_PUBLIC_KEY --config ../wrangler.toml
+   npx wrangler secret put GITHUB_TOKEN --config ../wrangler.toml
+   npx wrangler secret put STEAMGRIDDB_API_KEY --config ../wrangler.toml
+   ```
 
-### Option 2: Railway free tier
-Also good.
+   The Discord public key is available in the Developer Portal. The GitHub token needs read/write Contents permission for `sage-afk/spooky-season` only. Use a SteamGridDB API key for the final prompt and keep it out of source files. The website's existing development helper has a SteamGridDB key in client-side code, so generate a fresh key for the Worker rather than reusing that exposed key.
 
-Pros:
-- simple setup
-- good UX for Node apps
-- easy environment management
+5. Deploy the Worker and copy the resulting `workers.dev` URL:
 
-Cons:
-- still not guaranteed for always-online chat bot usage
+   ```sh
+   npx wrangler deploy --config ../wrangler.toml
+   ```
 
-### Option 3: GitHub Actions + polling
-This is the absolute cheapest approach, but not as responsive.
+6. In the Discord Developer Portal, set that URL as the application's **Interactions Endpoint URL**. Discord sends a signed PING to validate it; the Worker responds with PONG.
+7. Register `/add` in a test server:
 
-This would not be a live Discord bot in the normal sense. It would be more like:
-- Discord requests get collected elsewhere
-- a workflow periodically checks for pending suggestions
-- then it updates the repo and deploys
+   ```sh
+   cd ../..
+   export DISCORD_APPLICATION_ID='your-application-id'
+   export DISCORD_TEST_GUILD_ID='your-test-server-id'
+   read -rsp 'Discord bot token: ' DISCORD_BOT_TOKEN
+   export DISCORD_BOT_TOKEN
+   printf '\n'
+   node bot/scripts/register-command.mjs
+   unset DISCORD_BOT_TOKEN
+   ```
 
-This is less “real-time” and more manual, but very cheap.
+8. Run `/add game_id:1144200` or `/remove game_id:1144200` in the configured channel. Confirm the private Discord response, the commit on the selected branch, and the GitHub Pages Actions run.
 
-For the simple MVP, use Render or Railway.
+## Runtime and failure handling
 
----
+The Worker sends Discord's deferred response before making upstream requests. It uses `waitUntil` to perform SteamGridDB and Steam lookups, GitHub read/write, and the Discord follow-up after that response. If SteamGridDB is unavailable, it logs the lookup failure and falls back to Steam data where possible. If the GitHub commit fails, the user receives a private failure response and the Worker logs a diagnostic without logging interaction tokens or credentials. If Discord cannot receive the follow-up after a successful commit, the Worker logs that separately and does not claim the commit failed.
 
-## Bot responsibilities
-
-The bot should do only a few things:
-
-- listen for messages starting with `!add`
-- validate the command syntax
-- ensure the app ID is numeric
-- fetch metadata from Steam or an app API
-- check whether the game is already in the list
-- append or update the entry in `src/assets/games-2026.json`
-- create a branch and commit
-- open a PR to GitHub
-
-The bot should not do arbitrary file writes outside the expected data file.
-
----
-
-## Repo changes needed
-
-The site already stores the yearly game data in JSON files, especially:
-
-- `src/assets/games-2026.json`
-- `src/assets/games.json`
-
-The bot should write to the correct JSON file for the active year, likely `games-2026.json` for the current list.
-
-The app itself already reads the saved data and hydrates the list from `savedDataByYear[year.value]`, so the main requirement is to keep the JSON structure consistent.
-
-### Required JSON shape
-
-Each entry in the array should look like this:
-
-```json
-{
-  "id": "1144200",
-  "completed": false,
-  "info": {
-    "id": 5255524,
-    "name": "Ready or Not",
-    "release_date": 1639784846,
-    "types": ["steam"],
-    "verified": true
-  },
-  "logo": {
-    "url": "https://cdn2.steamgriddb.com/logo/...png"
-  },
-  "hero": {
-    "id": 134602,
-    "url": "https://cdn2.steamgriddb.com/hero/...png"
-  }
-}
-```
-
-Important:
-- `id` is a string
-- `completed` should be `false` by default
-- `info.name` should be the actual game title
-- if you want to keep the structure light, you can omit `logo` and `hero` if the app can fetch them later
-
----
-
-## Minimal bot flow
-
-### Command syntax
-
-```bash
-!add 1144200
-```
-
-### Bot behavior
-
-1. Parse the argument
-2. Confirm it matches a Steam app ID pattern
-3. Query Steam or a Steam API endpoint for a game name
-4. Verify it isn’t already present in the JSON array
-5. Insert the new item in the correct place or at the end
-6. Save the file
-7. Commit to a branch
-8. Open a PR
-
-The bot should respond with something like:
-
-```text
-Added Ready or Not (1144200) to the 2026 list.
-PR created: #123
-```
-
----
-
-## Discord setup
-
-### Create the bot
-
-1. Go to the Discord Developer Portal
-2. Create a new application
-3. Add a bot to the application
-4. Copy the bot token
-5. Invite the bot to your Discord server using the OAuth2 URL generator
-6. Give it permissions such as:
-   - Send Messages
-   - Read Message History
-   - View Channel
-
-For a simple MVP, only a few permissions are needed.
-
-### Store secrets safely
-
-Store the following in environment variables on the host:
-
-- `DISCORD_TOKEN`
-- `GITHUB_TOKEN`
-- `GITHUB_REPO_OWNER`
-- `GITHUB_REPO_NAME`
-- optionally `STEAM_WEB_API_KEY` if using Steam APIs
-
-Do not hardcode secrets in the bot source code.
-
----
-
-## GitHub setup
-
-### Create a GitHub token
-
-Use a GitHub personal access token or a GitHub App token with permission to:
-
-- read repository contents
-- write repository contents
-- open pull requests
-
-If you want a safer bot flow, use a dedicated GitHub App or a token with restricted permissions.
-
-### Repo configuration
-
-The bot should target the repo that hosts this site, likely the current repo in GitHub.
-
-The repo should allow:
-- GitHub Actions to run
-- PRs to be opened from the bot account or token owner
-
----
-
-## Deployment / site update flow
-
-The site is static and likely built with Vite. GitHub Pages can deploy automatically from GitHub Actions.
-
-### What happens after a PR is merged
-
-1. GitHub Action runs
-2. `npm install` runs
-3. `npm run build` runs
-4. output is published to GitHub Pages
-
-This means the site updates automatically when the repo data is changed.
-
-No custom backend is required for the final website.
-
----
-
-## Simple Node bot example
-
-This is the bare-minimum structure:
-
-```bash
-bot/
-  package.json
-  .env.example
-  index.js
-```
-
-Example package dependencies:
-
-```json
-{
-  "dependencies": {
-    "discord.js": "^14.x",
-    "node-fetch": "^3.x"
-  }
-}
-```
-
-Example command handler:
-
-```js
-import { Client, GatewayIntentBits } from 'discord.js'
-import fetch from 'node-fetch'
-
-const client = new Client({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
-})
-
-client.on('messageCreate', async (message) => {
-  if (message.author.bot) return
-
-  if (!message.content.startsWith('!add')) return
-
-  const args = message.content.trim().split(/\s+/)
-  const appId = args[1]
-
-  if (!/^\d+$/.test(String(appId || ''))) {
-    message.reply('Usage: `!add 1144200`')
-    return
-  }
-
-  try {
-    const steamInfo = await fetchSteamInfo(appId)
-    const result = await createGamePr(appId, steamInfo.name)
-    message.reply(`Submitted ${steamInfo.name} (${appId})\n${result}`)
-  } catch (error) {
-    message.reply(`Failed to add game: ${error.message}`)
-  }
-})
-
-client.login(process.env.DISCORD_TOKEN)
-```
-
-This is intentionally basic and meant to be easy to maintain.
-
----
-
-## Site-side data update helper
-
-You may want to add a small script in the project to keep the JSON manipulation logic consistent.
-
-For example:
-
-- `scripts/add-game.mjs`
-
-This script would:
-
-- read `src/assets/games-2026.json`
-- check for duplicate IDs
-- append a new object if missing
-- write the JSON back in a clean format
-
-This keeps the bot logic and site logic separated cleanly.
-
-Example concept:
-
-```js
-import fs from 'node:fs'
-
-const filePath = 'src/assets/games-2026.json'
-const data = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-
-const exists = data.some((game) => String(game.id) === String(appId))
-if (exists) throw new Error('Game already exists')
-
-data.push({
-  id: String(appId),
-  completed: false,
-  info: {
-    id: Number(appId),
-    name: gameName,
-    types: ['steam'],
-    verified: true,
-  },
-})
-
-fs.writeFileSync(filePath, `${JSON.stringify(data, null, 4)}\n`)
-```
-
-This script can be called by the bot or by a GitHub Actions workflow.
-
----
-
-## Recommended bot safety rules
-
-The bot should reject or ignore:
-
-- non-numeric IDs
-- duplicate IDs
-- unsupported commands
-- non-Steam or invalid app IDs
-- suspicious messages with huge payloads
-
-Also, keep the command limited to a specific Discord channel or role if needed.
-
----
-
-## Recommended rollout plan
-
-### Phase 1: proof of concept
-- bot listens on one Discord server
-- `!add 1144200` adds a game to the JSON file
-- bot opens PR to the repo
-- no direct deployment from the bot
-
-### Phase 2: validation
-- check duplicates
-- check app ID validity
-- ensure the info object is clean
-- provide a confirmation message
-
-### Phase 3: polish
-- allow `!add` only in a specific channel
-- add admin-only commands
-- show preview text before PR creation
-- optional `!list` or `!help`
-
----
-
-## Final recommendation
-
-For your project, the simplest workable free setup is:
-
-- Render or Railway for the bot
-- Discord bot token + GitHub token in env vars
-- one command: `!add {game_id}`
-- bot appends a game entry to `src/assets/games-2026.json`
-- bot creates a PR to the repo
-- GitHub Pages redeploys after merge
-
-This is simple, safe, free-friendly, and matches your project well.
-
----
-
-## Next steps
-
-1. Create the Discord application and bot
-2. Deploy a tiny Node bot on Render or Railway
-3. Add the GitHub token and Discord token
-4. Implement `!add {game_id}`
-5. Confirm the bot can update the JSON file in a PR branch
-6. Merge once verified
-7. Let the site rebuild and deploy
-
-This is the easiest practical path for an always-on Discord integration without hosting it on your own machine.
+The GitHub Contents API uses the current file SHA for optimistic concurrency. If another update changes the file at the same time, GitHub rejects the stale write instead of overwriting that concurrent change; rerun `/add` after the conflict. Worker background execution is subject to Cloudflare's current runtime limits.

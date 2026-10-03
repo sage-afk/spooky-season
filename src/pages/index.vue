@@ -37,16 +37,18 @@
                   size="x-small"
                 />
               </v-hover>
-              <v-hover v-slot="{ isHovering, props }">
-                <v-icon
-                  v-bind="props"
-                  class="ma-2 rounded-circle bg-black position-absolute z-1 top-0 right-0"
-                  :class="element.completed || isHovering ? 'opacity-100' : 'opacity-20'"
-                  color="green"
-                  icon="mdi-check-circle-outline"
-                  @click="element.completed = !element.completed"
-                />
-              </v-hover>
+              <v-tooltip v-if="element.addedBy" :text="`Added by ${element.addedBy.name}`">
+                <template #activator="{ props }">
+                  <v-avatar
+                    v-bind="props"
+                    :aria-label="`Added by ${element.addedBy.name}`"
+                    class="ma-2 position-absolute z-1 top-0 right-0"
+                    size="28"
+                  >
+                    <v-img :src="element.addedBy.avatarUrl" />
+                  </v-avatar>
+                </template>
+              </v-tooltip>
               <v-card
                 v-if="!tall"
                 class="darken d-flex justify-center align-center text-center"
@@ -86,10 +88,20 @@
         <v-switch v-model="tall" label="tall?" />
         <v-switch v-model="threedee" label="3D?" />
         <v-switch v-if="isDevMode" v-model="toggle" label="toggle?" />
-        <v-btn v-if="isDevMode" text="Get Data" @click="getData" />
+        <v-text-field
+          v-if="isDevMode"
+          v-model="gameId"
+          density="compact"
+          hide-details
+          label="Steam app ID"
+        />
+        <v-btn v-if="isDevMode" :disabled="!gameId.trim()" text="Get Game Data" @click="getData(gameId.trim())" />
         <v-btn v-if="isDevMode" text="Get Ratings" @click="getRatings" />
         <v-btn v-if="isDevMode" text="Get Completed" @click="getCompletedGames" />
         <v-btn v-if="isDevMode" text="Get Order" @click="getGamesOrder" />
+      </v-row>
+      <v-row v-if="isDevMode && getDataError" class="justify-center">
+        <v-alert type="error">{{ getDataError }}</v-alert>
       </v-row>
     </v-container>
   </v-sheet>
@@ -103,6 +115,19 @@
   import savedData2026 from '@/assets/games-2026.json'
 
   type Year = 2025 | 2026
+  type GameEntry = {
+    id: string
+    completed: boolean
+    rating?: number
+    addedBy?: {
+      id: string
+      name: string
+      avatarUrl: string
+    }
+    info: SGDBGame
+    logo?: SGDBImage | { url: string }
+    hero?: SGDBImage | { url: string }
+  }
 
   const route = useRoute()
   const year = computed<Year>(() => route.query.year === '2025' ? 2025 : 2026)
@@ -112,6 +137,8 @@
   const threedee = ref(false)
   const drag = ref(false)
   const toggle = ref(false)
+  const gameId = ref('')
+  const getDataError = ref('')
 
   const steam_url = 'https://store.steampowered.com/app/'
 
@@ -193,150 +220,61 @@
     },
   }
 
-  const idsByYear: Record<Year, string[]> = {
-    2025: [
-    '3228590',
-    '2835570',
-    '2444750',
-    '1962663',
-    '381210',
-    '1392860',
-    '1577120',
-    '3241660',
-    '1304930',
-    '594650',
-    '2208570',
-    '2881650',
-    '1929610',
-    '1361000',
-    '1274570',
-    '2947440',
-    '1966720',
-    '594330',
-    '3008130',
-    '493520',
-    '872670',
-    '214490',
-    '1179080',
-    '1943950',
-    '2475490',
-    '1904480',
-    '1096570',
-    '2016590',
-    '371970',
-    '108600',
-    '221100',
-    '945360',
-    '774861',
-    '1002300',
-      '408900',
-    ],
-    2026: [
-      '2272250',
-      '4310610',
-      '4450620',
-      '1966720',
-      '3834090',
-      '1943950',
-      '1911610',
-      '2121510',
-      '3247750',
-      '3314580',
-      '3071240',
-      '3978820',
-      '3948160',
-      '2748340',
-      '3569420',
-      '1302240',
-      '1144200',
-      '3892270',
-      '1929610',
-      '3241660',
-      '2747330',
-      '3932890',
-      '3008130',
-      '1326470',
-      '2406770',
-      '493520',
-      '214490',
-      '1295920',
-      '506610',
-      '1643320',
-      '3059070',
-      '2780980',
-      '408900',
-      '4108000',
-      '2569760',
-      '1096570',
-      '550',
-      '2909110',
-      '1577120',
-      '2881650',
-      '700330',
-      '859570',
-    ],
-  }
-
   const savedDataByYear = {
     2025: savedData2025,
     2026: savedData2026,
   }
-  const games = ref(structuredClone(savedDataByYear[year.value]))
+  const games = ref<GameEntry[]>(structuredClone(savedDataByYear[year.value]) as GameEntry[])
 
   watch(year, (selectedYear) => {
-    games.value = structuredClone(savedDataByYear[selectedYear])
+    games.value = structuredClone(savedDataByYear[selectedYear]) as GameEntry[]
   })
 
-  async function getData () {
-    const items = []
-    for (const id of idsByYear[year.value]) {
-      const gameRequest = overrides[id]?.name
-        ? Promise.resolve(undefined)
-        : client.getGameBySteamAppId(Number(id)).catch(() => undefined)
-      const [gameResult, heros, logos] = await Promise.all([
-        gameRequest,
-        client.getHeroesBySteamAppId(Number(id)).catch(() => []),
-        client.getLogosBySteamAppId(Number(id)).catch(() => []),
-      ])
-      const steamApp = !gameResult || (!overrides[id]?.hero && !heros[0])
-        ? await getSteamStoreApp(id)
-        : undefined
-      const game: SGDBGame = gameResult ?? {
-        id: Number(id),
-        name: overrides[id]?.name ?? steamApp?.name ?? `Steam App ${id}`,
-        types: ['steam'],
-        verified: false,
-        release_date: 0,
-      }
-      const completed = Object.keys(completedGamesByYear[year.value]).includes(id)
-      const logo = overrides[id]?.hideLogo ? undefined : overrides[id]?.logo ?? logos[0]
-      const hero = overrides[id]?.hero ?? heros[0] ?? {
-        url: steamApp?.screenshots?.[0]?.path_full
-          ?? `https://store.akamai.steamstatic.com/images/storepagebackground/app/${id}`,
-      }
-      const item = {
-        id,
-        completed,
-        rating: undefined,
-        info: game,
-        logo,
-        hero,
-      }
-
-      completed
-        ? items.unshift({ ...item, rating: completedGamesByYear[year.value][Number(id)] })
-        : items.push(item)
+  async function getData (id: string) {
+    getDataError.value = ''
+    if (!/^\d+$/.test(id)) {
+      getDataError.value = 'Enter a numeric Steam app ID.'
+      return
     }
 
-    items.sort((a, b) => {
-      return (b.rating || 0) - (a.rating || 0)
-    })
+    const existingIndex = games.value.findIndex(game => game.id === id)
+    const existing = existingIndex === -1 ? undefined : games.value[existingIndex]
+    const gameRequest = overrides[id]?.name
+      ? Promise.resolve(undefined)
+      : client.getGameBySteamAppId(Number(id)).catch(() => undefined)
+    const [gameResult, heroes, logos] = await Promise.all([
+      gameRequest,
+      client.getHeroesBySteamAppId(Number(id)).catch(() => []),
+      client.getLogosBySteamAppId(Number(id)).catch(() => []),
+    ])
+    const steamApp = !gameResult || (!overrides[id]?.hero && !heroes[0])
+      ? await getSteamStoreApp(id)
+      : undefined
+    const game: SGDBGame = gameResult ?? {
+      id: Number(id),
+      name: overrides[id]?.name ?? steamApp?.name ?? `Steam App ${id}`,
+      types: ['steam'],
+      verified: false,
+      release_date: 0,
+    }
+    const completed = existing?.completed ?? Object.keys(completedGamesByYear[year.value]).includes(id)
+    const item: GameEntry = {
+      id,
+      completed,
+      rating: existing?.rating ?? (completed ? completedGamesByYear[year.value][Number(id)] : undefined),
+      info: game,
+      logo: overrides[id]?.hideLogo ? undefined : overrides[id]?.logo ?? logos[0],
+      hero: overrides[id]?.hero ?? heroes[0] ?? {
+        url: steamApp?.screenshots?.[0]?.path_full
+          ?? `https://store.akamai.steamstatic.com/images/storepagebackground/app/${id}`,
+      },
+    }
 
-    console.log(items)
-
-    // @ts-ignore
-    games.value = items
-    // return items
+    if (existingIndex === -1) {
+      games.value.push(item)
+    } else {
+      games.value.splice(existingIndex, 1, item)
+    }
   }
 
   async function getSteamStoreApp (id: string) {
