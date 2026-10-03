@@ -1,6 +1,18 @@
 const gamesPath = 'src/assets/games-2026.json'
 const encoder = new TextEncoder()
 const requestTimeout = 6000
+const autocompleteTimeout = 1800
+const autocompleteCacheTtl = 15
+const gameCommands = new Set([
+  'add',
+  'remove',
+  'set-hero',
+  'set-logo',
+  'clear-hero',
+  'clear-logo',
+  'rate',
+  'clear-rating',
+])
 
 function hexToBytes (hex) {
   return Uint8Array.from(hex.match(/.{2}/g), byte => Number.parseInt(byte, 16))
@@ -209,6 +221,31 @@ export function removeGame (games, appId) {
   return { games, changed: true, removed }
 }
 
+export function getGameAutocompleteChoices (games, query) {
+  const normalize = value => value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLocaleLowerCase()
+  const normalizedQuery = normalize(query.trim())
+  return games
+    .map(game => ({
+      id: String(game.id),
+      name: typeof game.info?.name === 'string' && game.info.name.trim()
+        ? game.info.name.trim()
+        : `Steam app ${game.id}`,
+    }))
+    .filter(game => /^\d{1,12}$/.test(game.id)
+      && Number(game.id) > 0
+      && normalize(game.name).includes(normalizedQuery))
+    .toSorted((first, second) => {
+      const firstStartsWith = normalize(first.name).startsWith(normalizedQuery)
+      const secondStartsWith = normalize(second.name).startsWith(normalizedQuery)
+      return Number(secondStartsWith) - Number(firstStartsWith) || first.name.localeCompare(second.name)
+    })
+    .slice(0, 25)
+    .map(game => ({
+      name: game.name.slice(0, 100),
+      value: game.id,
+    }))
+}
+
 function updateAverageRating (game) {
   const ratings = game.userRatings ?? {}
   const values = Object.values(ratings)
@@ -346,11 +383,11 @@ function githubHeaders (token) {
   }
 }
 
-async function githubRequest (url, token, operation, options = {}) {
+async function githubRequest (url, token, operation, options = {}, timeout = requestTimeout) {
   const response = await fetch(url, {
     ...options,
     headers: { ...githubHeaders(token), ...options.headers },
-    signal: AbortSignal.timeout(requestTimeout),
+    signal: AbortSignal.timeout(timeout),
   })
   if (!response.ok) {
     const responseBody = await response.text()
@@ -368,7 +405,7 @@ async function githubRequest (url, token, operation, options = {}) {
   return response.json()
 }
 
-async function readGamesFile (env) {
+async function readGamesFile (env, timeout = requestTimeout, useEdgeCache = false) {
   const { GITHUB_TOKEN: token, GITHUB_REPOSITORY_OWNER: owner, GITHUB_REPOSITORY_NAME: repository } = env
   const branch = env.GITHUB_BRANCH || 'main'
   if (!token || !owner || !repository) {
@@ -377,7 +414,13 @@ async function readGamesFile (env) {
 
   const encodedPath = gamesPath.split('/').map(segment => encodeURIComponent(segment)).join('/')
   const baseUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repository)}/contents/${encodedPath}`
-  const file = await githubRequest(`${baseUrl}?ref=${encodeURIComponent(branch)}`, token, 'read')
+  const file = await githubRequest(
+    `${baseUrl}?ref=${encodeURIComponent(branch)}`,
+    token,
+    'read',
+    useEdgeCache ? { cf: { cacheTtl: autocompleteCacheTtl, cacheEverything: true } } : {},
+    timeout,
+  )
   if (file.encoding !== 'base64' || typeof file.content !== 'string' || typeof file.sha !== 'string') {
     throw new Error('GitHub returned an unsupported game data file.')
   }
@@ -554,9 +597,14 @@ function validateCommandInput (command, interaction, env) {
   }
 
   const options = interaction.data.options ?? []
-  const appId = options.find(option => option.name === 'game_id')?.value
+  const gameOptionName = command === 'add' ? 'game_id' : 'game'
+  const appId = options.find(option => option.name === gameOptionName)?.value
   if (typeof appId !== 'string' || !/^\d{1,12}$/.test(appId) || Number(appId) <= 0) {
-    return { error: 'Enter a valid numeric Steam game ID.' }
+    return {
+      error: command === 'add'
+        ? 'Enter a valid numeric Steam game ID.'
+        : 'Choose a game from the autocomplete list.',
+    }
   }
 
   const imageUrl = options.find(option => option.name === 'image_url')?.value
@@ -582,6 +630,35 @@ function validateCommandInput (command, interaction, env) {
   }
 
   return { appId, imageUrl, rating }
+}
+
+function autocompleteResponse (choices) {
+  return jsonResponse(200, { type: 8, data: { choices } })
+}
+
+async function handleAutocomplete (interaction, env) {
+  const command = interaction.data?.name
+  const options = interaction.data?.options ?? []
+  const focusedOption = options.find(option => option.focused)
+  if (
+    !gameCommands.has(command)
+    || command === 'add'
+    || !env.ALLOWED_CHANNEL_ID
+    || String(interaction.channel_id) !== env.ALLOWED_CHANNEL_ID
+    || focusedOption?.name !== 'game'
+    || typeof focusedOption.value !== 'string'
+  ) {
+    return autocompleteResponse([])
+  }
+
+  try {
+    const { games } = await readGamesFile(env, autocompleteTimeout, true)
+    return autocompleteResponse(getGameAutocompleteChoices(games, focusedOption.value))
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : 'Unexpected Worker error.'
+    console.error(`Failed to provide /${command} game autocomplete: ${detail}`)
+    return autocompleteResponse([])
+  }
 }
 
 export async function handleRequest (request, env, ctx) {
@@ -617,18 +694,11 @@ export async function handleRequest (request, env, ctx) {
   if (interaction.type === 1) {
     return jsonResponse(200, { type: 1 })
   }
-  const supportedCommands = [
-    'add',
-    'remove',
-    'set-hero',
-    'set-logo',
-    'clear-hero',
-    'clear-logo',
-    'rate',
-    'clear-rating',
-  ]
+  if (interaction.type === 4) {
+    return handleAutocomplete(interaction, env)
+  }
   const command = interaction.type === 2 ? interaction.data?.name : undefined
-  if (!supportedCommands.includes(command)) {
+  if (!gameCommands.has(command)) {
     return discordPrivateResponse('Unsupported command.')
   }
 

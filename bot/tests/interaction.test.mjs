@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict'
 import { generateKeyPairSync, sign } from 'node:crypto'
 import test from 'node:test'
-import { handleRequest, verifyDiscordRequest } from '../functions/worker.mjs'
+import {
+  getGameAutocompleteChoices,
+  handleRequest,
+  verifyDiscordRequest,
+} from '../functions/worker.mjs'
 
 function signatureFor (body, privateKey, timestamp) {
   return sign(null, Buffer.from(`${timestamp}${body}`), privateKey).toString('hex')
@@ -69,7 +73,57 @@ async function runGameCommand (command, options, games) {
       : undefined
     const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
 
-    return { response, writtenGames, followUp }
+    return { response, writtenGames, followUp, requests }
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+}
+
+async function runAutocomplete (command, query, games, channelId = 'allowed-channel') {
+  const { publicKey, privateKey } = generateKeyPairSync('ed25519')
+  const publicDer = publicKey.export({ format: 'der', type: 'spki' })
+  const publicKeyHex = publicDer.subarray(-32).toString('hex')
+  const timestamp = String(Math.floor(Date.now() / 1000))
+  const body = JSON.stringify({
+    type: 4,
+    channel_id: channelId,
+    data: {
+      name: command,
+      options: [{ name: 'game', type: 3, value: query, focused: true }],
+    },
+  })
+  const request = new Request('https://worker.example/', {
+    method: 'POST',
+    headers: {
+      'x-signature-ed25519': signatureFor(body, privateKey, timestamp),
+      'x-signature-timestamp': timestamp,
+    },
+    body,
+  })
+  const originalFetch = globalThis.fetch
+  const requests = []
+  globalThis.fetch = async (url, options = {}) => {
+    requests.push({ url: String(url), options })
+    return Response.json({
+      encoding: 'base64',
+      content: Buffer.from(JSON.stringify(games)).toString('base64'),
+      sha: 'game-list-sha',
+    })
+  }
+
+  try {
+    const response = await handleRequest(request, {
+      DISCORD_PUBLIC_KEY: publicKeyHex,
+      ALLOWED_CHANNEL_ID: 'allowed-channel',
+      GITHUB_TOKEN: 'test-token',
+      GITHUB_REPOSITORY_OWNER: 'owner',
+      GITHUB_REPOSITORY_NAME: 'repo',
+      GITHUB_BRANCH: 'main',
+    }, { waitUntil () {
+      assert.fail('Autocomplete must respond directly without scheduling work.')
+    } })
+
+    return { response, requests }
   } finally {
     globalThis.fetch = originalFetch
   }
@@ -113,6 +167,45 @@ test('answers Discord PING requests with PONG', async () => {
 
   assert.equal(response.status, 200)
   assert.deepEqual(await response.json(), { type: 1 })
+})
+
+test('suggests matching game titles with Steam IDs for autocomplete', async () => {
+  const { response, requests } = await runAutocomplete('rate', 'we are so d', [
+    { id: '4796830', info: { name: 'WE ARE SO DEAD' } },
+    { id: '42', info: { name: 'Completely Different Game' } },
+  ])
+
+  assert.deepEqual(await response.json(), {
+    type: 8,
+    data: { choices: [{ name: 'WE ARE SO DEAD', value: '4796830' }] },
+  })
+  assert.equal(requests.length, 1)
+  assert.match(requests[0].url, /games-2026\.json/)
+  assert.deepEqual(requests[0].options.cf, { cacheTtl: 15, cacheEverything: true })
+})
+
+test('does not fetch games for autocomplete outside the configured channel', async () => {
+  const { response, requests } = await runAutocomplete(
+    'remove',
+    'game',
+    [{ id: '42', info: { name: 'Test Game' } }],
+    'wrong-channel',
+  )
+
+  assert.deepEqual(await response.json(), { type: 8, data: { choices: [] } })
+  assert.equal(requests.length, 0)
+})
+
+test('limits game autocomplete results to Discord 25-choice maximum', () => {
+  const games = Array.from({ length: 30 }, (_, index) => ({
+    id: String(index + 1),
+    info: { name: `Game ${String(index + 1).padStart(2, '0')}` },
+  }))
+
+  const choices = getGameAutocompleteChoices(games, 'game')
+
+  assert.equal(choices.length, 25)
+  assert.equal(choices[0].value, '1')
 })
 
 test('rejects /add commands from outside the configured channel', async () => {
@@ -162,7 +255,7 @@ test('removes a game through /remove without looking up metadata', async () => {
         avatar: null,
       },
     },
-    data: { name: 'remove', options: [{ name: 'game_id', value: '42' }] },
+    data: { name: 'remove', options: [{ name: 'game', value: '42' }] },
   })
   const request = new Request('https://worker.example/', {
     method: 'POST',
@@ -247,7 +340,7 @@ test('addresses the configured Master in a private operation failure reply', asy
         avatar: null,
       },
     },
-    data: { name: 'remove', options: [{ name: 'game_id', value: '42' }] },
+    data: { name: 'remove', options: [{ name: 'game', value: '42' }] },
   })
   const request = new Request('https://worker.example/', {
     method: 'POST',
@@ -308,7 +401,7 @@ test('records a user rating and reports the new average', async () => {
     },
     data: {
       name: 'rate',
-      options: [{ name: 'game_id', value: '42' }, { name: 'rating', value: 4.5 }],
+      options: [{ name: 'game', value: '42' }, { name: 'rating', value: 4.5 }],
     },
   })
   const request = new Request('https://worker.example/', {
@@ -375,16 +468,17 @@ test('records a user rating and reports the new average', async () => {
 
 test('sets an image override and clears only the requesting user rating', async () => {
   const image = await runGameCommand('set-hero', [
-    { name: 'game_id', value: '42' },
+    { name: 'game', value: '42' },
     { name: 'image_url', value: 'https://example.com/custom-hero.jpg' },
   ], [{ id: '42', info: { name: 'Test Game' } }])
 
   assert.deepEqual(image.writtenGames[0].heroOverride, { url: 'https://example.com/custom-hero.jpg' })
   assert.deepEqual(image.writtenGames[0].hero, { url: 'https://example.com/custom-hero.jpg' })
   assert.match(image.followUp.options.body, /overriding the hero image/)
+  assert.equal(image.requests[0].options.cf, undefined)
 
   const cleared = await runGameCommand('clear-rating', [
-    { name: 'game_id', value: '42' },
+    { name: 'game', value: '42' },
   ], [{
     id: '42',
     info: { name: 'Test Game' },
@@ -399,7 +493,7 @@ test('sets an image override and clears only the requesting user rating', async 
 
 test('rejects a rating that is not in half-star increments without committing', async () => {
   const result = await runGameCommand('rate', [
-    { name: 'game_id', value: '42' },
+    { name: 'game', value: '42' },
     { name: 'rating', value: 4.25 },
   ], [{ id: '42', info: { name: 'Test Game' } }])
 
@@ -418,7 +512,7 @@ test('rejects a non-HTTPS image override without scheduling GitHub work', async 
     data: {
       name: 'set-hero',
       options: [
-        { name: 'game_id', value: '42' },
+        { name: 'game', value: '42' },
         { name: 'image_url', value: 'javascript:alert(1)' },
       ],
     },

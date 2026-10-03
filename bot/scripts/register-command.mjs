@@ -2,6 +2,16 @@ const applicationId = process.env.DISCORD_APPLICATION_ID
 const botToken = process.env.DISCORD_BOT_TOKEN
 const guildId = process.env.DISCORD_TEST_GUILD_ID
 
+function gameOption () {
+  return {
+    name: 'game',
+    description: 'Search for a game in the 2026 list.',
+    type: 3,
+    required: true,
+    autocomplete: true,
+  }
+}
+
 if (!applicationId || !botToken || !guildId) {
   throw new Error('Set DISCORD_APPLICATION_ID, DISCORD_BOT_TOKEN, and DISCORD_TEST_GUILD_ID.')
 }
@@ -28,23 +38,13 @@ const response = await fetch(
       {
         name: 'remove',
         description: 'Remove a game from the 2026 list.',
-        options: [{
-          name: 'game_id',
-          description: 'Steam game ID',
-          type: 3,
-          required: true,
-        }],
+        options: [gameOption()],
       },
       {
         name: 'set-hero',
         description: 'Set a custom hero image for a game.',
         options: [
-          {
-            name: 'game_id',
-            description: 'Steam game ID',
-            type: 3,
-            required: true,
-          },
+          gameOption(),
           {
             name: 'image_url',
             description: 'HTTPS URL of the hero image',
@@ -57,12 +57,7 @@ const response = await fetch(
         name: 'set-logo',
         description: 'Set a custom logo for a game.',
         options: [
-          {
-            name: 'game_id',
-            description: 'Steam game ID',
-            type: 3,
-            required: true,
-          },
+          gameOption(),
           {
             name: 'image_url',
             description: 'HTTPS URL of the logo image',
@@ -74,33 +69,18 @@ const response = await fetch(
       {
         name: 'clear-hero',
         description: 'Clear the custom hero image for a game.',
-        options: [{
-          name: 'game_id',
-          description: 'Steam game ID',
-          type: 3,
-          required: true,
-        }],
+        options: [gameOption()],
       },
       {
         name: 'clear-logo',
         description: 'Clear the custom logo for a game.',
-        options: [{
-          name: 'game_id',
-          description: 'Steam game ID',
-          type: 3,
-          required: true,
-        }],
+        options: [gameOption()],
       },
       {
         name: 'rate',
         description: 'Rate a game from 0.5 to 5 stars.',
         options: [
-          {
-            name: 'game_id',
-            description: 'Steam game ID',
-            type: 3,
-            required: true,
-          },
+          gameOption(),
           {
             name: 'rating',
             description: 'Your rating in half-star increments',
@@ -114,12 +94,7 @@ const response = await fetch(
       {
         name: 'clear-rating',
         description: 'Clear your rating for a game.',
-        options: [{
-          name: 'game_id',
-          description: 'Steam game ID',
-          type: 3,
-          required: true,
-        }],
+        options: [gameOption()],
       },
     ]),
   },
