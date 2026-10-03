@@ -164,6 +164,11 @@
         },
         "hero": {
             "url": "https://shared.steamstatic.com/store_item_assets/steam/apps/4450620/6655fbc076713998995bc53007de40c0f02aa224/library_hero_2x.jpg?t=1786114486"
+        },
+        "addedBy": {
+            "id": "1147270398963093544",
+            "name": "EavyHitta",
+            "avatarUrl": "https://cdn.discordapp.com/avatars/1147270398963093544/1ec6659b90bc02323020acd4ec262508.png?size=64"
         }
     },
     {
