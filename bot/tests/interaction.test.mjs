@@ -87,6 +87,13 @@ test('removes a game through /remove without looking up metadata', async () => {
     channel_id: 'allowed-channel',
     application_id: 'application-id',
     token: 'interaction-token',
+    member: {
+      user: {
+        id: '187258416102768640',
+        username: 'master-user',
+        avatar: null,
+      },
+    },
     data: { name: 'remove', options: [{ name: 'game_id', value: '42' }] },
   })
   const request = new Request('https://worker.example/', {
@@ -127,6 +134,7 @@ test('removes a game through /remove without looking up metadata', async () => {
       GITHUB_REPOSITORY_OWNER: 'owner',
       GITHUB_REPOSITORY_NAME: 'repo',
       GITHUB_BRANCH: 'main',
+      MASTER_USER_ID: '187258416102768640',
     }, {
       waitUntil (promise) {
         backgroundTask = promise
@@ -146,7 +154,72 @@ test('removes a game through /remove without looking up metadata', async () => {
     ])
     assert.match(JSON.parse(writeRequest.options.body).message, /Remove Test Remove Game \(42\) from 2026 list/)
     assert.ok(!requests.some(({ url }) => url.startsWith('https://www.steamgriddb.com/')))
-    assert.ok(requests.some(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/')))
+    const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
+    assert.ok(followUp)
+    assert.match(JSON.parse(followUp.options.body).content, /^Master, I've handled removing Test Remove Game \(42\) from the live site without issue\.$/)
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('addresses the configured Master in a private operation failure reply', async () => {
+  const { publicKey, privateKey } = generateKeyPairSync('ed25519')
+  const publicDer = publicKey.export({ format: 'der', type: 'spki' })
+  const publicKeyHex = publicDer.subarray(-32).toString('hex')
+  const timestamp = String(Math.floor(Date.now() / 1000))
+  const body = JSON.stringify({
+    type: 2,
+    channel_id: 'allowed-channel',
+    application_id: 'application-id',
+    token: 'interaction-token',
+    member: {
+      user: {
+        id: '187258416102768640',
+        username: 'master-user',
+        avatar: null,
+      },
+    },
+    data: { name: 'remove', options: [{ name: 'game_id', value: '42' }] },
+  })
+  const request = new Request('https://worker.example/', {
+    method: 'POST',
+    headers: {
+      'x-signature-ed25519': signatureFor(body, privateKey, timestamp),
+      'x-signature-timestamp': timestamp,
+    },
+    body,
+  })
+  const originalFetch = globalThis.fetch
+  let followUpBody
+  let backgroundTask
+  globalThis.fetch = async (url, options = {}) => {
+    if (String(url).startsWith('https://api.github.com/')) {
+      return Response.json({ message: 'Forbidden' }, { status: 403 })
+    }
+    if (String(url).startsWith('https://discord.com/api/v10/webhooks/')) {
+      followUpBody = JSON.parse(options.body)
+    }
+    return Response.json({})
+  }
+
+  try {
+    const response = await handleRequest(request, {
+      DISCORD_PUBLIC_KEY: publicKeyHex,
+      ALLOWED_CHANNEL_ID: 'allowed-channel',
+      GITHUB_TOKEN: 'test-token',
+      GITHUB_REPOSITORY_OWNER: 'owner',
+      GITHUB_REPOSITORY_NAME: 'repo',
+      MASTER_USER_ID: '187258416102768640',
+    }, {
+      waitUntil (promise) {
+        backgroundTask = promise
+      },
+    })
+
+    assert.deepEqual(await response.json(), { type: 5, data: { flags: 64 } })
+    await backgroundTask
+    assert.match(followUpBody.content, /^Master, I couldn't finish removing game \(42\) because of a snag with the live site\./)
+    assert.deepEqual(followUpBody.allowed_mentions, { parse: [] })
   } finally {
     globalThis.fetch = originalFetch
   }
@@ -221,6 +294,7 @@ test('defers an allowed /add and commits the updated JSON to GitHub', async () =
       GITHUB_REPOSITORY_OWNER: 'owner',
       GITHUB_REPOSITORY_NAME: 'repo',
       GITHUB_BRANCH: 'main',
+      MASTER_USER_ID: '187258416102768640',
     }, {
       waitUntil (promise) {
         backgroundTask = promise
@@ -248,7 +322,9 @@ test('defers an allowed /add and commits the updated JSON to GitHub', async () =
     assert.deepEqual(writtenFile[1].logo, { url: 'https://example.com/logo.png' })
     assert.deepEqual(writtenFile[1].hero, { url: 'https://example.com/hero.png' })
     assert.equal(writtenFile[1].completed, false)
-    assert.ok(requests.some(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/')))
+    const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
+    assert.ok(followUp)
+    assert.match(JSON.parse(followUp.options.body).content, /^Mr\. Test Adder, I've handled adding Test Game \(42\) to the live site without issue\.$/)
   } finally {
     globalThis.fetch = originalFetch
   }

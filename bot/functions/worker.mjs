@@ -209,6 +209,41 @@ export function removeGame (games, appId) {
   return { games, changed: true, removed }
 }
 
+function responseSalutation (user, env) {
+  if (user?.id && user.id === env.MASTER_USER_ID) {
+    return 'Master'
+  }
+  const name = (user?.name || 'there').replace(/[\r\n\t]+/g, ' ').slice(0, 80)
+  return `Mr. ${name}`
+}
+
+function resultMessage (command, appId, result, user, env) {
+  const salutation = responseSalutation(user, env)
+  const title = commitTitle(result.title ?? 'game')
+  if (result.status === 'added') {
+    return `${salutation}, I've handled adding ${title} (${appId}) to the live site without issue.`
+  }
+  if (result.status === 'updated') {
+    return `${salutation}, I've handled updating ${title} (${appId}) on the live site without issue.`
+  }
+  if (result.status === 'unchanged') {
+    return `${salutation}, ${title} (${appId}) is already up to date on the live site; no changes were needed.`
+  }
+  if (result.status === 'removed') {
+    return `${salutation}, I've handled removing ${title} (${appId}) from the live site without issue.`
+  }
+  if (result.status === 'notFound') {
+    return `${salutation}, I couldn't remove game (${appId}) because it wasn't on the live site.`
+  }
+  throw new TypeError(`Unsupported game operation result: ${result.status}`)
+}
+
+function failureMessage (command, appId, user, env) {
+  const salutation = responseSalutation(user, env)
+  const operation = command === 'remove' ? 'removing' : 'adding or updating'
+  return `${salutation}, I couldn't finish ${operation} game (${appId}) because of a snag with the live site. Please check the Worker logs and try again.`
+}
+
 function commitTitle (title) {
   return String(title ?? 'Unknown game').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 120)
     || 'Unknown game'
@@ -299,20 +334,21 @@ async function writeGamesFile (state, games, message) {
 async function updateGame (appId, env, addedBy) {
   const metadata = await getGameMetadata(appId, env)
   const state = await readGamesFile(env)
+  const alreadyListed = state.games.some(game => String(game.id) === appId)
   const update = upsertGame(state.games, appId, metadata, addedBy)
   if (!update.changed) {
-    return `${metadata.info.name} (${appId}) is already up to date.`
+    return { status: 'unchanged', title: metadata.info.name }
   }
 
   await writeGamesFile(state, update.games, `Add/update ${commitTitle(metadata.info.name)} (${appId}) in 2026 list`)
-  return `${metadata.info.name} (${appId}) was committed to ${state.branch}.`
+  return { status: alreadyListed ? 'updated' : 'added', title: metadata.info.name }
 }
 
 async function removeGameFromList (appId, env) {
   const state = await readGamesFile(env)
   const update = removeGame(state.games, appId)
   if (!update.changed) {
-    return `Game ${appId} was not found in the 2026 list.`
+    return { status: 'notFound' }
   }
 
   await writeGamesFile(
@@ -320,7 +356,7 @@ async function removeGameFromList (appId, env) {
     update.games,
     `Remove ${commitTitle(update.removed.info?.name)} (${appId}) from 2026 list`,
   )
-  return `Game ${appId} was removed from the 2026 list and committed to ${state.branch}.`
+  return { status: 'removed', title: update.removed.info?.name }
 }
 
 async function sendFollowUp (applicationId, token, content) {
@@ -329,7 +365,7 @@ async function sendFollowUp (applicationId, token, content) {
     {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ content, flags: 64 }),
+      body: JSON.stringify({ content, flags: 64, allowed_mentions: { parse: [] } }),
       signal: AbortSignal.timeout(requestTimeout),
     },
   )
@@ -338,7 +374,7 @@ async function sendFollowUp (applicationId, token, content) {
   }
 }
 
-async function processGameCommand (interaction, command, appId, env, addedBy) {
+async function processGameCommand (interaction, command, appId, env, user, addedBy) {
   const processGame = command === 'add'
     ? (id, bindings) => updateGame(id, bindings, addedBy)
     : removeGameFromList
@@ -352,7 +388,7 @@ async function processGameCommand (interaction, command, appId, env, addedBy) {
       await sendFollowUp(
         interaction.application_id,
         interaction.token,
-        `Could not ${command} game ${appId}. Check the Worker logs and try again.`,
+        failureMessage(command, appId, user, env),
       )
     } catch (followUpError) {
       const followUpDetail = followUpError instanceof Error ? followUpError.message : 'Unexpected Discord error.'
@@ -362,7 +398,11 @@ async function processGameCommand (interaction, command, appId, env, addedBy) {
   }
 
   try {
-    await sendFollowUp(interaction.application_id, interaction.token, result)
+    await sendFollowUp(
+      interaction.application_id,
+      interaction.token,
+      resultMessage(command, appId, result, user, env),
+    )
   } catch (error) {
     const detail = error instanceof Error ? error.message : 'Unexpected Discord error.'
     console.error(`Game ${appId} was processed by /${command}, but its Discord response could not be sent: ${detail}`)
@@ -415,7 +455,8 @@ export async function handleRequest (request, env, ctx) {
   if (typeof appId !== 'string' || !/^\d{1,12}$/.test(appId) || Number(appId) <= 0) {
     return discordPrivateResponse('Enter a valid numeric Steam game ID.')
   }
-  const addedBy = command === 'add' ? discordUser(interaction) : undefined
+  const user = discordUser(interaction)
+  const addedBy = command === 'add' ? user : undefined
   if (command === 'add' && !addedBy) {
     return discordPrivateResponse('Could not identify the Discord user who ran this command.')
   }
@@ -423,7 +464,7 @@ export async function handleRequest (request, env, ctx) {
     return jsonResponse(400, { error: 'Discord interaction is missing follow-up details.' })
   }
 
-  ctx.waitUntil(processGameCommand(interaction, command, appId, env, addedBy))
+  ctx.waitUntil(processGameCommand(interaction, command, appId, env, user, addedBy))
   return jsonResponse(200, { type: 5, data: { flags: 64 } })
 }
 

@@ -19,6 +19,7 @@ The Worker writes only `src/assets/games-2026.json`. It uses the SteamGridDB gam
 
 - A Cloudflare account with Workers enabled; check current plan limits and pricing before deployment.
 - A GitHub fine-grained personal access token restricted to this repository with **Contents: read and write** permission. Do not use `GITHUB_TOKEN` from a GitHub Actions run: commits made with that token do not trigger another Actions workflow.
+- A Cloudflare API token and account ID stored as GitHub Actions secrets to deploy Worker code automatically.
 - A Discord application with an `/add` command and an interactions endpoint.
 - Direct pushes to the selected branch must be allowed. A ruleset requiring pull requests will reject the commit.
 
@@ -33,8 +34,15 @@ The GitHub token is stored as a Cloudflare Worker secret and never goes into sou
    npm --prefix bot/functions test
    ```
 
-2. Edit `bot/wrangler.toml` and set `ALLOWED_CHANNEL_ID` to the Discord channel where `/add` is permitted. Check the repository owner, repository name, and branch values there too.
-3. Log in to Cloudflare from the repository root:
+2. In GitHub, open **sage-afk/spooky-season → Settings → Secrets and variables → Actions**. Add these repository secrets:
+
+   - `CLOUDFLARE_API_TOKEN`: create an Account API token using Cloudflare's **Edit Cloudflare Workers** template, scoped to the account that owns the Worker.
+   - `CLOUDFLARE_ACCOUNT_ID`: the Cloudflare account ID for that account.
+
+   These credentials are only for CI to deploy the Worker. Keep the GitHub PAT, SteamGridDB key, and Discord interaction key as Cloudflare Worker secrets; they are not needed by this workflow.
+
+3. Edit `bot/wrangler.toml` and set `ALLOWED_CHANNEL_ID` to the Discord channel where `/add` and `/remove` are permitted. Check the repository owner, repository name, and branch values there too.
+4. Log in to Cloudflare from the repository root:
 
    ```sh
    cd bot/functions
@@ -43,7 +51,7 @@ The GitHub token is stored as a Cloudflare Worker secret and never goes into sou
 
    Device authorization is intended for remote environments: Wrangler prints a URL and code to open in your local browser, so it does not need a localhost callback to reach the web IDE.
 
-4. Store the Discord application's public key, a fine-grained GitHub token, and a SteamGridDB API key as Worker secrets:
+5. Store the Discord application's public key, a fine-grained GitHub token, and a SteamGridDB API key as Worker secrets:
 
    ```sh
    npx wrangler secret put DISCORD_PUBLIC_KEY --config ../wrangler.toml
@@ -53,14 +61,14 @@ The GitHub token is stored as a Cloudflare Worker secret and never goes into sou
 
    The Discord public key is available in the Developer Portal. The GitHub token needs read/write Contents permission for `sage-afk/spooky-season` only. Use a SteamGridDB API key for the final prompt and keep it out of source files. The website's existing development helper has a SteamGridDB key in client-side code, so generate a fresh key for the Worker rather than reusing that exposed key.
 
-5. Deploy the Worker and copy the resulting `workers.dev` URL:
+6. Deploy the Worker once and copy the resulting `workers.dev` URL:
 
    ```sh
    npx wrangler deploy --config ../wrangler.toml
    ```
 
-6. In the Discord Developer Portal, set that URL as the application's **Interactions Endpoint URL**. Discord sends a signed PING to validate it; the Worker responds with PONG.
-7. Register `/add` in a test server:
+7. In the Discord Developer Portal, set that URL as the application's **Interactions Endpoint URL**. Discord sends a signed PING to validate it; the Worker responds with PONG.
+8. Register the slash commands in a test server:
 
    ```sh
    cd ../..
@@ -73,10 +81,12 @@ The GitHub token is stored as a Cloudflare Worker secret and never goes into sou
    unset DISCORD_BOT_TOKEN
    ```
 
-8. Run `/add game_id:1144200` or `/remove game_id:1144200` in the configured channel. Confirm the private Discord response, the commit on the selected branch, and the GitHub Pages Actions run.
+9. Run `/add game_id:1144200` or `/remove game_id:1144200` in the configured channel. Confirm the private Discord response, the commit on the selected branch, and the GitHub Pages Actions run.
+
+After this one-time setup, `.github/workflows/deploy-worker.yml` deploys the Worker automatically when files under `bot/functions/`, `bot/wrangler.toml`, or the deployment workflow itself change on `main`. It can also be run manually from GitHub's **Actions → Deploy Discord Worker → Run workflow**. The workflow does not run for game-data-only commits, and Worker deployment does not push a commit, so it does not cause a deployment loop. The Pages workflow remains responsible for the site.
 
 ## Runtime and failure handling
 
-The Worker sends Discord's deferred response before making upstream requests. It uses `waitUntil` to perform SteamGridDB and Steam lookups, GitHub read/write, and the Discord follow-up after that response. If SteamGridDB is unavailable, it logs the lookup failure and falls back to Steam data where possible. If the GitHub commit fails, the user receives a private failure response and the Worker logs a diagnostic without logging interaction tokens or credentials. If Discord cannot receive the follow-up after a successful commit, the Worker logs that separately and does not claim the commit failed.
+The Worker sends Discord's deferred response before making upstream requests. It uses `waitUntil` to perform SteamGridDB and Steam lookups, GitHub read/write, and the Discord follow-up after that response. Replies address the configured `MASTER_USER_ID` as “Master” and other users as “Mr. {display name}”, with distinct wording for adding, updating, removing, and errors. If SteamGridDB is unavailable, it logs the lookup failure and falls back to Steam data where possible. If the GitHub commit fails, the user receives a private failure response and the Worker logs a diagnostic without logging interaction tokens or credentials. If Discord cannot receive the follow-up after a successful commit, the Worker logs that separately and does not claim the commit failed.
 
 The GitHub Contents API uses the current file SHA for optimistic concurrency. If another update changes the file at the same time, GitHub rejects the stale write instead of overwriting that concurrent change; rerun `/add` after the conflict. Worker background execution is subject to Cloudflare's current runtime limits.
