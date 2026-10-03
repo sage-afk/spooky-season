@@ -2374,5 +2374,69 @@
         "hero": {
             "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1636440/c6ae9fc8011c59932651baa3d45709ef0df69cb0/ss_c6ae9fc8011c59932651baa3d45709ef0df69cb0.1920x1080.jpg?t=1790222467"
         }
+    },
+    {
+        "id": "381210",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "឵឵",
+            "avatarUrl": "https://cdn.discordapp.com/avatars/187258416102768640/b24986060349791144eaba260105c5f5.png?size=64"
+        },
+        "info": {
+            "id": 8168,
+            "name": "Dead by Daylight",
+            "release_date": 1465887600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 42022,
+            "score": 0,
+            "style": "white",
+            "width": 4071,
+            "height": 344,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Resident Evil crossover logo cropped",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/3cb189e9f3764c6b4a0d13c44bd922d8.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/3cb189e9f3764c6b4a0d13c44bd922d8.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "CluckenDip",
+                "steam64": "76561198120642113",
+                "avatar": "https://avatars.steamstatic.com/78f285a99a6068b2bebd11c77bc41b3c13142794_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 1989,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/4a3e00961a08879c34f91ca0070ea2f5.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/4a3e00961a08879c34f91ca0070ea2f5.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Rixer97",
+                "steam64": "76561198113691613",
+                "avatar": "https://avatars.steamstatic.com/d55b9926392a3665235669ee21fef0eef3ed82c3_medium.jpg"
+            }
+        }
     }
 ]
