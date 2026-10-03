@@ -545,6 +545,27 @@ async function sendFollowUp (applicationId, token, content) {
   }
 }
 
+async function sendChannelAnnouncement (applicationId, token, content) {
+  const response = await fetch(
+    `https://discord.com/api/v10/webhooks/${encodeURIComponent(applicationId)}/${encodeURIComponent(token)}`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ content, allowed_mentions: { parse: [] } }),
+      signal: AbortSignal.timeout(requestTimeout),
+    },
+  )
+  if (!response.ok) {
+    throw new Error(`Discord channel announcement failed with HTTP ${response.status}.`)
+  }
+}
+
+function newGameAnnouncement (user, title, appId, env) {
+  const attribution = `${responseSalutation(user, env)}'s`
+  const steamUrl = `https://store.steampowered.com/app/${encodeURIComponent(appId)}/`
+  return `At ${attribution} behest, I've added ${commitTitle(title)} (${appId}) to the [Spooky Season game list](https://sage-afk.github.io/spooky-season/).\nCheck it out on Steam: ${steamUrl}`
+}
+
 async function processGameCommand (interaction, command, appId, env, user, addedBy) {
   const value = command === 'set-hero' || command === 'set-logo'
     ? interaction.data.options.find(option => option.name === 'image_url')?.value
@@ -588,6 +609,19 @@ async function processGameCommand (interaction, command, appId, env, user, added
   } catch (error) {
     const detail = error instanceof Error ? error.message : 'Unexpected Discord error.'
     console.error(`Game ${appId} was processed by /${command}, but its Discord response could not be sent: ${detail}`)
+  }
+
+  if (command === 'add' && result.status === 'added') {
+    try {
+      await sendChannelAnnouncement(
+        interaction.application_id,
+        interaction.token,
+        newGameAnnouncement(user, result.title, appId, env),
+      )
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : 'Unexpected Discord error.'
+      console.error(`Game ${appId} was added, but its public Discord announcement could not be sent: ${detail}`)
+    }
   }
 }
 

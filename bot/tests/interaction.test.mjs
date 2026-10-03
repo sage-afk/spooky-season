@@ -635,7 +635,32 @@ test('defers an allowed /add and commits the updated JSON to GitHub', async () =
     const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
     assert.ok(followUp)
     assert.match(JSON.parse(followUp.options.body).content, /^Mr\. Test Adder, I've handled adding Test Game \(42\) to the live site without issue\.$/)
+    const announcements = requests.filter(({ url, options }) => (
+      url.startsWith('https://discord.com/api/v10/webhooks/')
+      && !JSON.parse(options.body).flags
+    ))
+    assert.equal(announcements.length, 1)
+    const announcement = JSON.parse(announcements[0].options.body)
+    assert.match(announcement.content, /^At Mr\. Test Adder's behest, I've added Test Game \(42\) to the \[Spooky Season game list\]\(https:\/\/sage-afk\.github\.io\/spooky-season\/\)\./)
+    assert.match(announcement.content, /https:\/\/store\.steampowered\.com\/app\/42\//)
+    assert.deepEqual(announcement.allowed_mentions, { parse: [] })
   } finally {
     globalThis.fetch = originalFetch
   }
+})
+
+test('does not announce an /add refresh of an existing game', async () => {
+  const result = await runGameCommand('add', [
+    { name: 'game_id', value: '42' },
+  ], [{
+    id: '42',
+    info: { name: 'Existing Test Game' },
+    addedBy: { id: 'another-user', name: 'Original Adder', avatarUrl: 'https://example.com/avatar.png' },
+  }])
+
+  const webhookRequests = result.requests.filter(({ url }) => (
+    url.startsWith('https://discord.com/api/v10/webhooks/')
+  ))
+  assert.equal(webhookRequests.length, 1)
+  assert.equal(JSON.parse(webhookRequests[0].options.body).flags, 64)
 })
