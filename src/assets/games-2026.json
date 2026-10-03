@@ -2190,5 +2190,69 @@
         "hero": {
             "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4796830/cf6ab6d3234ea0d2b908a4377ede43308977e530/ss_cf6ab6d3234ea0d2b908a4377ede43308977e530.1920x1080.jpg?t=1787326438"
         }
+    },
+    {
+        "id": "550",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "឵឵",
+            "avatarUrl": "https://cdn.discordapp.com/avatars/187258416102768640/b24986060349791144eaba260105c5f5.png?size=64"
+        },
+        "info": {
+            "id": 14988,
+            "name": "Left 4 Dead 2",
+            "release_date": 1258329600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 23013,
+            "score": 0,
+            "style": "custom",
+            "width": 4544,
+            "height": 1757,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/8549c938065011dc634e597bacb611de.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/8549c938065011dc634e597bacb611de.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Maxine",
+                "steam64": "76561198130550992",
+                "avatar": "https://avatars.steamstatic.com/eab8da0499e6e78cdc9d7b62cd4bdf8c5dc18fed_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 20731,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/e06015c0688508d35fc02b0434cb7ce9.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/e06015c0688508d35fc02b0434cb7ce9.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Greez",
+                "steam64": "76561198151580434",
+                "avatar": "https://avatars.steamstatic.com/8f6916be3dcc60a0c3e9391276bce389a138b83a_medium.jpg"
+            }
+        }
     }
 ]
