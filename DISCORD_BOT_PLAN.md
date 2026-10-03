@@ -4,7 +4,7 @@ This setup lets people add, refresh, remove, set/clear image overrides, and rate
 
 ## Flow
 
-1. A Discord user runs `/add`, `/remove`, `/set-hero`, `/set-logo`, `/set-adder`, `/clear-hero`, `/clear-logo`, `/rate`, or `/clear-rating`. Every command except `/add` autocompletes game titles from the current 2026 list.
+1. A Discord user runs `/help`, `/add`, `/remove`, `/set-hero`, `/set-logo`, `/set-adder`, `/clear-hero`, `/clear-logo`, `/rate`, or `/clear-rating`. Every game command except `/add` autocompletes titles from the current 2026 list.
 2. Discord sends the signed interaction to the Worker.
 3. The Worker verifies the Ed25519 signature and checks the configured channel.
 4. For autocomplete, the Worker immediately returns matching game titles. For a selected command, it defers the private Discord response, looks up game info, heroes, and logos on SteamGridDB where needed, and uses Steam Store data as fallback.
@@ -21,7 +21,7 @@ For `/remove`, `/set-hero`, `/set-logo`, `/set-adder`, `/clear-hero`, `/clear-lo
 
 `/set-adder` takes an autocomplete-selected game and a Discord user. It uses Discord's native user picker to select a server member, then updates the saved added-by name, user ID, and avatar for that game. The user picker searches server members; Discord does not expose a separate member list scoped to a text channel.
 
-`/rate` accepts 0.5 through 5 in half-star increments. Each Discord user has one rating per game; rating again replaces that user's previous rating. The visible `rating` is the arithmetic mean of current user ratings. `/clear-rating` removes only the invoking user's rating and recalculates the average; if no ratings remain, the `rating` and `userRatings` fields are removed. Older aggregate-only `rating` values cannot be attributed to a user and are replaced when the first Discord vote is recorded.
+`/help` replies privately with a command guide and works outside the configured game channel. `/rate` accepts 0.5 through 5 in half-star increments. Each Discord user has one rating per game; rating again replaces that user's previous rating. The visible `rating` is the arithmetic mean of current user ratings. `/clear-rating` removes only the invoking user's rating and recalculates the average; if no ratings remain, the `rating` and `userRatings` fields are removed. Older aggregate-only `rating` values cannot be attributed to a user and are replaced when the first Discord vote is recorded.
 
 ## Requirements and permissions
 

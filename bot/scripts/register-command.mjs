@@ -26,6 +26,10 @@ const response = await fetch(
     },
     body: JSON.stringify([
       {
+        name: 'help',
+        description: 'Show what I can do.',
+      },
+      {
         name: 'add',
         description: 'Add or refresh a game in the 2026 list.',
         options: [{

@@ -169,6 +169,38 @@ test('answers Discord PING requests with PONG', async () => {
   assert.deepEqual(await response.json(), { type: 1 })
 })
 
+test('answers /help privately without requiring the configured channel', async () => {
+  const { publicKey, privateKey } = generateKeyPairSync('ed25519')
+  const publicDer = publicKey.export({ format: 'der', type: 'spki' })
+  const publicKeyHex = publicDer.subarray(-32).toString('hex')
+  const timestamp = String(Math.floor(Date.now() / 1000))
+  const body = JSON.stringify({
+    type: 2,
+    channel_id: 'any-channel',
+    data: { name: 'help', options: [] },
+  })
+  const request = new Request('https://worker.example/', {
+    method: 'POST',
+    headers: {
+      'x-signature-ed25519': signatureFor(body, privateKey, timestamp),
+      'x-signature-timestamp': timestamp,
+    },
+    body,
+  })
+
+  const response = await handleRequest(request, { DISCORD_PUBLIC_KEY: publicKeyHex }, {
+    waitUntil () {
+      assert.fail('/help should answer immediately without scheduling work.')
+    },
+  })
+
+  const payload = await response.json()
+  assert.equal(payload.type, 4)
+  assert.equal(payload.data.flags, 64)
+  assert.match(payload.data.content, /Hello, I’m Blood shed!/)
+  assert.match(payload.data.content, /\/set-adder/)
+})
+
 test('suggests matching game titles with Steam IDs for autocomplete', async () => {
   const { response, requests } = await runAutocomplete('rate', 'we are so d', [
     { id: '4796830', info: { name: 'WE ARE SO DEAD' } },

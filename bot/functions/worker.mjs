@@ -4,8 +4,22 @@ const requestTimeout = 6000
 const autocompleteTimeout = 1800
 const autocompleteCacheTtl = 15
 const ghostAvatarUrl = 'https://sage-afk.github.io/spooky-season/ghost-avatar.png'
+const helpMessage = [
+  '**Hello, I amm Bloodshed!** I am here at my master\'s behest to help manage the Spooky Season 2026 game list. The following are commands I am able to assist you with:',
+  '',
+  '- `/add game_id` — add or refresh a Steam game. A new game is announced in the channel with its Steam link.',
+  '- `/remove game` — remove a game from the list.',
+  '- `/rate game rating` and `/clear-rating game` — set or clear your rating; ratings are averaged.',
+  '- `/set-hero game image_url` and `/set-logo game image_url` — set custom HTTPS artwork. Please ensure you do not abuse this freedom.',
+  '- `/clear-hero game` and `/clear-logo game` — clear custom artwork. Again, do not abuse this.',
+  '- `/set-adder game user` — change the credited adder.',
+  '- `/help` — show this guide.',
+  '',
+  'For game commands other than `/add`, start typing a title and choose a suggestion. Game-management commands work in the configured suggestions channel; `/help` is available anywhere.',
+].join('\n')
 const gameCommands = new Set([
   'add',
+  'help',
   'remove',
   'set-hero',
   'set-logo',
@@ -771,6 +785,9 @@ export async function handleRequest (request, env, ctx) {
   const command = interaction.type === 2 ? interaction.data?.name : undefined
   if (!gameCommands.has(command)) {
     return discordPrivateResponse('Unsupported command.')
+  }
+  if (command === 'help') {
+    return discordPrivateResponse(helpMessage)
   }
 
   const input = validateCommandInput(command, interaction, env)
