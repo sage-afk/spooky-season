@@ -784,7 +784,11 @@
                 "steam64": "76561198051230031",
                 "avatar": "https://avatars.steamstatic.com/7fcce159337c87db42ee67a2529b91d4358b401f_medium.jpg"
             }
-        }
+        },
+        "userRatings": {
+            "187258416102768640": 3.5
+        },
+        "rating": 3.5
     },
     {
         "id": "1929610",
