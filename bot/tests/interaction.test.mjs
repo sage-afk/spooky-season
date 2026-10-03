@@ -525,6 +525,27 @@ test('changes the credited adder using a selected Discord user', async () => {
   assert.match(result.followUp.options.body, /updated the added-by credit.*to New Adder Nickname/)
 })
 
+test('uses the Ghost profile for the configured Master without a Discord username or avatar', async () => {
+  const masterId = '187258416102768640'
+  const result = await runGameCommand('set-adder', [
+    { name: 'game', value: '42' },
+    { name: 'user', value: masterId },
+  ], [{ id: '42', info: { name: 'Test Game' } }], {
+    users: {
+      [masterId]: { id: masterId, username: '', avatar: null },
+    },
+    members: {
+      [masterId]: {},
+    },
+  })
+
+  assert.deepEqual(result.writtenGames[0].addedBy, {
+    id: masterId,
+    name: 'Ghost',
+    avatarUrl: 'https://sage-afk.github.io/spooky-season/ghost-avatar.png',
+  })
+})
+
 test('rejects a rating that is not in half-star increments without committing', async () => {
   const result = await runGameCommand('rate', [
     { name: 'game', value: '42' },

@@ -3,6 +3,7 @@ const encoder = new TextEncoder()
 const requestTimeout = 6000
 const autocompleteTimeout = 1800
 const autocompleteCacheTtl = 15
+const ghostAvatarUrl = 'https://sage-afk.github.io/spooky-season/ghost-avatar.png'
 const gameCommands = new Set([
   'add',
   'remove',
@@ -190,19 +191,22 @@ export function upsertGame (games, appId, metadata, addedBy) {
   return { games, changed }
 }
 
-function discordUserInfo (user, member) {
+function discordUserInfo (user, member, env) {
   if (!user || typeof user.id !== 'string' || !/^\d{1,20}$/.test(user.id)) {
     return undefined
   }
 
-  const name = member?.nick || user.global_name || user.username
+  const isMaster = user.id === env.MASTER_USER_ID
+  const name = isMaster ? 'Ghost' : (member?.nick || user.global_name || user.username)
   if (typeof name !== 'string' || !name.trim()) {
     return undefined
   }
 
-  const avatarUrl = typeof user.avatar === 'string' && user.avatar
-    ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith('a_') ? 'gif' : 'png'}?size=64`
-    : `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(user.id) >> 22n) % 6n)}.png`
+  const avatarUrl = isMaster
+    ? ghostAvatarUrl
+    : (typeof user.avatar === 'string' && user.avatar
+        ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith('a_') ? 'gif' : 'png'}?size=64`
+        : `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(user.id) >> 22n) % 6n)}.png`)
 
   return {
     id: user.id,
@@ -211,9 +215,9 @@ function discordUserInfo (user, member) {
   }
 }
 
-function discordUser (interaction) {
+function discordUser (interaction, env) {
   const member = interaction.member
-  return discordUserInfo(member?.user ?? interaction.user, member)
+  return discordUserInfo(member?.user ?? interaction.user, member, env)
 }
 
 export function removeGame (games, appId) {
@@ -773,12 +777,13 @@ export async function handleRequest (request, env, ctx) {
   if (input.error) {
     return discordPrivateResponse(input.error)
   }
-  const user = discordUser(interaction)
+  const user = discordUser(interaction, env)
   const addedBy = command === 'add' ? user : undefined
   const selectedUser = command === 'set-adder'
     ? discordUserInfo(
         interaction.data.resolved?.users?.[input.userId],
         interaction.data.resolved?.members?.[input.userId],
+        env,
       )
     : undefined
   if (command === 'set-adder' && !selectedUser) {
