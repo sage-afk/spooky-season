@@ -32,9 +32,9 @@
                   empty-icon="mdi-skull"
                   full-icon="mdi-skull"
                   half-increments
+                  :model-value="element.rating"
                   readonly
                   size="x-small"
-                  :model-value="element.rating"
                 />
               </v-hover>
               <v-tooltip v-if="element.addedBy" :text="`Added by ${element.addedBy.name}`">
@@ -69,7 +69,7 @@
               </v-card>
               <v-card
                 v-else
-                class="d-flex justify-center align-center text-center"
+                class="d-flex justify-center align-center position-relative text-center"
                 height="600"
                 :href="!toggle ? steam_url + element?.id : undefined"
                 :style="{
@@ -79,7 +79,22 @@
                 }"
                 target="_blank"
                 :title="element?.logo ? undefined : element?.info?.name"
-              />
+              >
+                <img
+                  alt=""
+                  class="d-none"
+                  :src="`https://steamcdn-a.akamaihd.net/steam/apps/${element?.id}/library_600x900_2x.jpg`"
+                  @error="tallImageFallbacks[element.id] = true"
+                  @load="tallImageFallbacks[element.id] = false"
+                >
+                <div
+                  v-if="tallImageFallbacks[element.id]"
+                  class="position-absolute bottom-0 left-0 right-0 pa-3 text-h6 font-weight-bold text-white"
+                  style="background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));"
+                >
+                  {{ element?.info?.name }}
+                </div>
+              </v-card>
             </v-col>
           </template>
         </draggable>
@@ -140,6 +155,7 @@
   const toggle = ref(false)
   const gameId = ref('')
   const getDataError = ref('')
+  const tallImageFallbacks = ref<Record<string, boolean>>({})
 
   const steam_url = 'https://store.steampowered.com/app/'
 
