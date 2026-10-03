@@ -7,6 +7,74 @@ function signatureFor (body, privateKey, timestamp) {
   return sign(null, Buffer.from(`${timestamp}${body}`), privateKey).toString('hex')
 }
 
+async function runGameCommand (command, options, games) {
+  const { publicKey, privateKey } = generateKeyPairSync('ed25519')
+  const publicDer = publicKey.export({ format: 'der', type: 'spki' })
+  const publicKeyHex = publicDer.subarray(-32).toString('hex')
+  const timestamp = String(Math.floor(Date.now() / 1000))
+  const body = JSON.stringify({
+    type: 2,
+    channel_id: 'allowed-channel',
+    application_id: 'application-id',
+    token: 'interaction-token',
+    member: {
+      user: { id: '187258416102768640', username: 'master-user', avatar: null },
+    },
+    data: { name: command, options },
+  })
+  const request = new Request('https://worker.example/', {
+    method: 'POST',
+    headers: {
+      'x-signature-ed25519': signatureFor(body, privateKey, timestamp),
+      'x-signature-timestamp': timestamp,
+    },
+    body,
+  })
+  const originalFetch = globalThis.fetch
+  const requests = []
+  let backgroundTask
+  globalThis.fetch = async (url, requestOptions = {}) => {
+    requests.push({ url: String(url), options: requestOptions })
+    if (requestOptions.method === 'PUT') {
+      return Response.json({ commit: { sha: 'new-sha' } })
+    }
+    if (String(url).startsWith('https://api.github.com/')) {
+      return Response.json({
+        encoding: 'base64',
+        content: Buffer.from(JSON.stringify(games)).toString('base64'),
+        sha: 'old-sha',
+      })
+    }
+    return Response.json({})
+  }
+
+  try {
+    const response = await handleRequest(request, {
+      DISCORD_PUBLIC_KEY: publicKeyHex,
+      ALLOWED_CHANNEL_ID: 'allowed-channel',
+      GITHUB_TOKEN: 'test-token',
+      GITHUB_REPOSITORY_OWNER: 'owner',
+      GITHUB_REPOSITORY_NAME: 'repo',
+      GITHUB_BRANCH: 'main',
+      MASTER_USER_ID: '187258416102768640',
+    }, {
+      waitUntil (promise) {
+        backgroundTask = promise
+      },
+    })
+    await backgroundTask
+    const write = requests.find(({ options: fetchOptions }) => fetchOptions.method === 'PUT')
+    const writtenGames = write
+      ? JSON.parse(Buffer.from(JSON.parse(write.options.body).content, 'base64').toString())
+      : undefined
+    const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
+
+    return { response, writtenGames, followUp }
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+}
+
 test('verifies a valid Discord Ed25519 signature', async () => {
   const { publicKey, privateKey } = generateKeyPairSync('ed25519')
   const publicDer = publicKey.export({ format: 'der', type: 'spki' })
@@ -223,6 +291,154 @@ test('addresses the configured Master in a private operation failure reply', asy
   } finally {
     globalThis.fetch = originalFetch
   }
+})
+
+test('records a user rating and reports the new average', async () => {
+  const { publicKey, privateKey } = generateKeyPairSync('ed25519')
+  const publicDer = publicKey.export({ format: 'der', type: 'spki' })
+  const publicKeyHex = publicDer.subarray(-32).toString('hex')
+  const timestamp = String(Math.floor(Date.now() / 1000))
+  const body = JSON.stringify({
+    type: 2,
+    channel_id: 'allowed-channel',
+    application_id: 'application-id',
+    token: 'interaction-token',
+    member: {
+      user: { id: '187258416102768640', username: 'master-user', avatar: null },
+    },
+    data: {
+      name: 'rate',
+      options: [{ name: 'game_id', value: '42' }, { name: 'rating', value: 4.5 }],
+    },
+  })
+  const request = new Request('https://worker.example/', {
+    method: 'POST',
+    headers: {
+      'x-signature-ed25519': signatureFor(body, privateKey, timestamp),
+      'x-signature-timestamp': timestamp,
+    },
+    body,
+  })
+  const originalFetch = globalThis.fetch
+  const requests = []
+  let backgroundTask
+  globalThis.fetch = async (url, options = {}) => {
+    requests.push({ url: String(url), options })
+    if (options.method === 'PUT') {
+      return Response.json({ commit: { sha: 'new-sha' } })
+    }
+    if (String(url).startsWith('https://api.github.com/')) {
+      return Response.json({
+        encoding: 'base64',
+        content: Buffer.from(JSON.stringify([{
+          id: '42',
+          info: { name: 'Test Game' },
+          userRatings: { 'another-user': 3 },
+          rating: 3,
+        }])).toString('base64'),
+        sha: 'old-sha',
+      })
+    }
+    return Response.json({})
+  }
+
+  try {
+    const response = await handleRequest(request, {
+      DISCORD_PUBLIC_KEY: publicKeyHex,
+      ALLOWED_CHANNEL_ID: 'allowed-channel',
+      GITHUB_TOKEN: 'test-token',
+      GITHUB_REPOSITORY_OWNER: 'owner',
+      GITHUB_REPOSITORY_NAME: 'repo',
+      GITHUB_BRANCH: 'main',
+      MASTER_USER_ID: '187258416102768640',
+    }, {
+      waitUntil (promise) {
+        backgroundTask = promise
+      },
+    })
+
+    assert.deepEqual(await response.json(), { type: 5, data: { flags: 64 } })
+    await backgroundTask
+    const writeRequest = requests.find(({ options }) => options.method === 'PUT')
+    const updatedGames = JSON.parse(Buffer.from(JSON.parse(writeRequest.options.body).content, 'base64').toString())
+    assert.deepEqual(updatedGames[0].userRatings, {
+      'another-user': 3,
+      '187258416102768640': 4.5,
+    })
+    assert.equal(updatedGames[0].rating, 3.75)
+    const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
+    assert.match(followUp.options.body, /recorded your 4\.5-star rating.*average is now 3\.75 stars/)
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('sets an image override and clears only the requesting user rating', async () => {
+  const image = await runGameCommand('set-hero', [
+    { name: 'game_id', value: '42' },
+    { name: 'image_url', value: 'https://example.com/custom-hero.jpg' },
+  ], [{ id: '42', info: { name: 'Test Game' } }])
+
+  assert.deepEqual(image.writtenGames[0].heroOverride, { url: 'https://example.com/custom-hero.jpg' })
+  assert.deepEqual(image.writtenGames[0].hero, { url: 'https://example.com/custom-hero.jpg' })
+  assert.match(image.followUp.options.body, /overriding the hero image/)
+
+  const cleared = await runGameCommand('clear-rating', [
+    { name: 'game_id', value: '42' },
+  ], [{
+    id: '42',
+    info: { name: 'Test Game' },
+    userRatings: { '187258416102768640': 4, 'another-user': 3 },
+    rating: 3.5,
+  }])
+
+  assert.deepEqual(cleared.writtenGames[0].userRatings, { 'another-user': 3 })
+  assert.equal(cleared.writtenGames[0].rating, 3)
+  assert.match(cleared.followUp.options.body, /cleared your rating.*average is now 3\.00 stars/)
+})
+
+test('rejects a rating that is not in half-star increments without committing', async () => {
+  const result = await runGameCommand('rate', [
+    { name: 'game_id', value: '42' },
+    { name: 'rating', value: 4.25 },
+  ], [{ id: '42', info: { name: 'Test Game' } }])
+
+  assert.match((await result.response.json()).data.content, /half-star increments/)
+  assert.equal(result.writtenGames, undefined)
+})
+
+test('rejects a non-HTTPS image override without scheduling GitHub work', async () => {
+  const { publicKey, privateKey } = generateKeyPairSync('ed25519')
+  const publicDer = publicKey.export({ format: 'der', type: 'spki' })
+  const publicKeyHex = publicDer.subarray(-32).toString('hex')
+  const timestamp = String(Math.floor(Date.now() / 1000))
+  const body = JSON.stringify({
+    type: 2,
+    channel_id: 'allowed-channel',
+    data: {
+      name: 'set-hero',
+      options: [
+        { name: 'game_id', value: '42' },
+        { name: 'image_url', value: 'javascript:alert(1)' },
+      ],
+    },
+  })
+  const request = new Request('https://worker.example/', {
+    method: 'POST',
+    headers: {
+      'x-signature-ed25519': signatureFor(body, privateKey, timestamp),
+      'x-signature-timestamp': timestamp,
+    },
+    body,
+  })
+  const response = await handleRequest(request, {
+    DISCORD_PUBLIC_KEY: publicKeyHex,
+    ALLOWED_CHANNEL_ID: 'allowed-channel',
+  }, { waitUntil () {
+    assert.fail('Invalid image URL must not schedule work.')
+  } })
+
+  assert.match((await response.json()).data.content, /valid HTTPS image URL/)
 })
 
 test('defers an allowed /add and commits the updated JSON to GitHub', async () => {

@@ -1,6 +1,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { getGameMetadata, removeGame, upsertGame } from '../functions/worker.mjs'
+import {
+  clearUserRating,
+  getGameMetadata,
+  removeGame,
+  setUserRating,
+  upsertGame,
+} from '../functions/worker.mjs'
 
 const metadata = {
   info: {
@@ -74,6 +80,54 @@ test('adds attribution to an existing game with no prior attribution', () => {
   const result = upsertGame(games, '42', metadata, addedBy)
 
   assert.deepEqual(result.games[0].addedBy, addedBy)
+})
+
+test('stores one rating per user and updates the average on repeat rating', () => {
+  const game = { userRatings: { first: 4, second: 3 }, rating: 3.5 }
+
+  assert.equal(setUserRating(game, 'first', 5), true)
+  assert.deepEqual(game.userRatings, { first: 5, second: 3 })
+  assert.equal(game.rating, 4)
+  assert.equal(setUserRating(game, 'first', 5), false)
+  assert.equal(game.rating, 4)
+})
+
+test('clears only the requesting user rating and recalculates the average', () => {
+  const game = { userRatings: { first: 5, second: 3 }, rating: 4 }
+
+  assert.equal(clearUserRating(game, 'first'), true)
+  assert.deepEqual(game.userRatings, { second: 3 })
+  assert.equal(game.rating, 3)
+  assert.equal(clearUserRating(game, 'first'), false)
+})
+
+test('removes average when the last user rating is cleared', () => {
+  const game = { userRatings: { first: 4.5 }, rating: 4.5 }
+
+  assert.equal(clearUserRating(game, 'first'), true)
+  assert.equal('userRatings' in game, false)
+  assert.equal('rating' in game, false)
+})
+
+test('preserves manual image overrides when refreshing metadata', () => {
+  const games = [{
+    id: '42',
+    completed: false,
+    info: metadata.info,
+    logoOverride: { url: 'https://example.com/manual-logo.png' },
+    logo: { url: 'https://example.com/manual-logo.png' },
+    heroOverride: { url: 'https://example.com/manual-hero.png' },
+    hero: { url: 'https://example.com/manual-hero.png' },
+  }]
+
+  const result = upsertGame(games, '42', {
+    ...metadata,
+    logo: { url: 'https://example.com/sgdb-logo.png' },
+    hero: { url: 'https://example.com/sgdb-hero.png' },
+  })
+
+  assert.deepEqual(result.games[0].logo, { url: 'https://example.com/manual-logo.png' })
+  assert.deepEqual(result.games[0].hero, { url: 'https://example.com/manual-hero.png' })
 })
 
 test('removes only the requested game ID', () => {

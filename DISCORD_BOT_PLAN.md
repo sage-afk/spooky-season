@@ -1,26 +1,31 @@
 # Discord `/add` on Cloudflare Workers
 
-This setup lets people add, refresh, or remove a Steam game using `/add game_id:1144200` and `/remove game_id:1144200` in one configured Discord channel. A Cloudflare Worker verifies Discord's signed interaction and updates only `src/assets/games-2026.json` through GitHub's Contents API. Commits to `main` start the existing GitHub Pages workflow.
+This setup lets people add, refresh, remove, set/clear image overrides, and rate Steam games using Discord slash commands in one configured channel. A Cloudflare Worker verifies Discord's signed interaction and updates only `src/assets/games-2026.json` through GitHub's Contents API. Commits to `main` start the existing GitHub Pages workflow.
 
 ## Flow
 
-1. A Discord user runs `/add game_id:<Steam app ID>` or `/remove game_id:<Steam app ID>`.
+1. A Discord user runs `/add`, `/remove`, `/set-hero`, `/set-logo`, `/clear-hero`, `/clear-logo`, `/rate`, or `/clear-rating`.
 2. Discord sends the signed interaction to the Worker.
 3. The Worker verifies the Ed25519 signature and checks the configured channel.
 4. The Worker defers the private Discord response, looks up game info, heroes, and logos on SteamGridDB, and uses Steam Store data as fallback where needed.
-5. For `/add`, the Worker reads the current JSON from GitHub and updates or appends the entry. For `/remove`, it removes the matching ID if present. The Worker commits the JSON change directly to the configured branch.
+5. The Worker reads the current JSON from GitHub, performs the requested operation on the matching entry, and commits the JSON change directly to the configured branch.
 6. The Worker posts a private result to Discord. A commit to `main` triggers the existing Pages deployment workflow.
 
 The Worker writes only `src/assets/games-2026.json`. It uses the SteamGridDB game record and first returned logo and hero, matching the website's **Get Game Data** behavior. If SteamGridDB has no game record, Steam's name and release date are used; if it has no hero, a Steam screenshot or store background is used. Existing entries retain user-managed `completed` and `rating` fields; a missing SteamGridDB logo does not erase an existing logo. New entries have `completed: false` and record the Discord user who first added them. That attribution (display name and avatar URL) is stored in the public game-data JSON; refreshing an entry does not replace the original attribution. Discord's `game_id` option is a string so large numeric IDs are not rounded.
 
 `/remove` deletes the matching game ID from the 2026 list without making Steam or SteamGridDB requests. If the ID is not present, the command reports that and does not create a commit. This command removes the list entry, including its saved completion/rating/artwork and attribution fields; it cannot be undone by the bot.
 
+`/set-hero` and `/set-logo` take a game ID and HTTPS image URL. They store a persistent manual override that subsequent `/add` refreshes preserve. `/clear-hero` and `/clear-logo` remove the corresponding override and clear the current image so the site's normal fallback is used.
+
+`/rate` accepts 0.5 through 5 in half-star increments. Each Discord user has one rating per game; rating again replaces that user's previous rating. The visible `rating` is the arithmetic mean of current user ratings. `/clear-rating` removes only the invoking user's rating and recalculates the average; if no ratings remain, the `rating` and `userRatings` fields are removed. Older aggregate-only `rating` values cannot be attributed to a user and are replaced when the first Discord vote is recorded.
+
 ## Requirements and permissions
 
 - A Cloudflare account with Workers enabled; check current plan limits and pricing before deployment.
 - A GitHub fine-grained personal access token restricted to this repository with **Contents: read and write** permission. Do not use `GITHUB_TOKEN` from a GitHub Actions run: commits made with that token do not trigger another Actions workflow.
 - A Cloudflare API token and account ID stored as GitHub Actions secrets to deploy Worker code automatically.
-- A Discord application with an `/add` command and an interactions endpoint.
+- The Discord application ID, bot token, and test guild ID stored as GitHub Actions secrets so CI can register slash commands automatically.
+- A Discord application with the registered game-management slash commands and an interactions endpoint.
 - Direct pushes to the selected branch must be allowed. A ruleset requiring pull requests will reject the commit.
 
 The GitHub token is stored as a Cloudflare Worker secret and never goes into source control. The Worker uses GitHub's REST API; it does not need an SSH deploy key, AWS, or a running Discord Gateway bot.
@@ -38,10 +43,13 @@ The GitHub token is stored as a Cloudflare Worker secret and never goes into sou
 
    - `CLOUDFLARE_API_TOKEN`: create an Account API token using Cloudflare's **Edit Cloudflare Workers** template, scoped to the account that owns the Worker.
    - `CLOUDFLARE_ACCOUNT_ID`: the Cloudflare account ID for that account.
+   - `DISCORD_APPLICATION_ID`: the Discord application ID.
+   - `DISCORD_BOT_TOKEN`: the bot token for that application. Treat this as a secret and never commit it.
+   - `DISCORD_TEST_GUILD_ID`: the Discord server ID where guild commands should be registered.
 
-   These credentials are only for CI to deploy the Worker. Keep the GitHub PAT, SteamGridDB key, and Discord interaction key as Cloudflare Worker secrets; they are not needed by this workflow.
+   The Cloudflare credentials are used by CI to deploy the Worker, and the Discord credentials are used to register guild commands. Keep the GitHub PAT, SteamGridDB key, and Discord interaction public key as Cloudflare Worker secrets; they are not needed by this workflow.
 
-3. Edit `bot/wrangler.toml` and set `ALLOWED_CHANNEL_ID` to the Discord channel where `/add` and `/remove` are permitted. Check the repository owner, repository name, and branch values there too.
+3. Edit `bot/wrangler.toml` and set `ALLOWED_CHANNEL_ID` to the Discord channel where the game-management commands are permitted. Check the repository owner, repository name, branch, and `MASTER_USER_ID` values there too.
 4. Log in to Cloudflare from the repository root:
 
    ```sh
@@ -68,7 +76,7 @@ The GitHub token is stored as a Cloudflare Worker secret and never goes into sou
    ```
 
 7. In the Discord Developer Portal, set that URL as the application's **Interactions Endpoint URL**. Discord sends a signed PING to validate it; the Worker responds with PONG.
-8. Register the slash commands in a test server:
+8. Register the slash commands in a test server once manually. Afterward, the deployment workflow registers them automatically after each successful Worker deployment:
 
    ```sh
    cd ../..
@@ -81,9 +89,9 @@ The GitHub token is stored as a Cloudflare Worker secret and never goes into sou
    unset DISCORD_BOT_TOKEN
    ```
 
-9. Run `/add game_id:1144200` or `/remove game_id:1144200` in the configured channel. Confirm the private Discord response, the commit on the selected branch, and the GitHub Pages Actions run.
+9. Test `/add`, `/remove`, the image override/clear commands, `/rate`, and `/clear-rating` in the configured channel. Confirm private Discord responses, the commits on the selected branch, and the GitHub Pages Actions runs.
 
-After this one-time setup, `.github/workflows/deploy-worker.yml` deploys the Worker automatically when files under `bot/functions/`, `bot/wrangler.toml`, or the deployment workflow itself change on `main`. It can also be run manually from GitHub's **Actions → Deploy Discord Worker → Run workflow**. The workflow does not run for game-data-only commits, and Worker deployment does not push a commit, so it does not cause a deployment loop. The Pages workflow remains responsible for the site.
+After this one-time setup, `.github/workflows/deploy-worker.yml` deploys the Worker automatically when files under `bot/functions/`, `bot/scripts/register-command.mjs`, `bot/wrangler.toml`, or the deployment workflow itself change on `main`, then registers the guild slash commands. It can also be run manually from GitHub's **Actions → Deploy Discord Worker → Run workflow**. The workflow does not run for game-data-only commits, and Worker deployment does not push a commit, so it does not cause a deployment loop. The Pages workflow remains responsible for the site.
 
 ## Runtime and failure handling
 

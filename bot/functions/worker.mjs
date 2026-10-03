@@ -167,8 +167,8 @@ export function upsertGame (games, appId, metadata, addedBy) {
     completed: current.completed ?? false,
     ...(attribution && { addedBy: attribution }),
     info: metadata.info,
-    logo: metadata.logo ?? current.logo,
-    hero: metadata.hero ?? current.hero,
+    logo: current.logoOverride ?? metadata.logo ?? current.logo,
+    hero: current.heroOverride ?? metadata.hero ?? current.hero,
   }
   const changed = JSON.stringify(current) !== JSON.stringify(replacement)
   if (changed) {
@@ -209,6 +209,39 @@ export function removeGame (games, appId) {
   return { games, changed: true, removed }
 }
 
+function updateAverageRating (game) {
+  const ratings = game.userRatings ?? {}
+  const values = Object.values(ratings)
+  if (values.length === 0) {
+    delete game.userRatings
+    delete game.rating
+    return
+  }
+  game.rating = values.reduce((sum, rating) => sum + rating, 0) / values.length
+}
+
+export function setUserRating (game, userId, rating) {
+  const ratings = { ...game.userRatings }
+  if (ratings[userId] === rating) {
+    return false
+  }
+  ratings[userId] = rating
+  game.userRatings = ratings
+  updateAverageRating(game)
+  return true
+}
+
+export function clearUserRating (game, userId) {
+  if (!game.userRatings || !(userId in game.userRatings)) {
+    return false
+  }
+  const ratings = { ...game.userRatings }
+  delete ratings[userId]
+  game.userRatings = ratings
+  updateAverageRating(game)
+  return true
+}
+
 function responseSalutation (user, env) {
   if (user?.id && user.id === env.MASTER_USER_ID) {
     return 'Master'
@@ -220,6 +253,10 @@ function responseSalutation (user, env) {
 function resultMessage (command, appId, result, user, env) {
   const salutation = responseSalutation(user, env)
   const title = commitTitle(result.title ?? 'game')
+  if (result.unchanged && ['heroSet', 'logoSet'].includes(result.status)) {
+    const kind = result.status === 'heroSet' ? 'hero image' : 'logo'
+    return `${salutation}, ${title} (${appId}) already has that ${kind} on the live site.`
+  }
   if (result.status === 'added') {
     return `${salutation}, I've handled adding ${title} (${appId}) to the live site without issue.`
   }
@@ -233,14 +270,48 @@ function resultMessage (command, appId, result, user, env) {
     return `${salutation}, I've handled removing ${title} (${appId}) from the live site without issue.`
   }
   if (result.status === 'notFound') {
-    return `${salutation}, I couldn't remove game (${appId}) because it wasn't on the live site.`
+    return `${salutation}, I couldn't ${result.action ?? command} ${title} (${appId}) because it wasn't on the live site.`
+  }
+  if (result.status === 'heroSet' || result.status === 'logoSet') {
+    const kind = result.status === 'heroSet' ? 'hero image' : 'logo'
+    return `${salutation}, I've handled overriding the ${kind} for ${title} (${appId}) on the live site without issue.`
+  }
+  if (result.status === 'heroCleared' || result.status === 'logoCleared') {
+    const kind = result.status === 'heroCleared' ? 'hero image' : 'logo'
+    return `${salutation}, I've handled clearing the ${kind} override for ${title} (${appId}) on the live site without issue.`
+  }
+  if (result.status === 'heroNoOverride' || result.status === 'logoNoOverride') {
+    const kind = result.status === 'heroNoOverride' ? 'hero image' : 'logo'
+    return `${salutation}, ${title} (${appId}) has no ${kind} override to clear.`
+  }
+  if (result.status === 'rated') {
+    return `${salutation}, I've recorded your ${result.userRating}-star rating for ${title} (${appId}); its average is now ${result.average.toFixed(2)} stars.`
+  }
+  if (result.status === 'ratingCleared') {
+    return `${salutation}, I've cleared your rating for ${title} (${appId}); its average is now ${result.average === undefined ? 'unrated' : `${result.average.toFixed(2)} stars`}.`
+  }
+  if (result.status === 'ratingUnchanged') {
+    return `${salutation}, your rating for ${title} (${appId}) was already ${result.userRating} stars; its average remains ${result.average.toFixed(2)} stars.`
+  }
+  if (result.status === 'ratingNotSet') {
+    return `${salutation}, you didn't have a rating to clear for ${title} (${appId}); its average is unchanged.`
   }
   throw new TypeError(`Unsupported game operation result: ${result.status}`)
 }
 
 function failureMessage (command, appId, user, env) {
   const salutation = responseSalutation(user, env)
-  const operation = command === 'remove' ? 'removing' : 'adding or updating'
+  const operations = {
+    'add': 'adding or updating',
+    'remove': 'removing',
+    'set-hero': 'changing the hero image for',
+    'set-logo': 'changing the logo for',
+    'clear-hero': 'clearing the hero image override for',
+    'clear-logo': 'clearing the logo override for',
+    'rate': 'rating',
+    'clear-rating': 'clearing your rating for',
+  }
+  const operation = operations[command] ?? 'updating'
   return `${salutation}, I couldn't finish ${operation} game (${appId}) because of a snag with the live site. Please check the Worker logs and try again.`
 }
 
@@ -359,6 +430,63 @@ async function removeGameFromList (appId, env) {
   return { status: 'removed', title: update.removed.info?.name }
 }
 
+async function updateGameSetting (appId, env, command, user, value) {
+  const state = await readGamesFile(env)
+  const game = state.games.find(entry => String(entry.id) === appId)
+  if (!game) {
+    return { status: 'notFound', title: `Steam game ${appId}`, action: 'update' }
+  }
+
+  let status
+  let changed
+  if (command === 'rate') {
+    changed = setUserRating(game, user.id, value)
+    status = changed ? 'rated' : 'ratingUnchanged'
+    if (!changed) {
+      return { status, title: game.info?.name, userRating: value, average: game.rating }
+    }
+  } else if (command === 'clear-rating') {
+    changed = clearUserRating(game, user.id)
+    if (!changed) {
+      return { status: 'ratingNotSet', title: game.info?.name }
+    }
+    status = 'ratingCleared'
+  } else {
+    const property = command.endsWith('hero') ? 'hero' : 'logo'
+    const overrideProperty = `${property}Override`
+    if (command.startsWith('set-')) {
+      changed = game[overrideProperty]?.url !== value
+      if (changed) {
+        game[overrideProperty] = { url: value }
+        game[property] = { url: value }
+      }
+      status = `${property}Set`
+    } else {
+      changed = Boolean(game[overrideProperty])
+      if (changed) {
+        delete game[overrideProperty]
+        delete game[property]
+      }
+      status = `${property}Cleared`
+    }
+    if (!changed) {
+      return { status: `${property}NoOverride`, title: game.info?.name }
+    }
+  }
+
+  await writeGamesFile(
+    state,
+    state.games,
+    `${command} ${commitTitle(game.info?.name)} (${appId})`,
+  )
+  return {
+    status,
+    title: game.info?.name,
+    ...(command === 'rate' && { userRating: value }),
+    ...(['rate', 'clear-rating'].includes(command) && { average: game.rating }),
+  }
+}
+
 async function sendFollowUp (applicationId, token, content) {
   const response = await fetch(
     `https://discord.com/api/v10/webhooks/${encodeURIComponent(applicationId)}/${encodeURIComponent(token)}`,
@@ -375,9 +503,20 @@ async function sendFollowUp (applicationId, token, content) {
 }
 
 async function processGameCommand (interaction, command, appId, env, user, addedBy) {
+  const value = command === 'set-hero' || command === 'set-logo'
+    ? interaction.data.options.find(option => option.name === 'image_url')?.value
+    : interaction.data.options.find(option => option.name === 'rating')?.value
   const processGame = command === 'add'
     ? (id, bindings) => updateGame(id, bindings, addedBy)
-    : removeGameFromList
+    : (command === 'remove'
+        ? removeGameFromList
+        : (id, bindings) => updateGameSetting(
+            id,
+            bindings,
+            command,
+            user,
+            value,
+          ))
   let result
   try {
     result = await processGame(appId, env)
@@ -407,6 +546,42 @@ async function processGameCommand (interaction, command, appId, env, user, added
     const detail = error instanceof Error ? error.message : 'Unexpected Discord error.'
     console.error(`Game ${appId} was processed by /${command}, but its Discord response could not be sent: ${detail}`)
   }
+}
+
+function validateCommandInput (command, interaction, env) {
+  if (!env.ALLOWED_CHANNEL_ID || String(interaction.channel_id) !== env.ALLOWED_CHANNEL_ID) {
+    return { error: `Use /${command} in the configured game suggestions channel.` }
+  }
+
+  const options = interaction.data.options ?? []
+  const appId = options.find(option => option.name === 'game_id')?.value
+  if (typeof appId !== 'string' || !/^\d{1,12}$/.test(appId) || Number(appId) <= 0) {
+    return { error: 'Enter a valid numeric Steam game ID.' }
+  }
+
+  const imageUrl = options.find(option => option.name === 'image_url')?.value
+  if (['set-hero', 'set-logo'].includes(command)) {
+    try {
+      const url = new URL(imageUrl)
+      if (url.protocol !== 'https:' || imageUrl.length > 2000) {
+        throw new Error('invalid URL')
+      }
+    } catch {
+      return { error: 'Provide a valid HTTPS image URL no longer than 2000 characters.' }
+    }
+  }
+
+  const rating = options.find(option => option.name === 'rating')?.value
+  if (command === 'rate' && (
+    typeof rating !== 'number'
+    || rating < 0.5
+    || rating > 5
+    || !Number.isInteger(rating * 2)
+  )) {
+    return { error: 'Choose a rating from 0.5 to 5 in half-star increments.' }
+  }
+
+  return { appId, imageUrl, rating }
 }
 
 export async function handleRequest (request, env, ctx) {
@@ -442,29 +617,35 @@ export async function handleRequest (request, env, ctx) {
   if (interaction.type === 1) {
     return jsonResponse(200, { type: 1 })
   }
+  const supportedCommands = [
+    'add',
+    'remove',
+    'set-hero',
+    'set-logo',
+    'clear-hero',
+    'clear-logo',
+    'rate',
+    'clear-rating',
+  ]
   const command = interaction.type === 2 ? interaction.data?.name : undefined
-  if (!['add', 'remove'].includes(command)) {
+  if (!supportedCommands.includes(command)) {
     return discordPrivateResponse('Unsupported command.')
   }
 
-  if (!env.ALLOWED_CHANNEL_ID || String(interaction.channel_id) !== env.ALLOWED_CHANNEL_ID) {
-    return discordPrivateResponse(`Use /${command} in the configured game suggestions channel.`)
-  }
-
-  const appId = interaction.data.options?.find(option => option.name === 'game_id')?.value
-  if (typeof appId !== 'string' || !/^\d{1,12}$/.test(appId) || Number(appId) <= 0) {
-    return discordPrivateResponse('Enter a valid numeric Steam game ID.')
+  const input = validateCommandInput(command, interaction, env)
+  if (input.error) {
+    return discordPrivateResponse(input.error)
   }
   const user = discordUser(interaction)
   const addedBy = command === 'add' ? user : undefined
-  if (command === 'add' && !addedBy) {
+  if (['add', 'rate', 'clear-rating'].includes(command) && !user) {
     return discordPrivateResponse('Could not identify the Discord user who ran this command.')
   }
   if (!interaction.token || !interaction.application_id) {
     return jsonResponse(400, { error: 'Discord interaction is missing follow-up details.' })
   }
 
-  ctx.waitUntil(processGameCommand(interaction, command, appId, env, user, addedBy))
+  ctx.waitUntil(processGameCommand(interaction, command, input.appId, env, user, addedBy))
   return jsonResponse(200, { type: 5, data: { flags: 64 } })
 }
 

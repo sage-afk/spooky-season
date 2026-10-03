@@ -24,7 +24,6 @@
               <v-hover v-slot="{ isHovering, props }">
                 <v-rating
                   v-bind="props"
-                  v-model="element.rating"
                   active-color="orange-lighten-1"
                   class="filter position-absolute px-3 py-2 z-1 top-0 left-0"
                   :class="element.rating || isHovering ? 'opacity-100' : 'opacity-20'"
@@ -33,8 +32,9 @@
                   empty-icon="mdi-skull"
                   full-icon="mdi-skull"
                   half-increments
-                  hover
+                  readonly
                   size="x-small"
+                  :model-value="element.rating"
                 />
               </v-hover>
               <v-tooltip v-if="element.addedBy" :text="`Added by ${element.addedBy.name}`">
@@ -119,6 +119,7 @@
     id: string
     completed: boolean
     rating?: number
+    userRatings?: Record<string, number>
     addedBy?: {
       id: string
       name: string

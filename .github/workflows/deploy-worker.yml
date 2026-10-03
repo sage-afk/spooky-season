@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - "bot/functions/**"
+      - "bot/scripts/register-command.mjs"
       - "bot/wrangler.toml"
       - ".github/workflows/deploy-worker.yml"
   workflow_dispatch:
@@ -36,3 +37,9 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Register Discord commands
+        run: node bot/scripts/register-command.mjs
+        env:
+          DISCORD_APPLICATION_ID: ${{ secrets.DISCORD_APPLICATION_ID }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_TEST_GUILD_ID: ${{ secrets.DISCORD_TEST_GUILD_ID }}
