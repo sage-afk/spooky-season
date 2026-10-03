@@ -2115,5 +2115,64 @@
                 "avatar": "https://avatars.steamstatic.com/c5aca0613de11cdaf8e8f985b49d38849a94e1a6_medium.jpg"
             }
         }
+    },
+    {
+        "id": "1757350",
+        "completed": false,
+        "info": {
+            "id": 5411485,
+            "name": "ILL",
+            "release_date": null,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 170846,
+            "score": 0,
+            "style": "official",
+            "width": 763,
+            "height": 697,
+            "nsfw": false,
+            "humor": false,
+            "notes": "**Steam [logo](https://shared.steamstatic.com/store_item_assets/steam/apps/1757350/bb9eab01f9f420c15b221e885e4783fbd9c92baa/logo_2x.png?t=1749283157)**",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/4774165006b1b56612265a02b527a12d.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/4774165006b1b56612265a02b527a12d.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "nativecoruscant",
+                "steam64": "76561198317914084",
+                "avatar": "https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 169218,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": "**PS [image](https://image.api.playstation.com/vulcan/ap/rnd/202605/1017/3db7407c4b3d31f5680ede83a53c86e3a3a549e68728df59.jpg)**",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/eac5de07b38ddad4e8123a0e3d5a0ef2.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/eac5de07b38ddad4e8123a0e3d5a0ef2.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "nativecoruscant",
+                "steam64": "76561198317914084",
+                "avatar": "https://avatars.steamstatic.com/f078e1f5133f97e44e67f56a779fe551166e4fc0_medium.jpg"
+            }
+        }
     }
 ]
