@@ -2438,5 +2438,26 @@
                 "avatar": "https://avatars.steamstatic.com/d55b9926392a3665235669ee21fef0eef3ed82c3_medium.jpg"
             }
         }
+    },
+    {
+        "id": "3394840",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "឵឵",
+            "avatarUrl": "https://cdn.discordapp.com/avatars/187258416102768640/b24986060349791144eaba260105c5f5.png?size=64"
+        },
+        "info": {
+            "id": 5475517,
+            "name": "Clawed",
+            "release_date": 1740787200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3394840/f08517406d76d102606ea20b93f6f1ed04691c38/ss_f08517406d76d102606ea20b93f6f1ed04691c38.1920x1080.jpg?t=1786644044"
+        }
     }
 ]
