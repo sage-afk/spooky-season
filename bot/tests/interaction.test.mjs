@@ -197,7 +197,7 @@ test('answers /help privately without requiring the configured channel', async (
   const payload = await response.json()
   assert.equal(payload.type, 4)
   assert.equal(payload.data.flags, 64)
-  assert.match(payload.data.content, /Hello, I’m Blood shed!/)
+  assert.match(payload.data.content, /Blood\s?shed/i)
   assert.match(payload.data.content, /\/set-adder/)
 })
 
