@@ -495,6 +495,9 @@ test('records a user rating and reports the new average', async () => {
       'another-user': 3,
       '187258416102768640': 4.5,
     })
+    assert.deepEqual(updatedGames[1].userRatingDetails, {
+      '187258416102768640': { name: 'Ghost' },
+    })
     assert.equal(updatedGames[1].rating, 3.75)
     const followUp = requests.find(({ url }) => url.startsWith('https://discord.com/api/v10/webhooks/'))
     assert.match(followUp.options.body, /recorded your 4\.5-star rating.*average is now 3\.75 stars/)
@@ -520,10 +523,17 @@ test('sets an image override and clears only the requesting user rating', async 
     id: '42',
     info: { name: 'Test Game' },
     userRatings: { '187258416102768640': 4, 'another-user': 3 },
+    userRatingDetails: {
+      '187258416102768640': { name: 'Ghost' },
+      'another-user': { name: 'Another Player' },
+    },
     rating: 3.5,
   }])
 
   assert.deepEqual(cleared.writtenGames[0].userRatings, { 'another-user': 3 })
+  assert.deepEqual(cleared.writtenGames[0].userRatingDetails, {
+    'another-user': { name: 'Another Player' },
+  })
   assert.equal(cleared.writtenGames[0].rating, 3)
   assert.match(cleared.followUp.options.body, /cleared your rating.*average is now 3\.00 stars/)
 })

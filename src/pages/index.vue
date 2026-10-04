@@ -21,22 +21,29 @@
               :sm="6"
               :xs="12"
             >
-              <v-hover v-slot="{ isHovering, props }">
-                <v-rating
-                  v-bind="props"
-                  active-color="orange-lighten-1"
-                  class="filter position-absolute px-3 py-2 z-1 top-0 left-0"
-                  :class="element.rating || isHovering ? 'opacity-100' : 'opacity-20'"
-                  color="brown"
-                  density="compact"
-                  empty-icon="mdi-skull"
-                  full-icon="mdi-skull"
-                  half-increments
-                  :model-value="element.rating"
-                  readonly
-                  size="x-small"
-                />
-              </v-hover>
+              <v-tooltip
+                :disabled="!element.userRatings || !Object.keys(element.userRatings).length"
+                :text="getRatingTooltip(element)"
+              >
+                <template #activator="{ props: tooltipProps }">
+                  <v-hover v-slot="{ isHovering, props: hoverProps }">
+                    <v-rating
+                      v-bind="mergeProps(hoverProps, tooltipProps)"
+                      active-color="orange-lighten-1"
+                      class="filter position-absolute px-3 py-2 z-1 top-0 left-0"
+                      :class="element.rating || isHovering ? 'opacity-100' : 'opacity-20'"
+                      color="brown"
+                      density="compact"
+                      empty-icon="mdi-skull"
+                      full-icon="mdi-skull"
+                      half-increments
+                      :model-value="element.rating"
+                      readonly
+                      size="x-small"
+                    />
+                  </v-hover>
+                </template>
+              </v-tooltip>
               <v-tooltip v-if="element.addedBy" :text="`Added by ${element.addedBy.name}`">
                 <template #activator="{ props }">
                   <v-avatar
@@ -117,7 +124,7 @@
 
 <script lang="ts" setup>
   import SGDB, { type SGDBGame, type SGDBImage } from 'steamgriddb'
-  import { computed, ref, watch } from 'vue'
+  import { computed, mergeProps, ref, watch } from 'vue'
   import { useRoute } from 'vue-router'
   import savedData2025 from '@/assets/games.json'
   import savedData2026 from '@/assets/games-2026.json'
@@ -128,6 +135,7 @@
     completed: boolean
     rating?: number
     userRatings?: Record<string, number>
+    userRatingDetails?: Record<string, { name: string }>
     addedBy?: {
       id: string
       name: string
@@ -235,6 +243,18 @@
     2026: savedData2026,
   }
   const games = ref<GameEntry[]>(structuredClone(savedDataByYear[year.value]) as GameEntry[])
+
+  function getRatingTooltip (game: GameEntry) {
+    const ratings = Object.entries(game.userRatings ?? {})
+    if (!ratings.length) return ''
+
+    const lines = ratings.map(([userId, rating]) => {
+      const name = game.userRatingDetails?.[userId]?.name
+        ?? (game.addedBy?.id === userId ? game.addedBy.name : userId)
+      return `${name}: ${rating}/5`
+    })
+    return `Rated by: ${lines.join(' · ')}`
+  }
 
   watch(year, (selectedYear) => {
     games.value = structuredClone(savedDataByYear[selectedYear]) as GameEntry[]

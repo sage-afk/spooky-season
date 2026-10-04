@@ -93,6 +93,14 @@ test('stores one rating per user and updates the average on repeat rating', () =
   assert.equal(game.rating, 4)
 })
 
+test('updates a rater name even when their existing rating is unchanged', () => {
+  const game = { userRatings: { first: 4 }, rating: 4 }
+
+  assert.equal(setUserRating(game, 'first', 4, { name: 'First Player' }), true)
+  assert.deepEqual(game.userRatingDetails, { first: { name: 'First Player' } })
+  assert.equal(game.rating, 4)
+})
+
 test('clears only the requesting user rating and recalculates the average', () => {
   const game = { userRatings: { first: 5, second: 3 }, rating: 4 }
 

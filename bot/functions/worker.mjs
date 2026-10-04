@@ -279,11 +279,19 @@ function updateAverageRating (game) {
   game.rating = values.reduce((sum, rating) => sum + rating, 0) / values.length
 }
 
-export function setUserRating (game, userId, rating) {
+export function setUserRating (game, userId, rating, userDetails) {
   const ratings = { ...game.userRatings }
-  if (ratings[userId] === rating) {
-    return false
+  const details = { ...game.userRatingDetails }
+  let changed = ratings[userId] !== rating
+  if (userDetails && (
+    details[userId]?.name !== userDetails.name
+  )) {
+    details[userId] = { name: userDetails.name }
+    game.userRatingDetails = details
+    changed = true
   }
+  if (!changed) return false
+
   ratings[userId] = rating
   game.userRatings = ratings
   updateAverageRating(game)
@@ -297,6 +305,15 @@ export function clearUserRating (game, userId) {
   const ratings = { ...game.userRatings }
   delete ratings[userId]
   game.userRatings = ratings
+  if (game.userRatingDetails) {
+    const details = { ...game.userRatingDetails }
+    delete details[userId]
+    if (Object.keys(details).length) {
+      game.userRatingDetails = details
+    } else {
+      delete game.userRatingDetails
+    }
+  }
   updateAverageRating(game)
   return true
 }
@@ -543,12 +560,13 @@ async function updateGameSetting (appId, env, command, user, value) {
       break
     }
     case 'rate': {
-      const changed = setUserRating(game, user.id, value)
-      status = changed ? 'rated' : 'ratingUnchanged'
+      const ratingChanged = game.userRatings?.[user.id] !== value
+      const changed = setUserRating(game, user.id, value, { name: user.name })
+      status = ratingChanged ? 'rated' : 'ratingUnchanged'
       if (!changed) {
         return { status, title: game.info?.name, userRating: value, average: game.rating }
       }
-      repositionGameByRating(state.games, appId)
+      if (ratingChanged) repositionGameByRating(state.games, appId)
       break
     }
     case 'clear-rating': {
