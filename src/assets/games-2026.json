@@ -1,5 +1,53 @@
 [
     {
+        "id": "1144200",
+        "completed": false,
+        "info": {
+            "id": 5255524,
+            "name": "Ready or Not",
+            "release_date": 1639784846,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "url": "https://cdn2.steamgriddb.com/logo/b4ac75fb0770998bda4910782f116fc5-fakepng.png"
+        },
+        "hero": {
+            "id": 134602,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/f7f7eddc6c81fa096ae87e0ba025499a.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/f7f7eddc6c81fa096ae87e0ba025499a.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "r_dsgnd",
+                "steam64": "76561198355292092",
+                "avatar": "https://avatars.steamstatic.com/f67f97702b1ced8f78137710fa56d18e92ed3970_medium.jpg"
+            }
+        },
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "userRatings": {
+            "187258416102768640": 5
+        },
+        "rating": 5
+    },
+    {
         "id": "3892270",
         "completed": false,
         "info": {
@@ -828,50 +876,6 @@
                 "name": "RabidLime",
                 "steam64": "76561197994046209",
                 "avatar": "https://avatars.steamstatic.com/f2a5ce3ad37e1a26c805d111a873dafa3fcb96c7_medium.jpg"
-            }
-        },
-        "addedBy": {
-            "id": "187258416102768640",
-            "name": "Ghost",
-            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
-        }
-    },
-    {
-        "id": "1144200",
-        "completed": false,
-        "info": {
-            "id": 5255524,
-            "name": "Ready or Not",
-            "release_date": 1639784846,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "url": "https://cdn2.steamgriddb.com/logo/b4ac75fb0770998bda4910782f116fc5-fakepng.png"
-        },
-        "hero": {
-            "id": 134602,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/f7f7eddc6c81fa096ae87e0ba025499a.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/f7f7eddc6c81fa096ae87e0ba025499a.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "r_dsgnd",
-                "steam64": "76561198355292092",
-                "avatar": "https://avatars.steamstatic.com/f67f97702b1ced8f78137710fa56d18e92ed3970_medium.jpg"
             }
         },
         "addedBy": {
