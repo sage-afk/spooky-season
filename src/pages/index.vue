@@ -360,6 +360,10 @@
     z-index: 1
   }
 
+  :deep(.v-rating--readonly) {
+    pointer-events: auto;
+  }
+
   :deep(.v-rating button){
     margin-right: 2px;
   }
