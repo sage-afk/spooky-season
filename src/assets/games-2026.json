@@ -45,7 +45,12 @@
         "userRatings": {
             "187258416102768640": 5
         },
-        "rating": 5
+        "rating": 5,
+        "userRatingDetails": {
+            "187258416102768640": {
+                "name": "Ghost"
+            }
+        }
     },
     {
         "id": "3892270",
