@@ -2492,5 +2492,69 @@
         "heroOverride": {
             "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1992370/ss_25e14199f4991604ad0ad13896d97dcfc9001d05.1920x1080.jpg?t=1726135219"
         }
+    },
+    {
+        "id": "495420",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 5248319,
+            "name": "State of Decay 2",
+            "release_date": 1584118488,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 47131,
+            "score": 0,
+            "style": "official",
+            "width": 1522,
+            "height": 1178,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/3e984ce2ff389ee3a938f3ca5b014e4d.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/3e984ce2ff389ee3a938f3ca5b014e4d.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "loonis",
+                "steam64": "76561198050019099",
+                "avatar": "https://avatars.steamstatic.com/7716db1182c810bf9b0568b10648b6ee60e8a58a_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 39028,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Original background from Steam without logo",
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/d516165ceb1a5b894093fe13a391e818.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/d516165ceb1a5b894093fe13a391e818.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ghost4luck",
+                "steam64": "76561198003234075",
+                "avatar": "https://avatars.steamstatic.com/8f6916be3dcc60a0c3e9391276bce389a138b83a_medium.jpg"
+            }
+        }
     }
 ]
