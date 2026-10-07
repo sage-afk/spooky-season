@@ -2623,5 +2623,69 @@
                 "avatar": "https://avatars.steamstatic.com/a7b54a04c80e988f1d1102827785464e66e79c6f_medium.jpg"
             }
         }
+    },
+    {
+        "id": "292000",
+        "completed": false,
+        "addedBy": {
+            "id": "268863213691469825",
+            "name": "KrozisBane",
+            "avatarUrl": "https://cdn.discordapp.com/avatars/268863213691469825/6bf209c1f9db8a57e1db73e805899130.png?size=64"
+        },
+        "info": {
+            "id": 5274805,
+            "name": "No More Room in Hell 2",
+            "release_date": 1667174400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 173057,
+            "score": 0,
+            "style": "custom",
+            "width": 2366,
+            "height": 756,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/4c4a40904dfa2bbbc284b4e656a95ede.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/4c4a40904dfa2bbbc284b4e656a95ede.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "sunnyboyza",
+                "steam64": "76561198106241839",
+                "avatar": "https://avatars.steamstatic.com/f6a4b2cd60f748ae61fcc4666e825cfc1860d753_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 149892,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": "Another use of concept art to match the capsule and wide",
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/9e0e822ffa90c61dd7f4bbdd766acadd.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/9e0e822ffa90c61dd7f4bbdd766acadd.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "NAVMEIST3R",
+                "steam64": "76561198024746706",
+                "avatar": "https://avatars.steamstatic.com/2fa6e18cd06481fa5a933e8714d73cbf53258322_medium.jpg"
+            }
+        }
     }
 ]
