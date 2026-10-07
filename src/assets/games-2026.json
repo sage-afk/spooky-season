@@ -101,6 +101,79 @@
         }
     },
     {
+        "id": "2748340",
+        "completed": false,
+        "info": {
+            "id": 5440489,
+            "name": "Goblin Cleanup",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 150966,
+            "score": 0,
+            "style": "white",
+            "width": 1163,
+            "height": 600,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/e0fec5651d3442179e19243622337e1d.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/e0fec5651d3442179e19243622337e1d.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "clam.buttocks",
+                "steam64": "76561198064624230",
+                "avatar": "https://avatars.steamstatic.com/6db435993dad39439ce5f8bed3afec20abf6ffce_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 176335,
+            "score": 0,
+            "style": "alternate",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/8ff2da678bc5e8b6b91ed271ca93e096.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/8ff2da678bc5e8b6b91ed271ca93e096.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Storbfall",
+                "steam64": "76561198027171080",
+                "avatar": "https://avatars.steamstatic.com/2378cddb69ffc646f05c77b9e74cfa0f7565dc37_medium.jpg"
+            }
+        },
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "userRatingDetails": {
+            "187258416102768640": {
+                "name": "Ghost"
+            }
+        },
+        "userRatings": {
+            "187258416102768640": 2
+        },
+        "rating": 2
+    },
+    {
         "id": "2272250",
         "completed": false,
         "info": {
@@ -733,70 +806,6 @@
         },
         "hero": {
             "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948160/8f8d4c4e53e74af70d68eae2d6b650784ce8744b/ss_8f8d4c4e53e74af70d68eae2d6b650784ce8744b.1920x1080.jpg?t=1787648574"
-        },
-        "addedBy": {
-            "id": "187258416102768640",
-            "name": "Ghost",
-            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
-        }
-    },
-    {
-        "id": "2748340",
-        "completed": false,
-        "info": {
-            "id": 5440489,
-            "name": "Goblin Cleanup",
-            "release_date": 1735689600,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "logo": {
-            "id": 150966,
-            "score": 0,
-            "style": "white",
-            "width": 1163,
-            "height": 600,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/e0fec5651d3442179e19243622337e1d.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/e0fec5651d3442179e19243622337e1d.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "clam.buttocks",
-                "steam64": "76561198064624230",
-                "avatar": "https://avatars.steamstatic.com/6db435993dad39439ce5f8bed3afec20abf6ffce_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 176335,
-            "score": 0,
-            "style": "alternate",
-            "width": 3840,
-            "height": 1240,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/jpeg",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/8ff2da678bc5e8b6b91ed271ca93e096.jpg",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/8ff2da678bc5e8b6b91ed271ca93e096.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "Storbfall",
-                "steam64": "76561198027171080",
-                "avatar": "https://avatars.steamstatic.com/2378cddb69ffc646f05c77b9e74cfa0f7565dc37_medium.jpg"
-            }
         },
         "addedBy": {
             "id": "187258416102768640",
