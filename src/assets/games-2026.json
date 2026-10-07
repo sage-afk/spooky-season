@@ -2556,5 +2556,72 @@
                 "avatar": "https://avatars.steamstatic.com/8f6916be3dcc60a0c3e9391276bce389a138b83a_medium.jpg"
             }
         }
+    },
+    {
+        "id": "207610",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 1918,
+            "name": "The Walking Dead",
+            "release_date": 1335286800,
+            "types": [
+                "steam",
+                "gog",
+                "origin",
+                "egs"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 106676,
+            "score": 0,
+            "style": "official",
+            "width": 1222,
+            "height": 226,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/d91fd87c915abca0e4b05ee10d7b2077.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/d91fd87c915abca0e4b05ee10d7b2077.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "zoey",
+                "steam64": "76561199643149434",
+                "avatar": "https://avatars.steamstatic.com/a7b54a04c80e988f1d1102827785464e66e79c6f_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 100808,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/18f34f6f5aac8a04d7a76a5779b17b22.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/18f34f6f5aac8a04d7a76a5779b17b22.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "zoey",
+                "steam64": "76561199643149434",
+                "avatar": "https://avatars.steamstatic.com/a7b54a04c80e988f1d1102827785464e66e79c6f_medium.jpg"
+            }
+        }
     }
 ]
