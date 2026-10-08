@@ -53,6 +53,36 @@
         }
     },
     {
+        "id": "3314580",
+        "completed": false,
+        "info": {
+            "id": 3314580,
+            "name": "Trash Day",
+            "types": [
+                "steam"
+            ],
+            "verified": false,
+            "release_date": 0
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314580/d33f88f90ad8997733c7f27813ac102c4067c5b2/ss_d33f88f90ad8997733c7f27813ac102c4067c5b2.1920x1080.jpg?t=1790966686"
+        },
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "userRatingDetails": {
+            "187258416102768640": {
+                "name": "Ghost"
+            }
+        },
+        "userRatings": {
+            "187258416102768640": 5
+        },
+        "rating": 5
+    },
+    {
         "id": "3892270",
         "completed": false,
         "info": {
@@ -722,27 +752,6 @@
                 "steam64": "76561198025237689",
                 "avatar": "https://avatars.steamstatic.com/ae540d37eef3cfcff194166b7325340a698fe0e0_medium.jpg"
             }
-        },
-        "addedBy": {
-            "id": "187258416102768640",
-            "name": "Ghost",
-            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
-        }
-    },
-    {
-        "id": "3314580",
-        "completed": false,
-        "info": {
-            "id": 3314580,
-            "name": "Trash Day",
-            "types": [
-                "steam"
-            ],
-            "verified": false,
-            "release_date": 0
-        },
-        "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314580/d33f88f90ad8997733c7f27813ac102c4067c5b2/ss_d33f88f90ad8997733c7f27813ac102c4067c5b2.1920x1080.jpg?t=1790966686"
         },
         "addedBy": {
             "id": "187258416102768640",
