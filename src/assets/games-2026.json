@@ -2745,27 +2745,7 @@
             "verified": true
         },
         "logo": {
-            "id": 183149,
-            "score": 0,
-            "style": "official",
-            "width": 4850,
-            "height": 3167,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "ar",
-            "url": "https://cdn2.steamgriddb.com/logo/6cd5b1e620ac44c97f3c3d6dd7aee735.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/6cd5b1e620ac44c97f3c3d6dd7aee735.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "mohanad818",
-                "steam64": "76561199024077288",
-                "avatar": "https://avatars.steamstatic.com/97249ed4648a46dfb017d4869a9b698bd25c4154_medium.jpg"
-            }
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/6a6cfb2ed09f038c46ca52795ffb6f62.png"
         },
         "hero": {
             "id": 162751,
@@ -2789,6 +2769,9 @@
                 "steam64": "76561198058544946",
                 "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
             }
+        },
+        "logoOverride": {
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/6a6cfb2ed09f038c46ca52795ffb6f62.png"
         }
     }
 ]
