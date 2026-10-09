@@ -2726,5 +2726,69 @@
         "hero": {
             "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3055670/973e7fc3c45a45df73d03b1b80b6af6ec311cfd2/ss_973e7fc3c45a45df73d03b1b80b6af6ec311cfd2.1920x1080.jpg?t=1791475249"
         }
+    },
+    {
+        "id": "2333000",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 5455146,
+            "name": "Silver Pines",
+            "release_date": 1767225600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 183149,
+            "score": 0,
+            "style": "official",
+            "width": 4850,
+            "height": 3167,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "ar",
+            "url": "https://cdn2.steamgriddb.com/logo/6cd5b1e620ac44c97f3c3d6dd7aee735.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/6cd5b1e620ac44c97f3c3d6dd7aee735.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "mohanad818",
+                "steam64": "76561199024077288",
+                "avatar": "https://avatars.steamstatic.com/97249ed4648a46dfb017d4869a9b698bd25c4154_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 162751,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/327efb324b77d94e7271fa3ae2ccdb11.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/327efb324b77d94e7271fa3ae2ccdb11.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        }
     }
 ]
