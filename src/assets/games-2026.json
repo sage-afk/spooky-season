@@ -83,6 +83,79 @@
         "rating": 5
     },
     {
+        "id": "2121510",
+        "completed": false,
+        "info": {
+            "id": 2121510,
+            "name": "Tenebris Somnia",
+            "types": [
+                "steam"
+            ],
+            "verified": false,
+            "release_date": 0
+        },
+        "logo": {
+            "id": 124582,
+            "score": 0,
+            "style": "official",
+            "width": 1024,
+            "height": 525,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/d2cc4c081ffeae23283c52e74c486601.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/d2cc4c081ffeae23283c52e74c486601.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 119818,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/da2ea6c8a6c7743436827721683aea61.png",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/da2ea6c8a6c7743436827721683aea61.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "ABH20",
+                "steam64": "76561198058544946",
+                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
+            }
+        },
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "userRatingDetails": {
+            "187258416102768640": {
+                "name": "Ghost"
+            }
+        },
+        "userRatings": {
+            "187258416102768640": 4.5
+        },
+        "rating": 4.5
+    },
+    {
         "id": "3892270",
         "completed": false,
         "info": {
@@ -623,70 +696,6 @@
                 "name": "Trent Anthony Francis",
                 "steam64": "76561198098680293",
                 "avatar": "https://cdn2.steamgriddb.com/profile/avatar_39070.jpg?1733587570"
-            }
-        },
-        "addedBy": {
-            "id": "187258416102768640",
-            "name": "Ghost",
-            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
-        }
-    },
-    {
-        "id": "2121510",
-        "completed": false,
-        "info": {
-            "id": 2121510,
-            "name": "Tenebris Somnia",
-            "types": [
-                "steam"
-            ],
-            "verified": false,
-            "release_date": 0
-        },
-        "logo": {
-            "id": 124582,
-            "score": 0,
-            "style": "official",
-            "width": 1024,
-            "height": 525,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/logo/d2cc4c081ffeae23283c52e74c486601.png",
-            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/d2cc4c081ffeae23283c52e74c486601.png",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ABH20",
-                "steam64": "76561198058544946",
-                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
-            }
-        },
-        "hero": {
-            "id": 119818,
-            "score": 0,
-            "style": "alternate",
-            "width": 1920,
-            "height": 620,
-            "nsfw": false,
-            "humor": false,
-            "notes": null,
-            "mime": "image/png",
-            "language": "en",
-            "url": "https://cdn2.steamgriddb.com/hero/da2ea6c8a6c7743436827721683aea61.png",
-            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/da2ea6c8a6c7743436827721683aea61.jpg",
-            "lock": false,
-            "epilepsy": false,
-            "upvotes": 0,
-            "downvotes": 0,
-            "author": {
-                "name": "ABH20",
-                "steam64": "76561198058544946",
-                "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
             }
         },
         "addedBy": {
