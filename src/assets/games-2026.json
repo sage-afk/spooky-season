@@ -2888,5 +2888,69 @@
                 "avatar": "https://avatars.steamstatic.com/378a48fc2172839e4ca7589e1d6bb235691714fa_medium.jpg"
             }
         }
+    },
+    {
+        "id": "1371980",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 5438462,
+            "name": "No Rest for the Wicked",
+            "release_date": 1713398400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 111556,
+            "score": 0,
+            "style": "official",
+            "width": 8004,
+            "height": 5282,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/918b4d9ae58de65172beff6cc3ead144.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/918b4d9ae58de65172beff6cc3ead144.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "RabidLime",
+                "steam64": "76561197994046209",
+                "avatar": "https://avatars.steamstatic.com/f2a5ce3ad37e1a26c805d111a873dafa3fcb96c7_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 104547,
+            "score": 0,
+            "style": "alternate",
+            "width": 1920,
+            "height": 620,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/5c1d549e2e7504490d7680424ef15756.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/5c1d549e2e7504490d7680424ef15756.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "MassiveGoods",
+                "steam64": "76561197970763370",
+                "avatar": "https://avatars.steamstatic.com/fb64d91156becc1eaac2d8285d10d1ee12a6e185_medium.jpg"
+            }
+        }
     }
 ]
