@@ -259,6 +259,36 @@
         "rating": 4.5
     },
     {
+        "id": "3055670",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 3055670,
+            "name": "Risk of Rain 2: Hallowed Concepts",
+            "release_date": 1791417600,
+            "types": [
+                "steam"
+            ],
+            "verified": false
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3055670/973e7fc3c45a45df73d03b1b80b6af6ec311cfd2/ss_973e7fc3c45a45df73d03b1b80b6af6ec311cfd2.1920x1080.jpg?t=1791475249"
+        },
+        "userRatingDetails": {
+            "187258416102768640": {
+                "name": "Ghost"
+            }
+        },
+        "userRatings": {
+            "187258416102768640": 4
+        },
+        "rating": 4
+    },
+    {
         "id": "3892270",
         "completed": false,
         "info": {
@@ -2795,27 +2825,6 @@
                 "steam64": "76561198024746706",
                 "avatar": "https://avatars.steamstatic.com/2fa6e18cd06481fa5a933e8714d73cbf53258322_medium.jpg"
             }
-        }
-    },
-    {
-        "id": "3055670",
-        "completed": false,
-        "addedBy": {
-            "id": "187258416102768640",
-            "name": "Ghost",
-            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
-        },
-        "info": {
-            "id": 3055670,
-            "name": "Risk of Rain 2: Hallowed Concepts",
-            "release_date": 1791417600,
-            "types": [
-                "steam"
-            ],
-            "verified": false
-        },
-        "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3055670/973e7fc3c45a45df73d03b1b80b6af6ec311cfd2/ss_973e7fc3c45a45df73d03b1b80b6af6ec311cfd2.1920x1080.jpg?t=1791475249"
         }
     },
     {
