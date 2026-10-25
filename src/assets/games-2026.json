@@ -276,7 +276,7 @@
             "verified": false
         },
         "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3055670/973e7fc3c45a45df73d03b1b80b6af6ec311cfd2/ss_973e7fc3c45a45df73d03b1b80b6af6ec311cfd2.1920x1080.jpg?t=1791475249"
+            "url": "https://cdn2.steamgriddb.com/hero/6ae66a52148ccab68c3a9f093ac75d32.png"
         },
         "userRatingDetails": {
             "187258416102768640": {
@@ -292,6 +292,9 @@
         },
         "logo": {
             "url": "https://cdn2.steamgriddb.com/logo_thumb/d9d9f23ff7a979d7ef102877140aacb7.png"
+        },
+        "heroOverride": {
+            "url": "https://cdn2.steamgriddb.com/hero/6ae66a52148ccab68c3a9f093ac75d32.png"
         }
     },
     {
