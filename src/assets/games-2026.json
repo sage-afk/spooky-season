@@ -229,6 +229,36 @@
         "rating": 4.5
     },
     {
+        "id": "1636440",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 1636440,
+            "name": "SILENT HILL: Townfall",
+            "release_date": 1790121600,
+            "types": [
+                "steam"
+            ],
+            "verified": false
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1636440/c6ae9fc8011c59932651baa3d45709ef0df69cb0/ss_c6ae9fc8011c59932651baa3d45709ef0df69cb0.1920x1080.jpg?t=1790222467"
+        },
+        "userRatingDetails": {
+            "187258416102768640": {
+                "name": "Ghost"
+            }
+        },
+        "userRatings": {
+            "187258416102768640": 4.5
+        },
+        "rating": 4.5
+    },
+    {
         "id": "3892270",
         "completed": false,
         "info": {
@@ -2461,27 +2491,6 @@
         },
         "logoOverride": {
             "url": "https://cdn2.steamgriddb.com/logo_thumb/d199bd19ee974e3b1d5d51aabd4de5f4.png"
-        }
-    },
-    {
-        "id": "1636440",
-        "completed": false,
-        "addedBy": {
-            "id": "187258416102768640",
-            "name": "Ghost",
-            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
-        },
-        "info": {
-            "id": 1636440,
-            "name": "SILENT HILL: Townfall",
-            "release_date": 1790121600,
-            "types": [
-                "steam"
-            ],
-            "verified": false
-        },
-        "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1636440/c6ae9fc8011c59932651baa3d45709ef0df69cb0/ss_c6ae9fc8011c59932651baa3d45709ef0df69cb0.1920x1080.jpg?t=1790222467"
         }
     },
     {
