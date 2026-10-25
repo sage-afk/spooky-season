@@ -286,7 +286,13 @@
         "userRatings": {
             "187258416102768640": 4
         },
-        "rating": 4
+        "rating": 4,
+        "logoOverride": {
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/d9d9f23ff7a979d7ef102877140aacb7.png"
+        },
+        "logo": {
+            "url": "https://cdn2.steamgriddb.com/logo_thumb/d9d9f23ff7a979d7ef102877140aacb7.png"
+        }
     },
     {
         "id": "3892270",
