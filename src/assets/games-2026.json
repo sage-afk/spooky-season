@@ -3009,5 +3009,69 @@
         "hero": {
             "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4824220/d39a1f39f22c747f2f068a7c10b74471fcd4fadb/ss_d39a1f39f22c747f2f068a7c10b74471fcd4fadb.1920x1080.jpg?t=1792425907"
         }
+    },
+    {
+        "id": "2887580",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 5468952,
+            "name": "Active Matter",
+            "release_date": 1735689600,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "logo": {
+            "id": 149877,
+            "score": 0,
+            "style": "official",
+            "width": 2002,
+            "height": 392,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/png",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/logo/eb8e8d4192e0a66c22b4ecb0f32e8b62.png",
+            "thumb": "https://cdn2.steamgriddb.com/logo_thumb/eb8e8d4192e0a66c22b4ecb0f32e8b62.png",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "g00dd0g",
+                "steam64": "76561198062976366",
+                "avatar": "https://avatars.steamstatic.com/daa29b1eda9179b0550a27531c3da68a3b37ee44_medium.jpg"
+            }
+        },
+        "hero": {
+            "id": 166496,
+            "score": 0,
+            "style": "blurred",
+            "width": 3840,
+            "height": 1240,
+            "nsfw": false,
+            "humor": false,
+            "notes": null,
+            "mime": "image/jpeg",
+            "language": "en",
+            "url": "https://cdn2.steamgriddb.com/hero/efe76f29968ee7273b67294c01079d61.jpg",
+            "thumb": "https://cdn2.steamgriddb.com/hero_thumb/efe76f29968ee7273b67294c01079d61.jpg",
+            "lock": false,
+            "epilepsy": false,
+            "upvotes": 0,
+            "downvotes": 0,
+            "author": {
+                "name": "Vxson",
+                "steam64": "76561198083844504",
+                "avatar": "https://avatars.steamstatic.com/62456c8622cbca79ea4b70921cf0386650ad3daa_medium.jpg"
+            }
+        }
     }
 ]
