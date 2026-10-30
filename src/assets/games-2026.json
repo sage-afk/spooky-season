@@ -3073,5 +3073,26 @@
                 "avatar": "https://avatars.steamstatic.com/62456c8622cbca79ea4b70921cf0386650ad3daa_medium.jpg"
             }
         }
+    },
+    {
+        "id": "4398500",
+        "completed": false,
+        "addedBy": {
+            "id": "187258416102768640",
+            "name": "Ghost",
+            "avatarUrl": "https://sage-afk.github.io/spooky-season/ghost-avatar.png"
+        },
+        "info": {
+            "id": 5538633,
+            "name": "Broke Wizards",
+            "release_date": 1785542400,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4398500/01190235adc8cf4261025037702c287e4bf94358/ss_01190235adc8cf4261025037702c287e4bf94358.1920x1080.jpg?t=1793196041"
+        }
     }
 ]
