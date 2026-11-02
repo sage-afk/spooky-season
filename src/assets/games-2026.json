@@ -83,6 +83,36 @@
         "rating": 5
     },
     {
+        "id": "4824220",
+        "completed": false,
+        "addedBy": {
+            "id": "125303374643068929",
+            "name": "Tavarich",
+            "avatarUrl": "https://cdn.discordapp.com/avatars/125303374643068929/860bd1b0ea998a1b172a0fa3da40115d.png?size=64"
+        },
+        "info": {
+            "id": 5533129,
+            "name": "Meltdown Crew",
+            "release_date": 1796083200,
+            "types": [
+                "steam"
+            ],
+            "verified": true
+        },
+        "hero": {
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4824220/d39a1f39f22c747f2f068a7c10b74471fcd4fadb/ss_d39a1f39f22c747f2f068a7c10b74471fcd4fadb.1920x1080.jpg?t=1792425907"
+        },
+        "userRatingDetails": {
+            "187258416102768640": {
+                "name": "Ghost"
+            }
+        },
+        "userRatings": {
+            "187258416102768640": 5
+        },
+        "rating": 5
+    },
+    {
         "id": "2121510",
         "completed": false,
         "info": {
@@ -2987,27 +3017,6 @@
                 "steam64": "76561197970763370",
                 "avatar": "https://avatars.steamstatic.com/fb64d91156becc1eaac2d8285d10d1ee12a6e185_medium.jpg"
             }
-        }
-    },
-    {
-        "id": "4824220",
-        "completed": false,
-        "addedBy": {
-            "id": "125303374643068929",
-            "name": "Tavarich",
-            "avatarUrl": "https://cdn.discordapp.com/avatars/125303374643068929/860bd1b0ea998a1b172a0fa3da40115d.png?size=64"
-        },
-        "info": {
-            "id": 5533129,
-            "name": "Meltdown Crew",
-            "release_date": 1796083200,
-            "types": [
-                "steam"
-            ],
-            "verified": true
-        },
-        "hero": {
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4824220/d39a1f39f22c747f2f068a7c10b74471fcd4fadb/ss_d39a1f39f22c747f2f068a7c10b74471fcd4fadb.1920x1080.jpg?t=1792425907"
         }
     },
     {
